@@ -623,6 +623,7 @@ def evalueateadd():
 
 @app.route('/TA_profile')
 def TA_profile():
+    print('kkkk')
     return (render_template('Aj/TA_profile.html'))
 
 
