@@ -1,0 +1,17 @@
+
+@app.route('/Show_TA2')
+def Show_TA2(subject):
+    student = It.connect("student_v2.db")
+    cur1 = student.cursor()
+    cur1.execute("SELECT Name,Surname,IDNUMBER,Department,Level,Grade,Tel,Email FROM student WHERE Subject='%s'" % subject)
+    info = []
+    for row1 in cur1.fetchall():
+        for i in row1:
+            info.append(i)
+    student.close()
+    a1 = ""
+    for i in listTW:
+        s1 = "1.Name::" + str(i[0]) + "_ 2.Surname::" + str(i[1]) + "_ 3.IDNumber::" + str(i[2]) + "_4.Department::"+ str(i[3])+"_ 5.level::" + str(
+            i[4]) + "_ 6.Grade::" + str(i[5]) + "_7.Tel::" + str(i[6]) +"_8.Email::" + str(i[7])
+        a1 = "************************************************************************************************************************************" + s1 + a1
+    return render_template('web_sfs_v3/wantTeacher.html', var=a1)

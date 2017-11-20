@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <form id="contact-form" action="/Teacherselect", method="POST">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>กรอกแบบฟอร์มชั่วโมงการทำงาน</title>
+<script src="static/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<style type="text/css">
+body {
+	background-image: url();
+}
+</style>
+<link rel="stylesheet" href="static/style.css"/>
+<link href="static/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="static/menu_style_2.css" />
+ <link rel="stylesheet" href="static/login.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="MM_preloadImages('static/img/user_icon_1.png','static/img/bell_icon_1.png','static/img/home_icon_1.png')">
+<table width="985" height="968" border="0" align="center">
+  <tr>
+    <td height="302" colspan="5" align="center" valign="top"><img src="static/img/header.png" name="header" width="980" height="300" id="header" class="bg-color shadow" /></td>
+  </tr>
+  <tr>
+    <td width="48" height="39" align="center" valign="top" class="bg-color1 shadow1">
+    
+    <div class="dropdown">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu font">
+      <li><a href="recruitment">ประกาศรับสมัคร</a></li>
+      <li><a href="pass_audition">ประกาศรายชือผู้ผ่านการคัดเลือก</a></li>
+      <li><a href="EX_TA_form">ตัวอย่างการกรอกแบบฟอร์มการทำงาน</a></li>
+      <li><a href="subject_detail">รายละเอียดวิชาที่เปิดรับ TA</a></li>
+      <li><a href="contact">ติดต่อ/แจ้งปัญหา</a></li>
+      <div class="dropdown-divider"></div>
+      <li><a href="Aj_needing">กรอกความต้องการ TA</a></li>
+      <li><a href="TA_select">คัดเลือก TA</a></li>
+      <li><a href="TA_working_form">ตรวจแบบฟอร์ม TA</a></li>
+      <li><a href="TA_profile">ข้อมูล TA </a></li>
+    </ul>
+  </div>
+    
+    &nbsp;</td>
+    <td width="123" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/home_icon_1.png',1)"><img src="static/img/home_icon.png" width="121" height="39" id="home_icon" class="bg-color1" /></a></td>
+    <td width="701" class="bg-color1 shadow1">&nbsp;</td>
+    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="notification" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','static/img/bell_icon_1.png',1)"><img src="static/img/bell_icon.png" name="bell_icon" width="46" height="39" id="Image4" class="bg-color1" /></a></td>
+    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="logout" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('logout','','static/img/end2.png',1)"><img src="static/img/end1.png" width="121" height="39" id="logout" /></a></td>
+  </tr>
+  <tr>
+    <td height="614" colspan="5" align="right" valign="top" class="bg-color shadow"><p>&nbsp;</p>
+      <table width="936" border="0" align="center" class="font">
+        <tr>
+          <td height="23" colspan="7" align="center">แบบฟอร์มลงเวลาการปฎิบัติงานของนักศึกษาทุนผู้ช่วยสอน</td>
+        </tr>
+        <tr>
+          <td height="23" colspan="7" align="center">รายสัปดาห์</td>
+        </tr>
+        <tr>
+          <td height="23" colspan="7" align="center">ภาคการศึกษาที่......   ปีการศึกษา......</td>
+        </tr>
+        <tr>
+          <td height="23" colspan="7" align="center">สถาบันวิทยาการหุ่นยนต์ภาคสนาม</td>
+        </tr>
+        <tr>
+          <td height="23" colspan="7" align="center">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี</td>
+        </tr>
+        <tr>
+          <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <select name="xxx" id="select3">
+            {% for i in daymonthyear %}
+        <option>{% for j in i %}{{j}}</option>
+          {% endfor %}{% endfor %}
+                  </select>
+
+          <td width="54" align="right">1.</td>
+          <td width="109" align="right">วัน/เดือน/ปี : </td>
+          <td width="243">
+            <label for="dateWorking_1"></label>
+            <input name="dateWorking_1" type="text" disabled="disabled" id="dateWorking_1" readonly="readonly" />
+            <font color="#FF0000">
+          **วว/ดด/ปป**
+          </font>
+          </td>
+          <td width="113" align="right">เวลามา : </td>
+          <td width="148">
+            <label for="timeWorking_C1"></label>
+            <input name="timeWorking_C1" type="text" disabled="disabled" id="timeWorking_C1" readonly="readonly" />
+          <</td>
+          <td width="80" align="right">เวลากลับ : </td>
+          <td width="159"><form id="form4" name="form4" method="post" action="">
+            <label for="timeWorking_B1"></label>
+            <input name="timeWorking_B1" type="text" disabled="disabled" id="timeWorking_B1" readonly="readonly" />
+          </td>
+        </tr>
+        <tr>
+          <td width="54" align="right">&nbsp;</td>
+          <td width="109" align="right">สิ่งที่ได้ปฎิบัติ :</td>
+          <td>
+            <label for="working_1"></label>
+            <textarea name="working_1" cols="35" rows="5" disabled="disabled" readonly="readonly" id="working_1" style="overflow:auto;resize:none"></textarea>
+          </td>
+          <td width="113" align="right">&nbsp;</td>
+          <td width="148">&nbsp;</td>
+          <td width="80" align="right">&nbsp;</td>
+          <td width="159">&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="right">2.</td>
+          <td align="right">วัน/เดือน/ปี : </td>
+          <td>
+            <label for="dateWorking_2"></label>
+            <input name="dateWorking_2" type="text" disabled="disabled" id="dateWorking_2" readonly="readonly" /><font color="#FF0000">
+          **วว/ดด/ปป**
+          </font></td>
+          <td align="right">เวลามา : </td>
+          <td>
+            <label for="timeWorking_C2"></label>
+            <input name="timeWorking_C2" type="text" disabled="disabled" id="timeWorking_C2" readonly="readonly" />
+         </td>
+          <td align="right">เวลากลับ : </td>
+          <td>
+            <label for="timeWorking_B2"></label>
+            <input name="timeWorking_B2" type="text" disabled="disabled" id="timeWorking_B2" readonly="readonly" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
+          <td>
+            <label for="working_2"></label>
+            <textarea name="working_2" cols="35" rows="5" disabled="disabled" readonly="readonly" id="working_2" style="overflow:auto;resize:none"></textarea>
+          </td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="right">3.</td>
+          <td align="right">วัน/เดือน/ปี : </td>
+          <td>
+            <label for="dateWorking_3"></label>
+            <input name="dateWorking_3" type="text" disabled="disabled" id="dateWorking_3" readonly="readonly" /><font color="#FF0000">
+          **วว/ดด/ปป**
+          </font></td>
+          <td align="right">เวลามา : </td>
+          <td><
+            <label for="timeWorking_C3"></label>
+            <input name="timeWorking_C3" type="text" disabled="disabled" id="timeWorking_C3" readonly="readonly" />
+          </td>
+          <td align="right">เวลากลับ : </td>
+          <td>
+            <label for="timeWorking_B3"></label>
+            <input name="timeWorking_B3" type="text" disabled="disabled" id="timeWorking_B3" readonly="readonly" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
+          <td>
+            <label for="working_3"></label>
+            <textarea name="working_3" cols="35" rows="5" disabled="disabled" readonly="readonly" id="working_3" style="overflow:auto;resize:none"></textarea>
+          </td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="right">4.</td>
+          <td align="right">วัน/เดือน/ปี : </td>
+          <td>
+            <label for="dateWorking_4"></label>
+            <input name="dateWorking_4" type="text" disabled="disabled" id="dateWorking_4" readonly="readonly" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
+          </td>
+          <td align="right">เวลามา : </td>
+          <td>
+            <label for="timeWorking_C4"></label>
+            <input name="timeWorking_C4" type="text" disabled="disabled" id="timeWorking_C4" readonly="readonly" />
+          </td>
+          <td align="right">เวลากลับ : </td>
+          <td>
+            <label for="timeWorking_B4"></label>
+            <input name="timeWorking_B4" type="text" disabled="disabled" id="timeWorking_B4" readonly="readonly" />
+          <</td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
+          <td>
+            <label for="working_4"></label>
+            <textarea name="working_4" cols="35" rows="5" disabled="disabled" readonly="readonly" id="working_4" style="overflow:auto;resize:none"></textarea>
+          </td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="right">5.</td>
+          <td align="right">วัน/เดือน/ปี : </td>
+          <td>
+            <label for="dateWorking_5"></label>
+            <input name="dateWorking_5" type="text" disabled="disabled" id="dateWorking_5" readonly="readonly" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
+          </td>
+          <td align="right">เวลามา : </td>
+          <td>
+            <label for="timeWorking_C5"></label>
+            <input name="timeWorking_C5" type="text" disabled="disabled" id="timeWorking_C5" readonly="readonly" />
+          </td>
+          <td align="right">เวลากลับ : </td>
+          <td>
+            <label for="timeWorking_B5"></label>
+            <input name="timeWorking_B5" type="text" disabled="disabled" id="timeWorking_B5" readonly="readonly" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
+          <td>
+            <label for="working_5"></label>
+            <textarea name="working_5" cols="35" rows="5" disabled="disabled" readonly="readonly" id="working_5" style="overflow:auto;resize:none"></textarea>
+          </td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="right">6.</td>
+          <td align="right">วัน/เดือน/ปี : </td>
+          <td>
+            <label for="dateWorking_6"></label>
+            <input name="dateWorking_6" type="text" disabled="disabled" id="dateWorking_6" readonly="readonly" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
+          </td>
+          <td align="right">เวลามา : </td>
+          <td>
+            <label for="timeWorking_C6"></label>
+            <input name="timeWorking_C6" type="text" disabled="disabled" id="timeWorking_C6" readonly="readonly" />
+          </td>
+          <td align="right">เวลากลับ : </td>
+          <td>
+            <label for="timeWorking_B6"></label>
+            <input name="timeWorking_B6" type="text" disabled="disabled" id="timeWorking_B6" readonly="readonly" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
+          <td>
+            <label for="working_6"></label>
+            <textarea name="working_6" cols="35" rows="5" disabled="disabled" readonly="readonly" id="working_6" style="overflow:auto;resize:none"></textarea>
+          </td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="right">7.</td>
+          <td align="right">วัน/เดือน/ปี : </td>
+          <td>
+            <label for="dateWorking_7"></label>
+            <input name="dateWorking_7" type="text" disabled="disabled" id="dateWorking_7" readonly="readonly" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
+          </td>
+          <td align="right">เวลามา : </td>
+          <td>
+            <label for="timeWorking_C7"></label>
+            <input name="timeWorking_C7" type="text" disabled="disabled" id="timeWorking_C7" readonly="readonly" />
+          </td>
+          <td align="right">เวลากลับ : </td>
+          <td>
+            <label for="timeWorking_B7"></label>
+            <input name="timeWorking_B7" type="text" disabled="disabled" id="timeWorking_B7" readonly="readonly" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
+          <td>
+            <label for="working_7"></label>
+            <textarea name="working_7" cols="35" rows="5" disabled="disabled" readonly="readonly" id="working_7" style="overflow:auto;resize:none"></textarea>
+          </td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="right">8.</td>
+          <td align="right">วัน/เดือน/ปี : </td>
+          <td>
+            <label for="dateWorking_8"></label>
+            <input name="dateWorking_8" type="text" disabled="disabled" id="dateWorking_8" readonly="readonly" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
+          </td>
+          <td align="right">เวลามา : </td>
+          <td>
+            <label for="timeWorking_C8"></label>
+            <input name="timeWorking_C8" type="text" disabled="disabled" id="timeWorking_C8" readonly="readonly" />
+          /td>
+          <td align="right">เวลากลับ : </td>
+          <td>
+            <label for="timeWorking_B8"></label>
+            <input name="timeWorking_B8" type="text" disabled="disabled" id="timeWorking_B8" readonly="readonly" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
+          <td>
+            <label for="working_8"></label>
+            <textarea name="working_8" cols="35" rows="5" disabled="disabled" readonly="readonly" id="working_8" style="overflow:auto;resize:none"></textarea>
+          </td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td align="right">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="7" align="center">ขอเบิกเพียง<span id="sprytextfield6">
+            <label for="hours_to_pay"></label>
+            <input name="hours_to_pay" type="text" disabled="disabled" id="hours_to_pay" readonly="readonly" />
+          <span class="textfieldRequiredMsg">A value is required.</span></span> ชั่วโมง</td>
+        </tr>
+        <tr>
+          <td colspan="7" align="center">รวมจำนวนที่ขอเบิกเงินทั้งสิ้นชั่วโมง <span id="sprytextfield8">
+          <label for="pay_unit"></label>
+          <input name="pay_unit" type="text" disabled="disabled" id="pay_unit" readonly="readonly" /> 
+          <span class="textfieldRequiredMsg">A value is required.</span></span> บาท = <span id="sprytextfield9">
+          <label for="price_work"></label>
+          <input name="price_work" type="text" disabled="disabled" id="price_work" readonly="readonly" />
+          <span class="textfieldRequiredMsg">A value is required.</span></span>บาท</td>
+        </tr>
+      </table>
+    <p>&nbsp;</p>
+    <table width="861" height="241" border="0" align="center" class="font">
+      <tr>
+        <td colspan="3">ความคิดเห็นจากอาจารย์</td>
+        </tr>
+      <tr>
+        <td height="128" colspan="3" align="center">
+          <label for="comment_aj"></label>
+          <textarea name="comment_aj" cols="80" rows="7" id="comment_aj"style="overflow:auto;resize:none"></textarea>
+        </td>
+        </tr>
+      <tr>
+        <td width="631">&nbsp;</td>
+        <td width="99" align="center">
+        
+       
+        
+        &nbsp;</td>
+        <td width="117" align="center">
+        
+          <input type="submit" name="save_workingForm" id="save_workingForm" value="ยืนยัน" class="font" /></td>
+        
+        &nbsp;</td>
+      </tr>
+    </table>
+    <p>&nbsp;</p></td>
+  </tr>
+</table>
+<script type="text/javascript">
+var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6");
+var sprytextfield8 = new Spry.Widget.ValidationTextField("sprytextfield8");
+var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9");
+</script>
+</form>
+</body>
+</html>

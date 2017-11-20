@@ -1,0 +1,5 @@
+name/size/color
+header.png/980*300
+memu_icon.png/46*39/#252525
+memu_icon_1.png/46*39/#828282
+3

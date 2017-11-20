@@ -1,0 +1,24 @@
+body{background-color: #666;
+     font-family: 'Kanit', sans-serif;
+}
+.bg-color{ background-color:#CCCCCC;
+		   border-radius:5px;
+}
+.bg-color1{ background-color:#252525;
+            border-radius:5px;
+}
+.bg-color2{ background-color:#dddddd;
+            border-radius:5px;
+}
+.shadow{ box-shadow:#333 2px 2px 2px;
+}
+.shadow1{ box-shadow:#999 2px 2px 2px;
+}
+.font{font-family: 'Kanit', sans-serif;
+}
+.font1{font-family: 'Kanit', sans-serif;
+font-size:36px;
+}
+.font2{font-family: 'Kanit', sans-serif;
+font-size:18px;
+}
