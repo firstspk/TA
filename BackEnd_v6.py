@@ -236,7 +236,7 @@ def showlist_regis_admin():
 
 @app.route('/TA_working_form')
 def TA_working_form_TA():
-    
+
     if(a.type_user == 'student'):
         return(render_template('TA/WorkingForm_TA_v3_ta.html'))
     if(a.type_user == 'teacher'):
