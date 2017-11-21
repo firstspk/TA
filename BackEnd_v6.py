@@ -561,6 +561,23 @@ def addworking():
                 timesheets.commit()
 
     return(home())
+
+@app.route('/Teacherworkformnew')
+def teacherworkformnew():
+    timesheets = It.connect("student_v2.db")
+    timesheetcur = timesheets.cursor()
+    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'")
+    daymonthyear = []
+    for pdfrow in timesheetcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            daymonthyear.append(pdflist)
+    print(name)
+    return (render_template("Aj/WorkingFormselectnew.html",name=name))
+
+
+
 @app.route('/Teacherworkform')
 def teacherworkform():
     timesheets = It.connect("student_v2.db")
