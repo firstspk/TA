@@ -230,8 +230,8 @@ def Show_inforTA_Teacher(username):
         Email = cur10.fetchall()
     return (render_template("----------",subject = Subject ,name = Name,surname = Surname , IDnumber = IDNUMBER , level = Level , department = Departmant ,grade = Grade,tel = Tel,email = Email))
 
-@app.route('/showlist_regis_admin')
-def showlist_regis_admin():
+@app.route('/showlist_regis_admin1')
+def showlist_regis_admin1():
 
 
 @app.route('/TA_working_form')
