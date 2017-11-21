@@ -240,9 +240,12 @@ def TA_working_form_TA():
     if(a.type_user == 'student'):
         return(render_template('TA/WorkingForm_TA_v3_ta.html'))
     if(a.type_user == 'teacher'):
+<<<<<<< HEAD
         if (a.type_user == 'student'):
             return (render_template('TA/WorkingForm_TA_v3_ta.html'))
         if (a.type_user == 'teacher'):
+=======
+>>>>>>> 6a61426cd62890f1ece4c409a46dea53c5ec4688
             timesheets = It.connect("databaseall.db")
             timesheetcur = timesheets.cursor()
             subject = It.connect("databaseall.db")
@@ -267,7 +270,10 @@ def TA_working_form_TA():
                     name.append(pdflist)
             subjectteacher = subject[0][0]
             return (render_template('Aj/choose_workingForm.html', name=name, subjectteacher=subjectteacher))
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a61426cd62890f1ece4c409a46dea53c5ec4688
 
 @app.route('/notification')
 def notification():
