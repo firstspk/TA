@@ -499,8 +499,11 @@ def addworking():
             if len(pdf) == 0:
                 timesheets = It.connect("databaseall.db")
                 timesheetcur = timesheets.cursor()
-                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject ) VALUES(?,?,?,?,?,?,?)",
-                                         ("1",username, dmy, timecome, timeback, whatdo,str(subject[0])))
+                print(subject)
+                print("Hi")
+                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject ) VALUES(?,?,?,?,?,?,?)",("1",username, dmy, timecome, timeback, whatdo,str(subject[0][0])))
+                timesheets.commit()
+
                 timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
                                          ("2",username, dmy2, timecome2, timeback2, whatdo2))
                 timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
