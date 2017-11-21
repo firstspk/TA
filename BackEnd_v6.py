@@ -276,7 +276,7 @@ def login():
     #print(input)
     username = input['username']
     password = input['password']
-    #print(username,password)
+    print(username,password)
     list_username = DB.login(username)
     #print(list_username)
     type_user = False
