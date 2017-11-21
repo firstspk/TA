@@ -64,7 +64,6 @@ class DB:
         admin.close()
 
     def insert_teacherwant(subject,num_want,level,grade,attribute):
-        print("bbbbbbb")
         teacher = It.connect("databaseall.db")
         cur2 = teacher.cursor()
         cur2.execute("UPDATE teacher SET Numwant = '%s' WHERE Subject = '%s'"%(num_want,subject))
