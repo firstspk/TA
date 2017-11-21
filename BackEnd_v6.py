@@ -181,7 +181,7 @@ def TA_working_form_TA():
     if(a.type_user == 'student'):
         return(render_template('TA/WorkingForm_TA_v3_ta.html'))
     if(a.type_user == 'teacher'):
-        return(render_template('Aj/WorkingForm_TA_comment_aj.html'))
+        return(render_template('Aj/Workingformselectnew.html'))
 
 @app.route('/notification')
 def notification():
@@ -369,8 +369,8 @@ def addworking():
                     pdflist.append(i)
                 pdfwork.append(pdflist)
 
-
-            if pdfwork[0][3] == '1' and printworkingForm == 'print':
+            #pdfwork[0][3] == '0' and
+            if printworkingForm == 'print':
                 pdfcreate = canvas.Canvas('%s.pdf' % username)
                 pdfcreate.drawString(100, 800, 'INSTITUTE OF FIELD ROBOTICS STUDENT WORKING HOUR FORM ')
                 pdfcreate.drawString(210, 770, 'SEMESTER : 1  YEAR : 2560')
@@ -579,7 +579,18 @@ def addworking():
 def teacherworkformnew():
     timesheets = It.connect("databaseall.db")
     timesheetcur = timesheets.cursor()
-    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1' ")
+    subject = It.connect("databaseall.db")
+    subjectcur = subject.cursor()
+    subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % username)
+    print(username)
+    subject = []
+    for pdfrow in subjectcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+        subject.append(pdflist)
+    print(subject[0][0])
+    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'")
     name = []
     for pdfrow in timesheetcur.fetchall():
         pdflist = []
