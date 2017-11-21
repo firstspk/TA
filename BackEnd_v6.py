@@ -230,13 +230,14 @@ def Show_inforTA_Teacher(username):
         Email = cur10.fetchall()
     return (render_template("----------",subject = Subject ,name = Name,surname = Surname , IDnumber = IDNUMBER , level = Level , department = Departmant ,grade = Grade,tel = Tel,email = Email))
 
-@app.route('/showlist_regis_admin')
-def showlist_regis_admin():
+#@app.route('/showlist_regis_admin')
+#def showlist_regis_admin():
+
+
 
 
 @app.route('/TA_working_form')
 def TA_working_form_TA():
-
     if(a.type_user == 'student'):
         return(render_template('TA/WorkingForm_TA_v3_ta.html'))
     if(a.type_user == 'teacher'):
@@ -264,6 +265,7 @@ def TA_working_form_TA():
                 name.append(pdflist)
         subjectteacher = subject[0][0]
         return (render_template('Aj/choose_workingForm.html', name=name, subjectteacher=subjectteacher))
+
 @app.route('/notification')
 def notification():
     return("notification")
