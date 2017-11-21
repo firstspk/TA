@@ -73,6 +73,22 @@ body {
     <td width="123" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/home_icon_1.png',1)"><img src="static/img/home_icon.png" width="121" height="39" id="home_icon" class="bg-color1" /></a></td>
     <td width="710" class="bg-color1 shadow1">&nbsp;</td>
     <td width="88" align="center" valign="top" class="bg-color1 shadow1"><a href="#" data-toggle="modal" data-target="#login-modal" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','static/img/user_icon_1.png',1)"><img src="static/img/user_icon.png" name="user_icon" width="46" height="39" id="Image3" class="bg-color1" /></a>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>Login to Your Account</h1><br>
+				  <form action="login" method="post">
+					<input type="text" name="username" placeholder="Username">
+					<input type="password" name="password" placeholder="Password">
+					<input type="submit" value="login"/>
+				  </form>
+					
+				  <div class="login-help">
+					<a href="forgot_password">Forgot Password</a>
+				  </div>
+				</div>
+			</div>
+		  </div>
 
   </tr>
   <tr>
