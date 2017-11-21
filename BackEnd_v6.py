@@ -247,7 +247,7 @@ def addregisnormal():
     grade = x['grade']
     attribute=x['attribute']
 
-    studentnormal = It.connect("student_v2.db")
+    studentnormal = It.connect("databaseall.db")
     stnormalcur = studentnormal.cursor()
     stnormalcur.execute("INSERT INTO studentnormal(Name,Surname,Department,Branch,Degree,Level,Idnum,Grade,Email,Tel,Subject,AccountNum,Attribute) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)", (name,surname,department,branch,degree,level,idnumber,grade,email,tel,subject,accountnum,attribute))
     studentnormal.commit()
@@ -487,11 +487,20 @@ def addworking():
                 for i in pdfrow:
                     pdflist.append(i)
                 pdf.append(pdflist)
+            subject = It.connect("databaseall.db")
+            subjectcur = subject.cursor()
+            subjectcur.execute("SELECT Subject FROM student WHERE Username='%s'" % username)
+            subject = []
+            for pdfrow in subjectcur.fetchall():
+                pdflist = []
+                for i in pdfrow:
+                    pdflist.append(i)
+                subject.append(pdflist)
             if len(pdf) == 0:
                 timesheets = It.connect("databaseall.db")
                 timesheetcur = timesheets.cursor()
-                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
-                                         ("1",username, dmy, timecome, timeback, whatdo))
+                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject ) VALUES(?,?,?,?,?,?,?)",
+                                         ("1",username, dmy, timecome, timeback, whatdo,str(subject[0])))
                 timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
                                          ("2",username, dmy2, timecome2, timeback2, whatdo2))
                 timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
@@ -508,6 +517,7 @@ def addworking():
                                          ("8",username, dmy8, timecome8, timeback8, whatdo8))
                 timesheets.commit()
             else:
+                timesheetcur.execute("UPDATE timesheet SET Subject = '%s' WHERE Username = '%s'and ID = '1'" % (str(subject[0]), username))
                 timesheetcur.execute("UPDATE timesheet SET TimeCome = '%s' WHERE Username = '%s'and ID = '1'" % (timecome, username))
                 timesheetcur.execute("UPDATE timesheet SET TimeBack = '%s' WHERE Username = '%s'and ID = '1'" % (timeback, username))
                 timesheetcur.execute("UPDATE timesheet SET DayMonthYear = '%s' WHERE Username = '%s'and ID = '1'" % (dmy, username))
@@ -577,11 +587,21 @@ def teacherworkformnew():
 
 @app.route('/Teacherselectnew' , methods= ['post'])
 def selectnew():
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
     x = dict(request.form.items())
     nameta=[]
     for i in x:
         nameta.append(i)
-    print(nameta)
+    print('kkkkkkkkkkk')
+    dataworkcur.execute("SELECT DayMonthYear ,TimeCome,TimeBack FROM timesheet WHERE Username='%s'" % nameta)
+    dataworkta = []
+    for pdfrow in timesheetcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            dataworkta.append(pdflist)
+
     return 'xxxx'
 '''
 @app.route('/Teacherworkform')
