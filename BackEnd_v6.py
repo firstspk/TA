@@ -276,7 +276,7 @@ def login():
     #print(input)
     username = input['username']
     password = input['password']
-    #print(username,password)
+    print(username,password)
     list_username = DB.login(username)
     #print(list_username)
     type_user = False
@@ -311,6 +311,10 @@ def register():
         return render_template('Po/registernormal_po.html')
     else:
         return (render_template('Po/register_Sucess_po.html'))
+
+@app.route("/Register")
+def Register():
+    return(render_template("Po/Register_po.html"))
 
 @app.route("/addregisnormal", methods=['POST'])
 def addregisnormal():
@@ -684,54 +688,54 @@ def teacherworkformnew():
 
 @app.route('/Teacherselectnew' , methods= ['post'])
 def selectnew():
-    def selectnew():
-        datawork = It.connect("databaseall.db")
-        dataworkcur = datawork.cursor()
-        x = dict(request.form.items())
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    x = dict(request.form.items())
 
-        nameta = []
-        for i in x:
-            nameta.append(i)
+    nameta = []
+    for i in x:
+        nameta.append(i)
 
-        dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
-        daymonthyear = []
-        for pdfrow in dataworkcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                daymonthyear.append(pdflist)
+    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
+    daymonthyear = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            daymonthyear.append(pdflist)
 
-        dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
-        timecome = []
-        for pdfrow in dataworkcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                timecome.append(pdflist)
+    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
+    timecome = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            timecome.append(pdflist)
 
-        dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
-        timeback = []
-        for pdfrow in dataworkcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                timeback.append(pdflist)
+    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+    timeback = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            timeback.append(pdflist)
 
-        dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
-        whatdo = []
-        for pdfrow in dataworkcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                whatdo.append(pdflist)
-        print(daymonthyear)
-        print(timecome)
-        print(timeback)
-        print(whatdo)
-        nametashow = nameta[0]
+    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+    whatdo = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            whatdo.append(pdflist)
+    print(daymonthyear)
+    print(timecome)
+    print(timeback)
+    print(whatdo)
+    nametashow = nameta[0]
 
-        return (render_template("Aj/showWorkingForm_Aj.html", nametashow=nametashow, daymonthyear=daymonthyear,
-                                timecome=timecome, timeback=timeback, whatdo=whatdo))
+    return (render_template("Aj/showWorkingForm_Aj.html", nametashow=nametashow, daymonthyear=daymonthyear,
+                            timecome=timecome, timeback=timeback, whatdo=whatdo))
+
 '''
 @app.route('/Teacherworkform')
 def teacherworkform():
