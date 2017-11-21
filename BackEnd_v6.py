@@ -684,21 +684,54 @@ def teacherworkformnew():
 
 @app.route('/Teacherselectnew' , methods= ['post'])
 def selectnew():
-    datawork = It.connect("databaseall.db")
-    dataworkcur = datawork.cursor()
-    x = dict(request.form.items())
-    nameta=[]
-    for i in x:
-        nameta.append(i)
-    dataworkcur.execute("SELECT DayMonthYear ,TimeCome,TimeBack FROM timesheet WHERE Username='%s'" % nameta)
-    dataworkta = []
-    for pdfrow in timesheetcur.fetchall():
-        pdflist = []
-        for i in pdfrow:
-            pdflist.append(i)
-            dataworkta.append(pdflist)
+    def selectnew():
+        datawork = It.connect("databaseall.db")
+        dataworkcur = datawork.cursor()
+        x = dict(request.form.items())
 
-    return 'xxxx'
+        nameta = []
+        for i in x:
+            nameta.append(i)
+
+        dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
+        daymonthyear = []
+        for pdfrow in dataworkcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                daymonthyear.append(pdflist)
+
+        dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
+        timecome = []
+        for pdfrow in dataworkcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                timecome.append(pdflist)
+
+        dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+        timeback = []
+        for pdfrow in dataworkcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                timeback.append(pdflist)
+
+        dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+        whatdo = []
+        for pdfrow in dataworkcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                whatdo.append(pdflist)
+        print(daymonthyear)
+        print(timecome)
+        print(timeback)
+        print(whatdo)
+        nametashow = nameta[0]
+
+        return (render_template("Aj/showWorkingForm_Aj.html", nametashow=nametashow, daymonthyear=daymonthyear,
+                                timecome=timecome, timeback=timeback, whatdo=whatdo))
 '''
 @app.route('/Teacherworkform')
 def teacherworkform():
