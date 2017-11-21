@@ -35,7 +35,7 @@ student.close()
 
 class DB:
     def regis_teacher(self, username, password, typeuser, name, surname, subject):
-        teacher = It.connect("teacher_v2.db")
+        teacher = It.connect("databaseall.db")
         cur2 = teacher.cursor()
         cur2.execute("INSERT INTO teacher(Username,Password,TypeUser,Name,Surname,Subject) VALUES(?,?,?,?,?,?)",
                      (username, password, typeuser, name, surname, subject))
@@ -43,7 +43,7 @@ class DB:
         teacher.close
 
     def read_teacher_want(username):
-        teacher = It.connect("teacher_v2.db")
+        teacher = It.connect("databaseall.db")
         cur2 = teacher.cursor()
         #cur2.execute("SELECT Name,Surname,Subject FROM teacher WHERE Surname='TON'")
         cur2.execute("SELECT Name,Surname,Subject FROM teacher WHERE Username='%s'"%username)
@@ -65,7 +65,7 @@ class DB:
 
     def insert_teacherwant(subject,num_want,level,grade,attribute):
         print("bbbbbbb")
-        teacher = It.connect("teacher_v2.db")
+        teacher = It.connect("databaseall.db")
         cur2 = teacher.cursor()
         cur2.execute("UPDATE teacher SET Numwant = '%s' WHERE Subject = '%s'"%(num_want,subject))
         cur2.execute("UPDATE teacher SET Level = '%s' WHERE Subject = '%s'" % (level, subject))
@@ -74,7 +74,7 @@ class DB:
         teacher.commit()
         teacher.close()
     def class_subject(subject):
-        student = It.connect("student_v2.db")
+        student = It.connect("databaseall.db")
         cur1 = student.cursor()
         cur1.execute("SELECT Name,Surname,Subject,Department,Level,Grade,Tel,Email,AccountNum FROM student WHERE Subject='%s'" % subject)
         list = []
@@ -86,15 +86,15 @@ class DB:
         student.close()
         return list
     def user_name(username,password,type_user):
-        student = It.connect("student   _v2.db")
+        student = It.connect("databaseall.db")
         cur1 = student.cursor()
         cur1.execute("INSERT INTO student(Username,Password,TypeUser) VALUES(?,?,?)",(username,password,type_user))
         student.commit()
         student.close()
 
     def login(input_username):
-        student = It.connect("student_v2.db")
-        teacher = It.connect("teacher_v2.db")
+        student = It.connect("databaseall.db")
+        teacher = It.connect("databaseall.db")
         cur1 = student.cursor()
         cur2 = teacher.cursor()
         cur1.execute("SELECT Username, Password, TypeUser FROM student")
@@ -108,7 +108,7 @@ class DB:
         return list #list be All username, password, TypeUser in students&teachers.db
 
     def register(username,name,surname,level,department,grade,tel,email,accountnum,subject):
-        student = It.connect("student_v2.db")
+        student = It.connect("databaseall.db")
         cur1 = student.cursor()
         cur1.execute("UPDATE student SET Name= '%s' WHERE Username = '%s'" % (name, username))
         cur1.execute("UPDATE student SET Surname = '%s' WHERE Username = '%s'" % (surname, username))
@@ -123,7 +123,7 @@ class DB:
         student.close()
 
     def working_time(self,username,day,month,year,timecome,timeback):
-        student = It.connect("student_v2.db")
+        student = It.connect("databaseall.db")
         cur = student.cursor()
         cur.execute("SELECT Day,Month,Year ,TimeCome,TimeBack FROM student WHERE Username='%s'"%username)
         pdf = []
