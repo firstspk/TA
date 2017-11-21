@@ -312,6 +312,10 @@ def register():
     else:
         return (render_template('Po/register_Sucess_po.html'))
 
+@app.route("/Register")
+def Register():
+    return(render_template("Po/Register_po.html"))
+
 @app.route("/addregisnormal", methods=['POST'])
 def addregisnormal():
     x = dict(request.form.items())
