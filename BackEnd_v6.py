@@ -240,41 +240,30 @@ def TA_working_form_TA():
     if(a.type_user == 'student'):
         return(render_template('TA/WorkingForm_TA_v3_ta.html'))
     if(a.type_user == 'teacher'):
-<<<<<<< HEAD
-        if (a.type_user == 'student'):
-            return (render_template('TA/WorkingForm_TA_v3_ta.html'))
-        if (a.type_user == 'teacher'):
-=======
->>>>>>> 6a61426cd62890f1ece4c409a46dea53c5ec4688
-            timesheets = It.connect("databaseall.db")
-            timesheetcur = timesheets.cursor()
-            subject = It.connect("databaseall.db")
-            subjectcur = subject.cursor()
-            subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % a.username)
-            print(a.username)
-            subject = []
+        timesheets = It.connect("databaseall.db")
+        timesheetcur = timesheets.cursor()
+        subject = It.connect("databaseall.db")
+        subjectcur = subject.cursor()
+        subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % a.username)
+        print(a.username)
+        subject = []
 
-            for pdfrow in subjectcur.fetchall():
-                pdflist = []
-                for i in pdfrow:
-                    pdflist.append(i)
-                subject.append(pdflist)
-            print(subject[0][0])
-            print('kkkkkkkkkk')
-            timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % subject[0][0])
-            name = []
-            for pdfrow in timesheetcur.fetchall():
-                pdflist = []
-                for i in pdfrow:
-                    pdflist.append(i)
-                    name.append(pdflist)
-            subjectteacher = subject[0][0]
-            return (render_template('Aj/choose_workingForm.html', name=name, subjectteacher=subjectteacher))
-<<<<<<< HEAD
-
-=======
->>>>>>> 6a61426cd62890f1ece4c409a46dea53c5ec4688
-
+        for pdfrow in subjectcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+            subject.append(pdflist)
+        print(subject[0][0])
+        print('kkkkkkkkkk')
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % subject[0][0])
+        name = []
+        for pdfrow in timesheetcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                name.append(pdflist)
+        subjectteacher = subject[0][0]
+        return (render_template('Aj/choose_workingForm.html', name=name, subjectteacher=subjectteacher))
 @app.route('/notification')
 def notification():
     return("notification")
