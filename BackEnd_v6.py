@@ -576,7 +576,7 @@ def addworking():
 def teacherworkformnew():
     timesheets = It.connect("databaseall.db")
     timesheetcur = timesheets.cursor()
-    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'")
+    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1' ")
     name = []
     for pdfrow in timesheetcur.fetchall():
         pdflist = []
@@ -593,7 +593,6 @@ def selectnew():
     nameta=[]
     for i in x:
         nameta.append(i)
-    print('kkkkkkkkkkk')
     dataworkcur.execute("SELECT DayMonthYear ,TimeCome,TimeBack FROM timesheet WHERE Username='%s'" % nameta)
     dataworkta = []
     for pdfrow in timesheetcur.fetchall():
