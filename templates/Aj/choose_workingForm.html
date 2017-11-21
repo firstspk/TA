@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+          <form id="contact-form" action="/Teacherselectnew", method="POST">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>เลือกตรวจแบบฟอร์ม</title>
 <script type="text/javascript">
@@ -39,11 +40,11 @@ body {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="MM_preloadImages('img/bell_icon_1.png','img/home_icon_1.png','img/end2.png')">
+<body onload="MM_preloadImages('static/img/bell_icon_1.png','static/img/home_icon_1.png','static/img/end2.png')">
 
 <table width="985" height="968" border="0" align="center">
   <tr>
-    <td height="302" colspan="5" align="center" valign="top"><img src="img/header.png" name="header" width="980" height="300" id="header" class="bg-color shadow" /></td>
+    <td height="302" colspan="5" align="center" valign="top"><img src="static/img/header.png" name="header" width="980" height="300" id="header" class="bg-color shadow" /></td>
   </tr>
   <tr>
     <td width="48" height="39" align="center" valign="top" class="bg-color2 shadow">
@@ -65,8 +66,8 @@ body {
     </td>
     <td width="123" align="center" valign="top" class="bg-color1 shadow1"><a href="first page_aj.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','img/home_icon_1.png',1)"><img src="img/home_icon.png" width="121" height="39" id="home_icon" class="bg-color1" /></a></td>
     <td width="701" class="bg-color1 shadow1">&nbsp;</td>
-    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','img/bell_icon_1.png',1)"><img src="img/bell_icon.png" name="bell_icon" width="46" height="39" id="Image4" class="bg-color1" /></a></td>
-    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('logout','','img/end2.png',1)"><img src="img/end1.png" width="121" height="39" id="logout" /></a></td>
+    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','static/img/bell_icon_1.png',1)"><img src="static/img/bell_icon.png" name="bell_icon" width="46" height="39" id="Image4" class="bg-color1" /></a></td>
+    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('logout','','static/img/end2.png',1)"><img src="static/img/end1.png" width="121" height="39" id="logout" /></a></td>
   </tr>
   <tr>
     <td height="614" colspan="5" align="center" valign="top" class="bg-color shadow font"><p>&nbsp;</p>
@@ -76,23 +77,26 @@ body {
           <td width="195" align="center">รายละเอียด</td>
         </tr>
         <tr>
-          <td height="44" align="left">&nbsp; นายมุก ไอ้สาสสสสส</td>
+          <td height="44" align="left">&nbsp;
+            {% for i in name %}
+            {% for j in i %}{{j}}
+                  <br><br>
+              {% endfor %}{% endfor %}</td>
           <td align="center" valign="middle">
-          
-          <a href="#" class="btn btn-info" role="button">Detail</a>
-          
+          {% for i in name %}
+            {% for j in i %}
+                  <br><br>
+            <button  name="{{j}}" type="submit" class="btn btn-info">detail</button><br><br>
+          {% endfor %}{% endfor %}
           </td>
         </tr>
         <tr>
-          <td height="45" align="left">&nbsp; นายพอย ไอ้สาสสสสส</td>
-          <td align="center" valign="middle">
-          
-          <a href="#" class="btn btn-info" role="button">Detail</a>
-          </td>
+
         </tr>
       </table>
     <p>&nbsp;</p>      <p>&nbsp;</p></td>
   </tr>
 </table>
+ </form>
 </body>
 </html>

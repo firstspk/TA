@@ -25,6 +25,10 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
 </script>
 <style type="text/css">
 body {
@@ -100,24 +104,27 @@ body {
             </tr>
             <tr>
               <td align="center"><p>Digital Electronics</p>
-                <p>รหัสวิชา FRA221</p>
-                <p>จำนวนคน ..n.. คน</p>
-                <p><a href="FRA221TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA221                </p>
+                <p><a href="FRA221TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;      </a><br />
+                  <input name="สมัคร221TA" type="submit" id="สมัคร221TA" onclick="MM_goToURL('parent','Register_po.html');return document.MM_returnValue" value="สมัคร " />
+                </p></td>
             </tr>
             <tr>
               <td align="center"><p>Industrial Seneors &amp; Actuators</p>
-                <p>รหัสวิชา FRA222</p>
-                <p>จำนวน ..n..คน</p>
-                <p><a href="FRA222 TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA222                </p>
+                <p><a href="FRA222 TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร222TA" type="submit" id="สมัคร222TA" onclick="MM_goToURL('parent','Register_po.html');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
             <tr>
               <td align="center"><p>Robotics &amp; Automation Engineering LAB II</p>
-                <p>รหัสวิชา FRA261</p>
-                <p>จำนวน .. n..คน</p>
-                <p><a href="FRA261TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA261                </p>
+                <p><a href="FRA261TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร261TA" type="submit" id="สมัคร261TA" onclick="MM_goToURL('parent','Register_po.html');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
           </table>
-            <h1></h1></td>
+          <h1></h1></td>
           <td><table width="300" height="467" border="1" align="center">
             <tr></tr>
             <tr>
@@ -125,21 +132,24 @@ body {
             </tr>
             <tr>
               <td align="center"><p>Digital Electronics</p>
-                <p>รหัสวิชา FRA221</p>
-                <p>จำนวนคน ..n.. คน</p>
-                <p><a href="FRA221 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA221                </p>
+                <p><a href="FRA221 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร221ทุน" type="submit" id="สมัคร221ทุน" onclick="MM_goToURL('parent','Register_po.html');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
             <tr>
               <td align="center"><p>Industrial Seneors &amp; Actuators</p>
-                <p>รหัสวิชา FRA222</p>
-                <p>จำนวน ..n..คน</p>
-                <p><a href="FRA222 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA222                </p>
+                <p><a href="FRA222 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร222ทุน" type="submit" id="สมัคร222ทุน" onclick="MM_goToURL('parent','Register_po.html');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
             <tr>
               <td align="center"><p>Robotics &amp; Automation Engineering LAB II</p>
-                <p>รหัสวิชา FRA261</p>
-                <p>จำนวน .. n..คน</p>
-                <p><a href="FRA261 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA261                </p>
+                <p><a href="FRA261 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร261ทุน" type="submit" id="สมัคร261ทุน" onclick="MM_goToURL('parent','Register_po.html');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
           </table>
             <h1></h1>
