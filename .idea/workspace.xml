@@ -31,7 +31,11 @@
       <file leaf-file-name="evaluation form_ta.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/TA/evaluation form_ta.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="4624">
+=======
             <state relative-caret-position="6946">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="302" column="21" lean-forward="false" selection-start-line="302" selection-start-column="21" selection-end-line="302" selection-end-column="21" />
               <folding />
             </state>
@@ -41,7 +45,11 @@
       <file leaf-file-name="TA_select_detail2_aj.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Aj/TA_select_detail2_aj.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="918">
+=======
             <state relative-caret-position="1242">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="58" />
               <folding />
             </state>
@@ -52,12 +60,17 @@
         <entry file="file://$PROJECT_DIR$/BackEnd_v6.py">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+            <state relative-caret-position="204">
+              <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+=======
+<<<<<<< HEAD
             <state relative-caret-position="23">
               <caret line="500" column="50" lean-forward="false" selection-start-line="500" selection-start-column="50" selection-end-line="500" selection-end-column="50" />
 =======
             <state relative-caret-position="535">
               <caret line="508" column="133" lean-forward="true" selection-start-line="508" selection-start-column="133" selection-end-line="508" selection-end-column="133" />
 >>>>>>> 88714426fdd6b8b8d94cd73b30de90f549c197a1
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -68,7 +81,11 @@
       <file leaf-file-name="evaluate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluate.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="187">
+=======
             <state relative-caret-position="253">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
               <folding />
             </state>
@@ -78,7 +95,11 @@
       <file leaf-file-name="createDB_v5.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/createDB_v5.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="1054">
+=======
             <state relative-caret-position="1426">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
@@ -88,7 +109,11 @@
       <file leaf-file-name="Workingformselectnew.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Aj/Workingformselectnew.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="1462">
+=======
             <state relative-caret-position="1978">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="86" column="44" lean-forward="false" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
               <folding />
             </state>
@@ -98,7 +123,11 @@
       <file leaf-file-name="Workingformselect.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Aj/Workingformselect.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="51">
+=======
             <state relative-caret-position="69">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
@@ -108,7 +137,11 @@
       <file leaf-file-name="WorkingForm_TA_comment_aj.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Aj/WorkingForm_TA_comment_aj.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="51">
+=======
             <state relative-caret-position="69">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="3" column="65" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
                 <element signature="e#18338#18344#0" expanded="true" />
@@ -120,7 +153,11 @@
       <file leaf-file-name="registernormal_po.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Po/registernormal_po.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="51">
+=======
             <state relative-caret-position="69">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
@@ -130,7 +167,11 @@
       <file leaf-file-name="FromTest.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/TA/FromTest.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="3655">
+=======
             <state relative-caret-position="4945">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
               <caret line="215" column="40" lean-forward="false" selection-start-line="215" selection-start-column="40" selection-end-line="215" selection-end-column="40" />
               <folding />
 >>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
@@ -193,18 +234,46 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="ProjectPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
 =======
       <pane id="Scope" />
+=======
+>>>>>>> a81add6d41505d5173504cbf664f60941cdbf621
       <pane id="Scratches" />
+<<<<<<< HEAD
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TA" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TA" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="Aj" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+=======
       <pane id="ProjectPane" />
 >>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files/Python36/python.exe" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -225,7 +294,11 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.BackEnd_v6">
+<<<<<<< HEAD
+    <configuration name="BackEnd_v6" type="PythonConfigurationType" factoryName="Python" editBeforeRun="true" temporary="true">
+=======
     <configuration default="false" name="BackEnd_v6" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -383,6 +456,7 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19497785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -392,6 +466,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
 =======
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15739386" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> a81add6d41505d5173504cbf664f60941cdbf621
+=======
 <<<<<<< HEAD
     <frame x="242" y="45" width="1378" height="857" extended-state="1" />
     <editor active="false" />
@@ -400,10 +479,14 @@
 >>>>>>> 88714426fdd6b8b8d94cd73b30de90f549c197a1
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15735294" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25186288" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25186288" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+=======
 <<<<<<< HEAD
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25138888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
 =======
@@ -773,13 +856,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="1994" column="48" lean-forward="true" selection-start-line="1994" selection-start-column="48" selection-end-line="1994" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/flask/app.py" />
     <entry file="file://$PROJECT_DIR$/templates/TA/FromTest.html">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -844,20 +921,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/werkzeug/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="978">
-          <caret line="883" column="0" lean-forward="false" selection-start-line="883" selection-start-column="0" selection-end-line="883" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/werkzeug/test.py" />
     <entry file="file://$PROJECT_DIR$/templates/Aj/Workingformselect.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="1037">
           <caret line="61" column="28" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="28" />
 =======
+        <state relative-caret-position="51">
+>>>>>>> a81add6d41505d5173504cbf664f60941cdbf621
+=======
         <state relative-caret-position="69">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
           <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
@@ -865,7 +941,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/createDB_v5.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1054">
+=======
         <state relative-caret-position="1426">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
           <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
@@ -873,32 +953,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/Aj/Workingformselectnew.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1462">
+=======
         <state relative-caret-position="1978">
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
           <caret line="86" column="44" lean-forward="false" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/TA/evaluation form_ta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6946">
-          <caret line="302" column="21" lean-forward="false" selection-start-line="302" selection-start-column="21" selection-end-line="302" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/Aj/TA_select_detail2_aj.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
+<<<<<<< HEAD
+        <state relative-caret-position="918">
           <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="58" />
+=======
+        <state relative-caret-position="6946">
+          <caret line="302" column="21" lean-forward="false" selection-start-line="302" selection-start-column="21" selection-end-line="302" selection-end-column="21" />
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluate.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="187">
+          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+=======
+        <state relative-caret-position="1242">
+          <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="58" />
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/TA/evaluation form_ta.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="4624">
+          <caret line="302" column="21" lean-forward="false" selection-start-line="302" selection-start-column="21" selection-end-line="302" selection-end-column="21" />
+=======
         <state relative-caret-position="253">
           <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+>>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
           <folding />
 >>>>>>> 1ba4bc2272954b83b38fddc005dceb2bec6fd5e7
         </state>
@@ -907,8 +1006,13 @@
     <entry file="file://$PROJECT_DIR$/BackEnd_v6.py">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="523">
           <caret line="530" column="37" lean-forward="false" selection-start-line="530" selection-start-column="37" selection-end-line="530" selection-end-column="37" />
+=======
+        <state relative-caret-position="204">
+          <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+>>>>>>> a81add6d41505d5173504cbf664f60941cdbf621
 =======
 <<<<<<< HEAD
         <state relative-caret-position="23">
