@@ -155,7 +155,6 @@ def evaluation():
 @app.route("/Aj_needing")
 def Aj_needing():
     if(a.type_user == 'teacher'):
-        #return render_template('Aj/Need_Aj_aj.html')
         return render_template('Aj/Need_Aj2_aj.html')
     if(a.type_user == 'admin'):
         teacher = It.connect("teacher_v2.db")
@@ -169,19 +168,105 @@ def Aj_needing():
             listTW.append(list)
         print(listTW)
         teacher.close()
-        a1 = []
-        for i in listTW:
-            s1 = "1.Subject::" + str(i[0]) + "2.Number::" + str(i[1]) + "3.Level::" + str(
-                i[2]) + "4.Grade::" + str(i[3]) + "5.Attritute::" + str(i[4])
-            a1.append(s1)
         return (render_template('Admin/wantTeacher_1_admin.html', var=a1))
+
+@app.route('/Show_Teacherwant_Admin')
+def Show_Teacherwant_Admin():
+    teacher = It.connect("teacher_v2.db")
+    cur2 = teacher.cursor()
+    cur2.execute("SELECT Name FROM teacher ")
+    Name = cur2.fetchall()
+    cur3 = teacher.cursor()
+    cur3.execute("SELECT Surname FROM teacher ")
+    Surname = cur3.fetchall()
+    cur4 = teacher.cursor()
+    cur4.execute("SELECT Subject FROM teacher ")
+    Subject = cur4.fetchall()
+    cur5 = teacher.cursor()
+    cur5.execute("SELECT NumWant FROM teacher ")
+    Num = cur5.fetchall()
+    cur6 = teacher.cursor()
+    cur6.execute("SELECT Level FROM teacher ")
+    Level = cur6.fetchall()
+    cur7 = teacher.cursor()
+    cur7.execute("SELECT Grade FROM teacher ")
+    Grade = cur7.fetchall()
+    cur8 = teacher.cursor()
+    cur8.execute("SELECT Attribute FROM teacher ")
+    Attri = cur8.fetchall()
+    return (render_template('-----------', name=Name,surname=Surname,subject =Subject,number=Num,level=Level,grade=Grade,Attribute = Attri))
+
+
+@app.route('/Show_inforTA_Teacher')
+def Show_inforTA_Teacher(username):
+    teacher = It.connect("teacher_v2.db")
+    cur2 = teacher.cursor()
+    cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % i )
+    Subject = cur2.fetchall
+    for i in Subject:
+        cur3 = student.cursor()
+        cur3.execute("SELECT Name FROM student WHERE Subject = '%s'" % i)
+        Name = cur3.fetchall()
+        cur4 = teacher.cursor()
+        cur4.execute("SELECT Surname FROM student WHERE Subject = '%s'" % i)
+        Surname = cur4.fetchall()
+        cur5 = teacher.cursor()
+        cur5.execute("SELECT IDNUMBER FROM student WHERE Subject = '%s'" % i)
+        IDNUMBER = cur5.fetchall()
+        cur6 = teacher.cursor()
+        cur6.execute("SELECT Level FROM student WHERE Subject = '%s'" % i)
+        Level = cur6.fetchall()
+        cur7 = teacher.cursor()
+        cur7.execute("SELECT Departmant FROM student WHERE Subject = '%s'" % i)
+        Departmant = cur7.fetchall()
+        cur8 = teacher.cursor()
+        cur8.execute("SELECT Grade FROM student WHERE Subject = '%s'" % i)
+        Grade = cur8.fetchall()
+        cur9 = teacher.cursor()
+        cur9.execute("SELECT Tel FROM student WHERE Subject = '%s'" % i)
+        Tel = cur9.fetchall()
+        cur10 = teacher.cursor()
+        cur10.execute("SELECT Email FROM student WHERE Subject = '%s'" % i)
+        Email = cur10.fetchall()
+    return (render_template("----------",subject = Subject ,name = Name,surname = Surname , IDnumber = IDNUMBER , level = Level , department = Departmant ,grade = Grade,tel = Tel,email = Email))
+
+@app.route('/showlist_regis_admin')
+def showlist_regis_admin():
+
 
 @app.route('/TA_working_form')
 def TA_working_form_TA():
     if(a.type_user == 'student'):
         return(render_template('TA/WorkingForm_TA_v3_ta.html'))
     if(a.type_user == 'teacher'):
-        return(render_template('Aj/Workingformselectnew.html'))
+        if (a.type_user == 'student'):
+            return (render_template('TA/WorkingForm_TA_v3_ta.html'))
+        if (a.type_user == 'teacher'):
+            timesheets = It.connect("databaseall.db")
+            timesheetcur = timesheets.cursor()
+            subject = It.connect("databaseall.db")
+            subjectcur = subject.cursor()
+            subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % a.username)
+            print(a.username)
+            subject = []
+
+            for pdfrow in subjectcur.fetchall():
+                pdflist = []
+                for i in pdfrow:
+                    pdflist.append(i)
+                subject.append(pdflist)
+            print(subject[0][0])
+            print('kkkkkkkkkk')
+            timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % subject[0][0])
+            name = []
+            for pdfrow in timesheetcur.fetchall():
+                pdflist = []
+                for i in pdfrow:
+                    pdflist.append(i)
+                    name.append(pdflist)
+            subjectteacher = subject[0][0]
+            return (render_template('Aj/choose_workingForm.html', name=name, subjectteacher=subjectteacher))
+
 
 @app.route('/notification')
 def notification():
