@@ -247,7 +247,7 @@ def addregisnormal():
     grade = x['grade']
     attribute=x['attribute']
 
-    studentnormal = It.connect("student_v2.db")
+    studentnormal = It.connect("databaseall.db")
     stnormalcur = studentnormal.cursor()
     stnormalcur.execute("INSERT INTO studentnormal(Name,Surname,Department,Branch,Degree,Level,Idnum,Grade,Email,Tel,Subject,AccountNum,Attribute) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)", (name,surname,department,branch,degree,level,idnumber,grade,email,tel,subject,accountnum,attribute))
     studentnormal.commit()
@@ -255,7 +255,7 @@ def addregisnormal():
 
 @app.route('/register_TA',methods=['post'])
 def register_TA():
-    student = It.connect("student_v2.db")
+    student = It.connect("databaseall.db")
     cur = student.cursor()
     x = dict(request.form.items())
     #print(x)
@@ -297,7 +297,7 @@ def insert_need():
     level = x['level']
     attribute =x['attribute']
     #DB.insertteacherwant(subject,numwant,level,grade,attribute)
-    teacher = It.connect("teacher_v2.db")
+    teacher = It.connect("databaseall.db")
     cur2 = teacher.cursor()
     cur2.execute("UPDATE teacher SET Numwant = '%s' WHERE Subject = '%s'" % (numwant, subject))
     cur2.execute("UPDATE teacher SET Level = '%s' WHERE Subject = '%s'" % (level, subject))
@@ -348,7 +348,7 @@ def addworking():
     for i in x:
         if i == 'printworkingForm':
             printworkingForm = x['printworkingForm']
-            student = It.connect("student_v2.db")
+            student = It.connect("databaseall.db")
             cur = student.cursor()
             cur.execute(
                 "SELECT Name,Surname,Subject,Department,Level,Grade,Tel,Email FROM student WHERE Username='%s'" % username)
@@ -358,7 +358,7 @@ def addworking():
                 for i in pdfrow:
                     pdflist.append(i)
                 pdf.append(pdflist)
-            timesheets = It.connect("student_v2.db")
+            timesheets = It.connect("databaseall.db")
             timesheetcur = timesheets.cursor()
             timesheetcur.execute(
                 "SELECT DayMonthYear ,Timecome,Timeback, Status ,whatdo FROM timesheet WHERE Username='%s'" % username)
@@ -478,7 +478,7 @@ def addworking():
 
 
         if i == 'save_workingForm':
-            timesheets = It.connect("student_v2.db")
+            timesheets = It.connect("databaseall.db")
             timesheetcur = timesheets.cursor()
             timesheetcur.execute("SELECT DayMonthYear ,TimeCome,TimeBack FROM timesheet WHERE Username='%s'" % username)
             pdf = []
@@ -487,11 +487,23 @@ def addworking():
                 for i in pdfrow:
                     pdflist.append(i)
                 pdf.append(pdflist)
+            subject = It.connect("databaseall.db")
+            subjectcur = subject.cursor()
+            subjectcur.execute("SELECT Subject FROM student WHERE Username='%s'" % username)
+            subject = []
+            for pdfrow in subjectcur.fetchall():
+                pdflist = []
+                for i in pdfrow:
+                    pdflist.append(i)
+                subject.append(pdflist)
             if len(pdf) == 0:
-                timesheets = It.connect("student_v2.db")
+                timesheets = It.connect("databaseall.db")
                 timesheetcur = timesheets.cursor()
-                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
-                                         ("1",username, dmy, timecome, timeback, whatdo))
+                print(subject)
+                print("Hi")
+                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject ) VALUES(?,?,?,?,?,?,?)",("1",username, dmy, timecome, timeback, whatdo,str(subject[0][0])))
+                timesheets.commit()
+
                 timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
                                          ("2",username, dmy2, timecome2, timeback2, whatdo2))
                 timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
@@ -508,6 +520,7 @@ def addworking():
                                          ("8",username, dmy8, timecome8, timeback8, whatdo8))
                 timesheets.commit()
             else:
+                timesheetcur.execute("UPDATE timesheet SET Subject = '%s' WHERE Username = '%s'and ID = '1'" % (str(subject[0]), username))
                 timesheetcur.execute("UPDATE timesheet SET TimeCome = '%s' WHERE Username = '%s'and ID = '1'" % (timecome, username))
                 timesheetcur.execute("UPDATE timesheet SET TimeBack = '%s' WHERE Username = '%s'and ID = '1'" % (timeback, username))
                 timesheetcur.execute("UPDATE timesheet SET DayMonthYear = '%s' WHERE Username = '%s'and ID = '1'" % (dmy, username))
@@ -561,17 +574,49 @@ def addworking():
                 timesheets.commit()
 
     return(home())
-@app.route('/Teacherworkform')
-def teacherworkform():
-    timesheets = It.connect("student_v2.db")
+
+@app.route('/Teacherworkformnew')
+def teacherworkformnew():
+    timesheets = It.connect("databaseall.db")
     timesheetcur = timesheets.cursor()
-    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'")
-    daymonthyear = []
+    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1' ")
+    name = []
     for pdfrow in timesheetcur.fetchall():
         pdflist = []
         for i in pdfrow:
             pdflist.append(i)
-            daymonthyear.append(pdflist)
+            name.append(pdflist)
+    return (render_template("Aj/WorkingFormselectnew.html",name=name))
+
+@app.route('/Teacherselectnew' , methods= ['post'])
+def selectnew():
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    x = dict(request.form.items())
+    nameta=[]
+    for i in x:
+        nameta.append(i)
+    dataworkcur.execute("SELECT DayMonthYear ,TimeCome,TimeBack FROM timesheet WHERE Username='%s'" % nameta)
+    dataworkta = []
+    for pdfrow in timesheetcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            dataworkta.append(pdflist)
+
+    return 'xxxx'
+'''
+@app.route('/Teacherworkform')
+def teacherworkform():
+    timesheets = It.connect("databaseall.db")
+    timesheetcur = timesheets.cursor()
+    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'")
+    name = []
+    for pdfrow in timesheetcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            name.append(pdflist)
     print(name)
     return (render_template("Aj/WorkingFormselect.html",name=name))
 @app.route('/Teacherselect' , methods= ['post'])
@@ -581,7 +626,7 @@ def select():
     test = x['name']
     print(test)
     return (test)
-
+'''
 
 
 @app.route('/TA_select')
@@ -631,7 +676,7 @@ def TA_profile():
 def TA_profile_detail():
     x = dict(request.form.items())
     print(x)
-    student = It.connect("student_v2.db")
+    student = It.connect("databaseall.db")
     cur1 = student.cursor()
     cur1.execute(
         "SELECT Name,Surname,IDNUMBER,Department,Level,Grade,Tel,Email FROM student WHERE Subject='%s'" %x['subject'])
