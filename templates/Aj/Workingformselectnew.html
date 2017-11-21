@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+        <form id="contact-form" action="/Teacherselectnew", method="POST">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>คัดเลือก TA</title>
 <script src="SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
@@ -83,17 +84,22 @@ body {
         </tr>
         <tr>
           <td align="center">
-            <label for="textfield2"></label>{% for i in name %}
+            <label for="textfield2"></label>
+            {% for i in name %}
             {% for j in i %}{{j}}
-            <input name="textfield2" type="text" disabled="disabled" id="textfield2" />
+                  <br><br>
               {% endfor %}{% endfor %}
           </td>
           <td align="center">
-            <button type="button" class="btn btn-info">detail</button>
+            {% for i in name %}
+            {% for j in i %}
+            <button  name="{{j}}" type="submit" class="btn btn-info">detail</button><br><br>
+            {% endfor %}{% endfor %}
           </td>
 
     <br>
   </tr>
 </table>
+  </form>
 </body>
 </html>
