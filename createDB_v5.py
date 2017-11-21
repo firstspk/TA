@@ -210,12 +210,15 @@ class DB:
         pdfcreate.save()
         print(pdf[0][0])
         student.close()
+
+#won=DB()
 #DB.download('US1')
 #DB.register("US1","John","Williem","1","KMUTT","4.00","1150","Johnza555@mail","1112","FRA121")
 #print(readteacherwant("PI"))
 #print (classsubject("FRA121"))
 #userName("US3","P@ssw0rd","student")
 #userName("US4","P@ssw0rd","student")
-#insertteacherwant("FRA131","10","12","4","ksdfkk")
+#won.regis_teacher("Teacher1",1234,"teacher",None,None,"FRA122")
+#won.insertteacherwant("FRA131","10","12","4","ksdfkk")
 
 #classsubject("TON")
