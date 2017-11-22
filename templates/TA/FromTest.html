@@ -1,9 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <form id="contact-form" action="/evaluateadd", method="POST">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>TA</title>
 <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
@@ -30,25 +29,76 @@ function MM_swapImage() { //v3.0
 <style type="text/css">
 body {
 	background-image: url();
-	background-color: #5F5F5F;
 }
 </style>
+<link rel="stylesheet" href="static/style.css"/>
+<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="static/menu_style_2.css" />
+ <link rel="stylesheet" href="static/login.css"/>
+ <style type="text/css">
+ body,td,th {
+	font-size: 18px;
+}
+ </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="MM_preloadImages('../web_sfs/img/memu_icon_1.png','../web_sfs/img/user_icon_1.png','../web_sfs/img/home_icon_1.png')">
-<table border="1" align="center" class="header_img">
+<body onload="MM_preloadImages('static/img/user_icon_1.png','static/img/home_icon_1.png')">
+
+<table height="836" border="0" align="center" class="header_img">
   <tr>
-    <td height="36" colspan="4" align="center" valign="top"><img src="../../static/img/header.png" name="header" id="header" class="header_img"/></td>
+    <td height="32" colspan="6" align="center" valign="top"><img src="static/img/header.png" name="header" id="header" class="bg-color shadow header_img" /></td>
   </tr>
   <tr>
-    <td width="49" height="39" align="center" valign="top" bgcolor="#252525" class="bg-color2"><a href="../web_sfs/test_link.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('memu_icon','','../web_sfs/img/memu_icon_1.png',1)"><img src="../../static/img/memu_icon.png" width="46" height="39" id="memu_icon" /></a></td>
-    <td width="149" align="center" valign="top" bgcolor="#252525"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','../web_sfs/img/Home1.png',1)"><img src="../../static/img/Home.png" width="149" height="48" id="home_icon" /></a></td>
-    <td width="660" align="right" bgcolor="#252525"><span class="bg-color1 shadow1"><img src="../../static/img/User TA.png" name="bell_icon" width="170" height="48" id="Image4" /></span></td>
-    <td width="124" align="center" bgcolor="#252525" class="bg-color1 shadow1"></a><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','../web_sfs/img/end2.png',1)"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','../web_sfs/img/end2.png',1)"><img src="../../static/img/end1.png" name="user_icon" width="121" height="39" id="Image3" /></a></a></td>
-    <td width="1" align="center" valign="top" bgcolor="#252525">&nbsp;</td>
+    <td width="47" height="50" align="center" valign="bottom" class="bg-color2 shadow">
+    
+    <div class="dropdown">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu font">
+      <li><a href="recruitment">ประกาศรับสมัคร</a></li>
+      <li><a href="pass_audition">ประกาศรายชือผู้ผ่านการคัดเลือก</a></li>
+      <li><a href="EX_TA_form">ตัวอย่างการกรอกแบบฟอร์มการทำงาน</a></li>
+      <li><a href="contact">ติดต่อ/แจ้งปัญหา</a></li>
+      <div class="dropdown-divider"></div>
+      <li><a href="TA_working_form">กรอกแบบฟอร์มชั่วโมงการทำงาน</a></li>
+      <li><a href="profile">ข้อมูลส่วนตัว</a></li>
+        <li><a href="evaluation">แบบประเมิณการทำงาน</a></li>
+    </ul>
+  </div>
+
+    
+    
+    
+    
+    </td>
+   <td width="155" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/home_icon_1.png',1)"><img src="static/img/home_icon.png" width="155" height="50" id="home_icon" class="bg-color1" /></a></td>
+    <td width="710" class="bg-color1 shadow1">&nbsp;</td>
+    <td width="170" class="bg-color1 shadow1"><img src="../../static/img/User TA.png" width="170" height="50" /></td>
+    <td width="155" colspan="2" align="center" class="bg-color1 shadow1"><a href="logout" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('logout','','static/img/end2.png',1)"><img src="static/img/end1.png" width="155" height="50" id="logout" /></a></td>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>Login to Your Account</h1><br>
+				  <form>
+					<input type="text" name="user" placeholder="Username">
+					<input type="password" name="pass" placeholder="Password">
+					<a href="login" class="btn btn-info btn-lg" role="button"></a>
+				  </form>
+					
+				  <div class="login-help">
+					<a href="forgot_password">Forgot Password</a>
+				  </div>
+				</div>
+			</div>
+		  </div>
+    
+   
   </tr>
   <tr>
-    <td height="761" colspan="4" bgcolor="#CCCCCC"><table width="980" height="757" border="0">
+    <td height="761" colspan="5" bgcolor="#CCCCCC"><table width="980" height="757" border="0" align="center" >
       <tr>
         <td colspan="6" align="center" bgcolor="#CCCCCC"><strong><h2>แบบประเมินการทำงาน</h2></strong></td>
       </tr>
@@ -228,8 +278,8 @@ body {
           <input type="submit" name="submit" id="button" value="   Submit   " />
         </td>
       </tr>
-    </table></td>
-  </tr>
+    </table>
+  <p></p>
 </table>
 </form>
 </body>
