@@ -42,34 +42,57 @@ body {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="MM_preloadImages('static/img/bell_icon_1.png','static/img/home_icon_1.png','static/img/end2.png')">
+<body onload="MM_preloadImages('static/img/home_icon_1.png','static/img/end2.png')">
 
-<table width="985" height="968" border="0" align="center">
-  <tr>
-    <td height="302" colspan="5" align="center" valign="top"><img src="static/img/header.png" name="header" width="980" height="300" id="header" class="bg-color shadow" /></td>
+<table height="724" border="0" align="center" class="header_img">
+  <tr>	
+    <td height="32" colspan="6" align="center" valign="top"><img src="static/img/header.png" name="header"  id="header" class="bg-color shadow header_img" /></td>
   </tr>
   <tr>
-    <td width="48" height="39" align="center" valign="top" class="bg-color2 shadow">
+    <td width="12" height="50" align="center" valign="bottom" class="bg-color2 shadow">
 
-    <div class="dropdown">
-    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu font">
-      <li><a href="Need_Aj.html">กรอกความต้องการ TA</a></li>
-      <li><a href="TA_select.html">คัดเลือก TA</a></li>
-      <li><a href="WorkingForm_TA_comment.html">ตรวจแบบฟอร์ม TA</a></li>
-      <li><a href="#">ข้อมูล TA </a></li>
-    </ul>
-  </div>
-
-
-
-
+      
+      <div class="dropdown">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu font">
+          <li><a href="recruitment">ประกาศรับสมัคร</a></li>
+          <li><a href="pass_audition">ประกาศรายชือผู้ผ่านการคัดเลือก</a></li>
+          <li><a href="EX_TA_form">ตัวอย่างการกรอกแบบฟอร์มการทำงาน</a></li>
+          <li><a href="contact">ติดต่อ/แจ้งปัญหา</a></li>
+          <div class="dropdown-divider"></div>
+          <li><a href="Aj_needing">กรอกความต้องการ TA</a></li>
+          <li><a href="TA_select">คัดเลือก TA</a></li>
+          <li><a href="TA_working_form">ตรวจแบบฟอร์ม TA</a></li>
+          <li><a href="TA_profile">ข้อมูล TA </a></li>
+        </ul>
+      </div>
+      
     </td>
-    <td width="123" align="center" valign="top" class="bg-color1 shadow1"><a href="first page_aj.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','img/home_icon_1.png',1)"><img src="img/home_icon.png" width="121" height="39" id="home_icon" class="bg-color1" /></a></td>
-    <td width="701" class="bg-color1 shadow1">&nbsp;</td>
-    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','static/img/bell_icon_1.png',1)"><img src="static/img/bell_icon.png" name="bell_icon" width="46" height="39" id="Image4" class="bg-color1" /></a></td>
-    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('logout','','static/img/end2.png',1)"><img src="static/img/end1.png" width="121" height="39" id="logout" /></a></td>
+    <td width="147" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/Home1.png',1)"><img src="../../static/img/Home.png" width="149" height="48" id="home_icon" class="bg-color1" /></a></td>
+    <td width="287" class="bg-color1 shadow1">&nbsp;</td>
+    <td width="168" align="center" valign="top" class="bg-color1 shadow1"><img src="../../static/img/UserAj.png" width="170" height="48" /></td>
+    <td width="168" align="center" valign="top" class="bg-color1 shadow1"><a href="" data-toggle="modal" data-target="#login-modal"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','static/img/login gray.png',1)"><img src="../../static/img/login black.png" name="user_icon" width="170" height="48" id="Image3" class="bg-color1" /></a>
+      
+    
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>Login to Your Account</h1><br>
+				  <form action="login" method="post">
+					<input type="text" name="username" placeholder="Username">
+					<input type="password" name="password" placeholder="Password">
+					<input type="submit" value="login"/>
+				  </form>
+					
+				  <div class="login-help">
+					<a href="forgot_password">Forgot Password</a>
+				  </div>
+				</div>
+		</div>
+	  </div>
+    
+    </td>
   </tr>
   <tr>
     <td height="614" colspan="5" align="center" valign="top" class="bg-color shadow font"><p>&nbsp;</p>
