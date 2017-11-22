@@ -160,6 +160,10 @@ def testfor1():
 def testfor2():
     returnrender_template("Po/Showfor2.html")
 
+@app.route('/editupdate')
+def editupdate():
+    if (a.type_user == 'admin'):
+        return (render_template('Admin/edit_postNews.html'))
 @app.route("/Aj_needing")
 def Aj_needing():
     if(a.type_user == 'teacher'):
