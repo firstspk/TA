@@ -14,7 +14,7 @@ evaluatecur = evaluate.cursor()
 test = It.connect("databaseall.db")
 testcur = test.cursor()
 #evaluatecur.execute("create table studentnormal(ID text,Name text,Surname text,Department text,Branch text,Degree text,Level text,Idnum text,Grade text,Email text,Tel text,Subject text,AccountNum text,Attribute text,Status text)")
-#test.execute("create table timesheet(ID text,Username text,Subject text,DayMonthYear text,Timecome text,Timeback text,whatdo text,Status text,Comment text)")
+test.execute("create table timesheet(ID text,Username text,Subject text,DayMonthYear text,Timecome text,Timeback text,whatdo text,StatusTa text,StatusAj text,StatusAdmin text,Comment text)")
 #evaluatecur.execute("create table teacher(Username text,Password text,TypeUser text,Name text,Surname text,Tel text,Subject text,Comment text)")
 #evaluatecur.execute("create table teacherwant(Username text,Subject text,Numwant text,Level text,Grade text,Attribute text)")
 
