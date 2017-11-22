@@ -160,6 +160,10 @@ def testfor1():
 def testfor2():
     returnrender_template("Po/Showfor2.html")
 
+@app.route('/editupdate')
+def editupdate():
+    if (a.type_user == 'admin'):
+        return (render_template('Admin/edit_postNews.html'))
 @app.route("/Aj_needing")
 def Aj_needing():
     if(a.type_user == 'teacher'):
@@ -392,10 +396,10 @@ def insert_need():
     #DB.insertteacherwant(subject,numwant,level,grade,attribute)
     teacher = It.connect("databaseall.db")
     cur2 = teacher.cursor()
-    cur2.execute("UPDATE teacher SET Numwant = '%s' WHERE Subject = '%s'" % (numwant, subject))
-    cur2.execute("UPDATE teacher SET Level = '%s' WHERE Subject = '%s'" % (level, subject))
-    cur2.execute("UPDATE teacher SET Grade = '%s' WHERE Subject = '%s'" % (grade, subject))
-    cur2.execute("UPDATE teacher SET Attribute = '%s' WHERE Subject = '%s'" % (attribute, subject))
+    cur2.execute("UPDATE teacher SET Numwant = '%s' WHERE Username = '%s'" % (numwant, a.username))
+    cur2.execute("UPDATE teacher SET Level = '%s' WHERE Username = '%s'" % (level, a.username))
+    cur2.execute("UPDATE teacher SET Grade = '%s' WHERE Username = '%s'" % (grade, a.username))
+    cur2.execute("UPDATE teacher SET Attribute = '%s' WHERE Username = '%s'" % (attribute, a.username))
     teacher.commit()
     teacher.close()
     return(index())
