@@ -152,6 +152,14 @@ def evaluation():
     else:
         return(home())
 
+@app.route("/testfor1")
+def testfor1():
+    returnrender_template("Po/Showfor1.html")
+
+@app.route("/testfor2")
+def testfor2():
+    returnrender_template("Po/Showfor2.html")
+
 @app.route("/Aj_needing")
 def Aj_needing():
     if(a.type_user == 'teacher'):
@@ -203,6 +211,7 @@ def Show_inforTA_Teacher(username):
     cur2 = teacher.cursor()
     cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % i )
     Subject = cur2.fetchall
+    len_list = len(Subject)
     for i in Subject:
         cur3 = student.cursor()
         cur3.execute("SELECT Name FROM student WHERE Subject = '%s'" % i)
@@ -232,9 +241,6 @@ def Show_inforTA_Teacher(username):
 
 #@app.route('/showlist_regis_admin')
 #def showlist_regis_admin():
-
-
-
 
 @app.route('/TA_working_form')
 def TA_working_form_TA():
