@@ -146,7 +146,7 @@ def edit_profile():
 @app.route('/evaluation')
 def evaluation():
     if(a.type_user == 'student'):
-        return(render_template('TA/evaluation form_ta.html'))
+        return(render_template('TA/FromTest.html'))
     if(a.type_user == 'admin'):
         return(render_template('Admin/assessmentTA_1_admin.html'))
     else:
@@ -282,7 +282,7 @@ def login():
     #print(input)
     username = input['username']
     password = input['password']
-    #print(username,password)
+    print(username,password)
     list_username = DB.login(username)
     #print(list_username)
     type_user = False
@@ -317,6 +317,10 @@ def register():
         return render_template('Po/registernormal_po.html')
     else:
         return (render_template('Po/register_Sucess_po.html'))
+
+@app.route("/Register")
+def Register():
+    return(render_template("Po/Register_po.html"))
 
 @app.route("/addregisnormal", methods=['POST'])
 def addregisnormal():
@@ -396,9 +400,9 @@ def insert_need():
     teacher.close()
     return(index())
     #return "subject  : %s name : %s grade : %s level : %s attribute  : %s"%(subject,numwant,grade,level,attribute)
-
 @app.route("/addworkingform", methods=['POST'])
 def addworking():
+    print('kkkkkk')
     username = a.username
     x = dict(request.form.items())
     #print(x)
@@ -557,9 +561,6 @@ def addworking():
                 pdfcreate2.drawString(50, 560, pdfwork[7][0])
                 pdfcreate2.drawString(200, 560, pdfwork[7][4])
                 pdfcreate2.save()
-
-
-
                 os.startfile('%s.pdf' % username)
                 os.startfile('%sP2.pdf' % username)
 
@@ -590,8 +591,9 @@ def addworking():
                 timesheetcur = timesheets.cursor()
                 print(subject)
                 print("Hi")
-                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject ) VALUES(?,?,?,?,?,?,?)",("1",username, dmy, timecome, timeback, whatdo,str(subject[0][0])))
+                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject,StatusTa ) VALUES(?,?,?,?,?,?,?,?)",("1",username, dmy, timecome, timeback, whatdo,str(subject[0][0]),'1'))
                 timesheets.commit()
+
 
                 timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
                                          ("2",username, dmy2, timecome2, timeback2, whatdo2))
@@ -609,7 +611,7 @@ def addworking():
                                          ("8",username, dmy8, timecome8, timeback8, whatdo8))
                 timesheets.commit()
             else:
-                timesheetcur.execute("UPDATE timesheet SET Subject = '%s' WHERE Username = '%s'and ID = '1'" % (str(subject[0]), username))
+                timesheetcur.execute("UPDATE timesheet SET Subject = '%s' WHERE Username = '%s'and ID = '1'" % (str(subject[0][0]), username))
                 timesheetcur.execute("UPDATE timesheet SET TimeCome = '%s' WHERE Username = '%s'and ID = '1'" % (timecome, username))
                 timesheetcur.execute("UPDATE timesheet SET TimeBack = '%s' WHERE Username = '%s'and ID = '1'" % (timeback, username))
                 timesheetcur.execute("UPDATE timesheet SET DayMonthYear = '%s' WHERE Username = '%s'and ID = '1'" % (dmy, username))
@@ -658,7 +660,7 @@ def addworking():
                     "UPDATE timesheet SET DayMonthYear = '%s' WHERE Username = '%s'and ID = '8'" % (dmy8, username))
                 timesheetcur.execute(
                     "UPDATE timesheet SET Whatdo = '%s' WHERE Username = '%s'and ID = '8'" % (whatdo8, username))
-                timesheetcur.execute("UPDATE timesheet SET Status = '1' WHERE Username = '%s'and ID = '1'" % (username))
+                timesheetcur.execute("UPDATE timesheet SET StatusTa = '1' WHERE Username = '%s'and ID = '1'" % (username))
 
                 timesheets.commit()
 
@@ -690,54 +692,81 @@ def teacherworkformnew():
 
 @app.route('/Teacherselectnew' , methods= ['post'])
 def selectnew():
-    def selectnew():
-        datawork = It.connect("databaseall.db")
-        dataworkcur = datawork.cursor()
-        x = dict(request.form.items())
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    x = dict(request.form.items())
 
-        nameta = []
-        for i in x:
-            nameta.append(i)
+    nameta = []
+    for i in x:
+        nameta.append(i)
 
-        dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
-        daymonthyear = []
-        for pdfrow in dataworkcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                daymonthyear.append(pdflist)
+    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
+    daymonthyear = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            daymonthyear.append(pdflist)
 
-        dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
-        timecome = []
-        for pdfrow in dataworkcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                timecome.append(pdflist)
+    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
+    timecome = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            timecome.append(pdflist)
 
-        dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
-        timeback = []
-        for pdfrow in dataworkcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                timeback.append(pdflist)
+    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+    timeback = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            timeback.append(pdflist)
 
-        dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
-        whatdo = []
-        for pdfrow in dataworkcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                whatdo.append(pdflist)
-        print(daymonthyear)
-        print(timecome)
-        print(timeback)
-        print(whatdo)
-        nametashow = nameta[0]
+    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+    whatdo = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            whatdo.append(pdflist)
+    print(daymonthyear)
+    print(timecome)
+    print(timeback)
+    print(whatdo)
+    nametashow = nameta[0]
 
-        return (render_template("Aj/showWorkingForm_Aj.html", nametashow=nametashow, daymonthyear=daymonthyear,
-                                timecome=timecome, timeback=timeback, whatdo=whatdo))
+    return (render_template("Aj/showWorkingForm_Aj.html", nametashow=nametashow, daymonthyear=daymonthyear,
+                            timecome=timecome, timeback=timeback, whatdo=whatdo))
+
+@app.route('/teachercomment' , methods= ['get','post'])
+def teachercomment():
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    x = dict(request.form.items())
+    print(x)
+    listdata=[]
+    for i in x:
+        listdata.append(i)
+    nameta=str(listdata[0])
+    comment = x['%s'%(nameta)]
+    passfail=str(listdata[1])
+    print(nameta)
+    print(comment)
+    print(passfail)
+    if passfail == 'pass':
+        dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s'" % ('1', nameta))
+        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s'" % (comment,nameta))
+
+        datawork.commit()
+    if passfail == 'notpass':
+        dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s'" % ('0', nameta))
+        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s'" % (comment,nameta))
+        datawork.commit()
+    return(home())
+
+
 '''
 @app.route('/Teacherworkform')
 def teacherworkform():
@@ -792,12 +821,12 @@ def evalueateadd():
     three2 = x['three2']
     three3 = x['three3']
     comment = x['comment']
-    evaluate = It.connect("student_v2.db")
+    evaluate = It.connect("databaseall.db")
     evaluatecur = evaluate.cursor()
     evaluatecur.execute("INSERT INTO evaluate(One1,One2,One3,Two1,Two2,Two3,Three1,Three2,Three3,Comment) VALUES(?,?,?,?,?,?,?,?,?,?)",(one1,one2,one3,two1,two2,two3,three1,three2,three3,comment))
     evaluate.commit()
 
-    return "SS"
+    return(home())
 
 @app.route('/TA_profile')
 def TA_profile():

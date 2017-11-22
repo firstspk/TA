@@ -25,6 +25,10 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
 </script>
 <style type="text/css">
 body {
@@ -40,9 +44,9 @@ body {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="MM_preloadImages('static/img/user_icon_1.png','static/img/bell_icon_1.png','static/img/home_icon_1.png')">
+<body onload="MM_preloadImages('static/img/user_icon_1.png','static/img/home_icon_1.png')">
 
-<table height="739" border="0" align="center" class="header_img">
+<table width="985" height="739" border="0" align="center" class="header_img">
   <tr>
     <td height="32" colspan="5" align="center" valign="top"><img src="static/img/header.png" name="header" id="header" class="bg-color shadow header_img" /></td>
   </tr>
@@ -67,7 +71,7 @@ body {
     </td>
     <td width="123" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/home_icon_1.png',1)"><img src="static/img/home_icon.png" width="121" height="39" id="home_icon" class="bg-color1" /></a></td>
     <td width="701" class="bg-color1 shadow1">&nbsp;</td>
-    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="notification" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','static/img/bell_icon_1.png',1)"><img src="static/img/bell_icon.png" name="bell_icon" width="46" height="39" id="Image4" class="bg-color1" /></a></td>
+    <td width="46" align="center" valign="top" class="bg-color1 shadow1">&nbsp;</td>
     <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" data-toggle="modal" data-target="#login-modal"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','static/img/user_icon_1.png',1)"><img src="static/img/user_icon.png" name="user_icon" width="46" height="39" id="Image3" class="bg-color1" /></a>
     
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -100,24 +104,27 @@ body {
             </tr>
             <tr>
               <td align="center"><p>Digital Electronics</p>
-                <p>รหัสวิชา FRA221</p>
-                <p>จำนวนคน ..n.. คน</p>
-                <p><a href="FRA221TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA221                </p>
+                <p><a href="FRA221TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;      </a><br />
+                  <input name="สมัคร221TA" type="submit" id="สมัคร221TA" onclick="MM_goToURL('parent','Register');return document.MM_returnValue" value="สมัคร " />
+                </p></td>
             </tr>
             <tr>
               <td align="center"><p>Industrial Seneors &amp; Actuators</p>
-                <p>รหัสวิชา FRA222</p>
-                <p>จำนวน ..n..คน</p>
-                <p><a href="FRA222 TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA222                </p>
+                <p><a href="FRA222 TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร222TA" type="submit" id="สมัคร222TA" onclick="MM_goToURL('parent','Register');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
             <tr>
               <td align="center"><p>Robotics &amp; Automation Engineering LAB II</p>
-                <p>รหัสวิชา FRA261</p>
-                <p>จำนวน .. n..คน</p>
-                <p><a href="FRA261TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA261                </p>
+                <p><a href="FRA261TA.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร261TA" type="submit" id="สมัคร261TA" onclick="MM_goToURL('parent','Register');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
           </table>
-            <h1></h1></td>
+          <h1></h1></td>
           <td><table width="300" height="467" border="1" align="center">
             <tr></tr>
             <tr>
@@ -125,21 +132,24 @@ body {
             </tr>
             <tr>
               <td align="center"><p>Digital Electronics</p>
-                <p>รหัสวิชา FRA221</p>
-                <p>จำนวนคน ..n.. คน</p>
-                <p><a href="FRA221 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA221                </p>
+                <p><a href="FRA221 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร221ทุน" type="submit" id="สมัคร221ทุน" onclick="MM_goToURL('parent','Register');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
             <tr>
               <td align="center"><p>Industrial Seneors &amp; Actuators</p>
-                <p>รหัสวิชา FRA222</p>
-                <p>จำนวน ..n..คน</p>
-                <p><a href="FRA222 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA222                </p>
+                <p><a href="FRA222 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร222ทุน" type="submit" id="สมัคร222ทุน" onclick="MM_goToURL('parent','Register');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
             <tr>
               <td align="center"><p>Robotics &amp; Automation Engineering LAB II</p>
-                <p>รหัสวิชา FRA261</p>
-                <p>จำนวน .. n..คน</p>
-                <p><a href="FRA261 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a></p></td>
+                <p>รหัสวิชา FRA261                </p>
+                <p><a href="FRA261 ทุน.html">&lt;&lt;รายละเอียด เพิ่มเติม&gt;&gt;</a><br />
+                  <input name="สมัคร261ทุน" type="submit" id="สมัคร261ทุน" onclick="MM_goToURL('parent','Register');return document.MM_returnValue" value="สมัคร" />
+                </p></td>
             </tr>
           </table>
             <h1></h1>
