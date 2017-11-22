@@ -146,7 +146,7 @@ def edit_profile():
 @app.route('/evaluation')
 def evaluation():
     if(a.type_user == 'student'):
-        return(render_template('TA/evaluation form_ta.html'))
+        return(render_template('TA/FromTest.html'))
     if(a.type_user == 'admin'):
         return(render_template('Admin/assessmentTA_1_admin.html'))
     else:
@@ -758,7 +758,7 @@ def teachercomment():
         dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s'" % ('0', nameta))
         dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s'" % (comment,nameta))
         datawork.commit()
-    return 'kkkkkkkkkk'
+    return(home())
 
 
 '''
@@ -815,12 +815,12 @@ def evalueateadd():
     three2 = x['three2']
     three3 = x['three3']
     comment = x['comment']
-    evaluate = It.connect("student_v2.db")
+    evaluate = It.connect("databaseall.db")
     evaluatecur = evaluate.cursor()
     evaluatecur.execute("INSERT INTO evaluate(One1,One2,One3,Two1,Two2,Two3,Three1,Three2,Three3,Comment) VALUES(?,?,?,?,?,?,?,?,?,?)",(one1,one2,one3,two1,two2,two3,three1,three2,three3,comment))
     evaluate.commit()
 
-    return "SS"
+    return(home())
 
 @app.route('/TA_profile')
 def TA_profile():
