@@ -42,51 +42,49 @@ body {
 
 <body onload="MM_preloadImages('static/img/user_icon_1.png','static/img/home_icon_1.png')">
 
-<table height="1184" border="0" align="center" class="header_img">
+<table height="724" border="0" align="center" class="header_img">
   <tr>
-    <td height="32" colspan="4" align="center" valign="bottom"><img src="static/img/header.png" name="header" id="header" class="bg-color shadow header_img" /></td>
+    <td height="32" colspan="5" align="center" valign="top"><img src="static/img/header.png" name="header"  id="header" class="bg-color shadow header_img" /></td>
   </tr>
-  
- <tr>
+  <tr>
     <td width="47" height="50" align="center" valign="bottom" class="bg-color2 shadow">
     
     <div class="dropdown">
     <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
     <span class="caret"></span></button>
     <ul class="dropdown-menu font">
-   <li><a href="recruitment">ประกาศรับสมัคร</a></li>
+     <li><a href="recruitment">ประกาศรับสมัคร</a></li>
       <li><a href="pass_audition">ประกาศรายชือผู้ผ่านการคัดเลือก</a></li>
       <li><a href="EX_TA_form">ตัวอย่างการกรอกแบบฟอร์มการทำงาน</a></li>
       <li><a href="contact">ติดต่อ/แจ้งปัญหา</a></li>
     </ul>
+
   </div>
-    
-    
-    
-    
-    </td>
-    <td width="123" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/Home1.png',1)"><img src="../../static/img/Home.png" width="149" height="48" id="home_icon" class="bg-color1" /></a></td>
-    <td width="710" class="bg-color1 shadow1">&nbsp;</td>
-    <td width="88" align="center" valign="top" class="bg-color1 shadow1"><a href="#" data-toggle="modal" data-target="#login-modal" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','static/img/login gray.png',1)"><img src="../../static/img/login black.png" name="user_icon" width="170" height="48" id="Image3" class="bg-color1" /></a>
+   </td>
+
+
+    <td width="122" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/Home1.png',1)"><img src="../../static/img/Home.png" width="149" height="48" id="home_icon" class="bg-color1" /></a></td>
+    <td width="757" class="bg-color1 shadow1">&nbsp;</td>
+    <td width="44" align="center" valign="top" class="bg-color1 shadow1"><a href="" data-toggle="modal" data-target="#login-modal"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','static/img/login gray.png',1)"><img src="../../static/img/login black.png" name="user_icon" width="170" height="48" id="Image3" class="bg-color1" /></a>
       
-      <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-          <div class="loginmodal-container">
-            <h1>Login to Your Account</h1><br>
-            <form action="login" method="post">
-              <input type="text" name="username" placeholder="Username">
-              <input type="password" name="password" placeholder="Password">
-              <input type="submit" value="login"/>
-            </form>
-            
-            <div class="login-help">
-              <a href="forgot_password">Forgot Password</a>
-            </div>
-            </div>
-        </div>
-      </div>
-      
-      
+    
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>Login to Your Account</h1><br>
+				  <form action="login" method="post">
+					<input type="text" name="username" placeholder="Username">
+					<input type="password" name="password" placeholder="Password">
+					<input type="submit" value="login"/>
+				  </form>
+					
+				  <div class="login-help">
+					<a href="forgot_password">Forgot Password</a>
+				  </div>
+				</div>
+		</div>
+	  </div>
+    
     </td>
   </tr>
   <tr>
