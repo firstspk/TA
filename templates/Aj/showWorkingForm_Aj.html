@@ -1,6 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <form id="contact-form" action="/teachercomment", method="POST">
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>รายระเอียดการลงเวลาของTA</title>
 <script type="text/javascript">
@@ -39,66 +42,40 @@ body {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="MM_preloadImages('img/home_icon_1.png','img/end2.png')">
+<body onload="MM_preloadImages('static/img/bell_icon_1.png','static/img/home_icon_1.png','static/img/end2.png')">
 
-<table width="985" height="702" border="0" align="center" class="header_img">
+<table width="985" height="968" border="0" align="center">
   <tr>
-    <td height="32" colspan="5" align="center" valign="top"><img src="static/img/header.png" name="header" id="header" class="bg-color shadow header_img" /></td>
+    <td height="302" colspan="5" align="center" valign="top"><img src="static/img/header.png" name="header" width="980" height="300" id="header" class="bg-color shadow" /></td>
   </tr>
   <tr>
-    <td width="48" height="48" align="center" valign="bottom" class="bg-color2 shadow">
-    
+    <td width="48" height="39" align="center" valign="top" class="bg-color2 shadow">
+
     <div class="dropdown">
     <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
     <span class="caret"></span></button>
     <ul class="dropdown-menu font">
-      <li><a href="recruitment">ประกาศรับสมัคร</a></li>
-      <li><a href="pass_audition">ประกาศรายชือผู้ผ่านการคัดเลือก</a></li>
-      <li><a href="EX_TA_form">ตัวอย่างการกรอกแบบฟอร์มการทำงาน</a></li>
-      <li><a href="subject_detail">รายละเอียดวิชาที่เปิดรับ TA</a></li>
-      <li><a href="contact">ติดต่อ/แจ้งปัญหา</a></li>
-      <div class="dropdown-divider"></div>
-      <li><a href="Aj_needing">กรอกความต้องการ TA</a></li>
-      <li><a href="TA_select">คัดเลือก TA</a></li>
-      <li><a href="TA_working_form">ตรวจแบบฟอร์ม TA</a></li>
-      <li><a href="TA_profile">ข้อมูล TA </a></li>
+      <li><a href="Need_Aj.html">กรอกความต้องการ TA</a></li>
+      <li><a href="TA_select.html">คัดเลือก TA</a></li>
+      <li><a href="WorkingForm_TA_comment.html">ตรวจแบบฟอร์ม TA</a></li>
+      <li><a href="#">ข้อมูล TA </a></li>
     </ul>
   </div>
-    
-    
-    
-    
-   </td>
-    <td width="123" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/home_icon_1.png',1)"><img src="static/img/home_icon.png" width="121" height="39" id="home_icon" class="bg-color1" /></a></td>
-    <td width="701" class="bg-color1 shadow1">&nbsp;</td>
-    <td width="46" align="center" valign="top" class="bg-color1 shadow1">&nbsp;</td>
-    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="logout" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('logout','','static/img/end2.png',1)"><img src="static/img/end1.png" width="121" height="39" id="logout" /></a></td>
-    
-    
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	  <div class="modal-dialog">
-				<div class="loginmodal-container">
-					<h1>Login to Your Account</h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
-					<a href="#" class="btn btn-info btn-lg" role="button"><font color="#FFFFFF" class="font">Login</a>
-				  </form>
-					
-				  <div class="login-help">
-					<a href="forgot_password">Forgot Password</a>
-				  </div>
-				</div>
-	  </div>
-    </div>
-    
+
+
+
+
     </td>
+    <td width="123" align="center" valign="top" class="bg-color1 shadow1"><a href="first page_aj.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','img/home_icon_1.png',1)"><img src="img/home_icon.png" width="121" height="39" id="home_icon" class="bg-color1" /></a></td>
+    <td width="701" class="bg-color1 shadow1">&nbsp;</td>
+    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','static/img/bell_icon_1.png',1)"><img src="static/img/bell_icon.png" name="bell_icon" width="46" height="39" id="Image4" class="bg-color1" /></a></td>
+    <td width="46" align="center" valign="top" class="bg-color1 shadow1"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('logout','','static/img/end2.png',1)"><img src="static/img/end1.png" width="121" height="39" id="logout" /></a></td>
   </tr>
   <tr>
     <td height="614" colspan="5" align="center" valign="top" class="bg-color shadow font"><p>&nbsp;</p>
       <table width="765" height="470" border="0" class="font2">
         <tr>
-          <td colspan="2" valign="top"><p>&nbsp; ชื่อ นายมุก ไอ้สาสสสส</p>
+          <td colspan="2" valign="top"><p>&nbsp;ชื่อนักศึกษา : {{nametashow}}</p>
             <table width="765" border="1">
               <tr>
                 <td width="100" align="center">วัน/เดือน/ปี</td>
@@ -107,48 +84,58 @@ body {
                 <td width="433" align="center">สิ่งที่ได้ปฎิบัติ</td>
               </tr>
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>&nbsp;{% for i in daymonthyear %}
+                  {% for j in i %}{{j}}
+                  <br>
+                  <br>
+                {% endfor %}{% endfor %}
+                </td>
+
+                <td>{% for i in timecome %}
+                  {% for j in i %}{{j}}
+                  <br>
+                  <br>
+                {% endfor %}{% endfor %}</td>
+                <td>{% for i in timeback %}
+                  {% for j in i %}{{j}}
+                  <br>
+                  <br>
+                {% endfor %}{% endfor %}</td>
+                <td>{% for i in whatdo %}
+                  {% for j in i %}{{j}}
+                  <br>
+                  <br>
+                {% endfor %}{% endfor %}</td>
               </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-              </tr>
+
+
             </table>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
           <p>คำแนะนำ</p>
           <form id="form1" name="form1" method="post" action="">
-            <label for="commant"></label>
-            <textarea name="commant" id="commant" cols="45" rows="5"></textarea>
+            <label for="{{nametashow}}"></label>
+            <textarea name="{{nametashow}}" id="comment" cols="45" rows="5"></textarea>
           </form>
           <p>&nbsp;</p></td>
         </tr>
         <tr>
           <td width="617" align="right" valign="top">
-          <a href="#" class="btn btn-info" role="button">ยืนยัน</a>
+            <button  name="pass" type="submit" class="btn btn-info"> ผ่าน </button><br><br>
           &nbsp;</td>
           <td width="142" align="center" valign="top">
-          <a href="#" class="btn btn-info" role="button">ไม่ยืนยัน</a>
+            <button  name="notpass" type="submit" class="btn btn-info"> ไม่ผ่าน </button><br><br>
           &nbsp;</td>
         </tr>
       </table>
-    <p>&nbsp;</p>      <p>&nbsp; 
-    
-    
-    
+    <p>&nbsp;</p>      <p>&nbsp;
+
+
+
     </p></td>
   </tr>
 </table>
+</form>
 </body>
 </html>
+

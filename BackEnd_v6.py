@@ -734,6 +734,33 @@ def selectnew():
     return (render_template("Aj/showWorkingForm_Aj.html", nametashow=nametashow, daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
 
+@app.route('/teachercomment' , methods= ['get','post'])
+def teachercomment():
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    x = dict(request.form.items())
+    print(x)
+    listdata=[]
+    for i in x:
+        listdata.append(i)
+    nameta=str(listdata[0])
+    comment = x['%s'%(nameta)]
+    passfail=str(listdata[1])
+    print(nameta)
+    print(comment)
+    print(passfail)
+    if passfail == 'pass':
+        dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s'" % ('1', nameta))
+        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s'" % (comment,nameta))
+
+        datawork.commit()
+    if passfail == 'notpass':
+        dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s'" % ('0', nameta))
+        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s'" % (comment,nameta))
+        datawork.commit()
+    return 'kkkkkkkkkk'
+
+
 '''
 @app.route('/Teacherworkform')
 def teacherworkform():
