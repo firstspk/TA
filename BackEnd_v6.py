@@ -394,9 +394,9 @@ def insert_need():
     teacher.close()
     return(index())
     #return "subject  : %s name : %s grade : %s level : %s attribute  : %s"%(subject,numwant,grade,level,attribute)
-
 @app.route("/addworkingform", methods=['POST'])
 def addworking():
+    print('kkkkkk')
     username = a.username
     x = dict(request.form.items())
     #print(x)
@@ -555,9 +555,6 @@ def addworking():
                 pdfcreate2.drawString(50, 560, pdfwork[7][0])
                 pdfcreate2.drawString(200, 560, pdfwork[7][4])
                 pdfcreate2.save()
-
-
-
                 os.startfile('%s.pdf' % username)
                 os.startfile('%sP2.pdf' % username)
 
@@ -588,8 +585,9 @@ def addworking():
                 timesheetcur = timesheets.cursor()
                 print(subject)
                 print("Hi")
-                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject ) VALUES(?,?,?,?,?,?,?)",("1",username, dmy, timecome, timeback, whatdo,str(subject[0][0])))
+                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject,StatusTa ) VALUES(?,?,?,?,?,?,?,?)",("1",username, dmy, timecome, timeback, whatdo,str(subject[0][0]),'1'))
                 timesheets.commit()
+
 
                 timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo ) VALUES(?,?,?,?,?,?)",
                                          ("2",username, dmy2, timecome2, timeback2, whatdo2))
@@ -607,7 +605,7 @@ def addworking():
                                          ("8",username, dmy8, timecome8, timeback8, whatdo8))
                 timesheets.commit()
             else:
-                timesheetcur.execute("UPDATE timesheet SET Subject = '%s' WHERE Username = '%s'and ID = '1'" % (str(subject[0]), username))
+                timesheetcur.execute("UPDATE timesheet SET Subject = '%s' WHERE Username = '%s'and ID = '1'" % (str(subject[0][0]), username))
                 timesheetcur.execute("UPDATE timesheet SET TimeCome = '%s' WHERE Username = '%s'and ID = '1'" % (timecome, username))
                 timesheetcur.execute("UPDATE timesheet SET TimeBack = '%s' WHERE Username = '%s'and ID = '1'" % (timeback, username))
                 timesheetcur.execute("UPDATE timesheet SET DayMonthYear = '%s' WHERE Username = '%s'and ID = '1'" % (dmy, username))
@@ -656,7 +654,7 @@ def addworking():
                     "UPDATE timesheet SET DayMonthYear = '%s' WHERE Username = '%s'and ID = '8'" % (dmy8, username))
                 timesheetcur.execute(
                     "UPDATE timesheet SET Whatdo = '%s' WHERE Username = '%s'and ID = '8'" % (whatdo8, username))
-                timesheetcur.execute("UPDATE timesheet SET Status = '1' WHERE Username = '%s'and ID = '1'" % (username))
+                timesheetcur.execute("UPDATE timesheet SET StatusTa = '1' WHERE Username = '%s'and ID = '1'" % (username))
 
                 timesheets.commit()
 

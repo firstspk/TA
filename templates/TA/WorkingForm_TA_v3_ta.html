@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+        <form id="contact-form" action="/addworkingform", method="POST">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ผู้ผ่านการคัดเลือก TA</title>
 <script type="text/javascript">
@@ -40,7 +41,7 @@ body {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="MM_preloadImages('static/img/user_icon_1.png','static/img/home_icon_1.png')">
+<form onload="MM_preloadImages('static/img/user_icon_1.png','static/img/home_icon_1.png')">
 
 <table width="985" height="1184" border="0" align="center" class="header_img">
   <tr>
@@ -76,11 +77,11 @@ body {
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
 					<h1>Login to Your Account</h1><br>
-				  <form>
+
 					<input type="text" name="user" placeholder="Username">
 					<input type="password" name="pass" placeholder="Password">
 					<a href="#" class="btn btn-info btn-lg" role="button"><font color="#FFFFFF" class="font">Login</a>
-				  </form>
+
 					
 				  <div class="login-help">
 					<a href="#">Forgot Password</a>
@@ -116,14 +117,11 @@ body {
           <td width="58" align="right">1.</td>
           <td width="111" align="right">วัน/เดือน/ปี : </td>
           <td width="284">
-            
-            <input id="datepicker1" width="270" />
-    <script>
-        $('#datepicker1').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-    </script>
-            
+            <label for="dateWorking_1"></label>
+            <input type="text" name="dmy" id="dateWorking_1" />
+            <font color="#FF0000">
+          **วว/ดด/ปป**
+          </font>
           </td>
           <td width="71" align="right">เวลามา : </td>
           <td width="148">
@@ -152,15 +150,10 @@ body {
           <td align="right">2.</td>
           <td align="right">วัน/เดือน/ปี : </td>
           <td>
-            
-            <input id="datepicker2" width="270" />
-    <script>
-        $('#datepicker2').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-    </script>
-            
-            </td>
+            <label for="dateWorking_2"></label>
+            <input type="text" name="dmy2" id="dateWorking_2" /><font color="#FF0000">
+          **วว/ดด/ปป**
+          </font></td>
           <td align="right">เวลามา : </td>
           <td>
             <label for="timeWorking_C2"></label>
@@ -188,15 +181,10 @@ body {
           <td align="right">3.</td>
           <td align="right">วัน/เดือน/ปี : </td>
           <td>
-            
-            <input id="datepicker3" width="270" />
-    <script>
-        $('#datepicker3').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-    </script>
-            
-            </td>
+            <label for="dateWorking_3"></label>
+            <input type="text" name="day3" id="dateWorking_3" /><font color="#FF0000">
+          **วว/ดด/ปป**
+          </font></td>
           <td align="right">เวลามา : </td>
           <td><form id="form3" name="timecome3" method="post" action="">
             <label for="timeWorking_C3"></label>
@@ -224,14 +212,9 @@ body {
           <td align="right">4.</td>
           <td align="right">วัน/เดือน/ปี : </td>
           <td>
-            
-            <input id="datepicker4" width="270" />
-    <script>
-        $('#datepicker4').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-    </script>
-            
+            <label for="dateWorking_4"></label>
+            <input type="text" name="dmy4" id="dateWorking_4" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
           </td>
           <td align="right">เวลามา : </td>
           <td>
@@ -260,14 +243,9 @@ body {
           <td align="right">5.</td>
           <td align="right">วัน/เดือน/ปี : </td>
           <td>
-            
-            <input id="datepicker5" width="270" />
-    <script>
-        $('#datepicker5').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-    </script>
-            
+            <label for="dateWorking_5"></label>
+            <input type="text" name="day5" id="dateWorking_5" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
           </td>
           <td align="right">เวลามา : </td>
           <td>
@@ -296,14 +274,9 @@ body {
           <td align="right">6.</td>
           <td align="right">วัน/เดือน/ปี : </td>
           <td>
-            
-            <input id="datepicker6" width="270" />
-    <script>
-        $('#datepicker6').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-    </script>
-            
+            <label for="working_6"></label>
+            <input type="text" name="dmy6" id="dateWorking_6" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
           </td>
           <td align="right">เวลามา : </td>
           <td>
@@ -332,14 +305,9 @@ body {
           <td align="right">7.</td>
           <td align="right">วัน/เดือน/ปี : </td>
           <td>
-           
-           <input id="datepicker7" width="270" />
-    <script>
-        $('#datepicker7').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-    </script>
-           
+            <label for="dateWorking_7"></label>
+            <input type="text" name="dmy7" id="dateWorking_7" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
           </td>
           <td align="right">เวลามา : </td>
           <td>
@@ -368,14 +336,9 @@ body {
           <td align="right">8.</td>
           <td align="right">วัน/เดือน/ปี : </td>
           <td>
-            
-            <input id="datepicker8" width="270" />
-    <script>
-        $('#datepicker8').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-    </script>
-            
+            <label for="dateWorking_8"></label>
+            <input type="text" name="dmy8" id="dateWorking_8" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
           </td>
           <td align="right">เวลามา : </td>
           <td>
@@ -416,10 +379,10 @@ body {
     <table width="177" border="0">
       <tr>
         <td>
-        <a class="btn btn-info" href="#" role="button">Submit</a>
+        <input type="submit" name="save_workingForm" id="save_workingForm" value="submit" class="font" /></td>
         </td>
         <td>
-        <a class="btn btn-info" href="#" role="button">Print</a>
+        <input type="submit" name="printworkingForm" id="print" value="print" class="font" /></td>
         </td>
       </tr>
       <tr>
@@ -434,8 +397,8 @@ var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6");
 var sprytextfield8 = new Spry.Widget.ValidationTextField("sprytextfield8");
 var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9");
 </script>
-  </form>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</form>
 </body>
 </html>
