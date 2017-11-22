@@ -152,6 +152,14 @@ def evaluation():
     else:
         return(home())
 
+@app.route("/testfor1")
+def testfor1():
+    returnrender_template("Po/Showfor1.html")
+
+@app.route("/testfor2")
+def testfor2():
+    returnrender_template("Po/Showfor2.html")
+
 @app.route("/Aj_needing")
 def Aj_needing():
     if(a.type_user == 'teacher'):
@@ -203,6 +211,7 @@ def Show_inforTA_Teacher(username):
     cur2 = teacher.cursor()
     cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % i )
     Subject = cur2.fetchall
+    len_list = len(Subject)
     for i in Subject:
         cur3 = student.cursor()
         cur3.execute("SELECT Name FROM student WHERE Subject = '%s'" % i)
@@ -230,16 +239,38 @@ def Show_inforTA_Teacher(username):
         Email = cur10.fetchall()
     return (render_template("----------",subject = Subject ,name = Name,surname = Surname , IDnumber = IDNUMBER , level = Level , department = Departmant ,grade = Grade,tel = Tel,email = Email))
 
-@app.route('/showlist_regis_admin1')
-def showlist_regis_admin1():
-
+#@app.route('/showlist_regis_admin')
+#def showlist_regis_admin():
 
 @app.route('/TA_working_form')
 def TA_working_form_TA():
     if(a.type_user == 'student'):
         return(render_template('TA/WorkingForm_TA_v3_ta.html'))
     if(a.type_user == 'teacher'):
-        return(render_template('Aj/WorkingForm_TA_comment_aj.html'))
+        timesheets = It.connect("databaseall.db")
+        timesheetcur = timesheets.cursor()
+        subject = It.connect("databaseall.db")
+        subjectcur = subject.cursor()
+        subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % a.username)
+        print(a.username)
+        subject = []
+
+        for pdfrow in subjectcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+            subject.append(pdflist)
+        print(subject[0][0])
+        print('kkkkkkkkkk')
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % subject[0][0])
+        name = []
+        for pdfrow in timesheetcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                name.append(pdflist)
+        subjectteacher = subject[0][0]
+        return (render_template('Aj/choose_workingForm.html', name=name, subjectteacher=subjectteacher))
 
 @app.route('/notification')
 def notification():
@@ -427,8 +458,8 @@ def addworking():
                     pdflist.append(i)
                 pdfwork.append(pdflist)
 
-
-            if pdfwork[0][3] == '1' and printworkingForm == 'print':
+            #pdfwork[0][3] == '0' and
+            if printworkingForm == 'print':
                 pdfcreate = canvas.Canvas('%s.pdf' % username)
                 pdfcreate.drawString(100, 800, 'INSTITUTE OF FIELD ROBOTICS STUDENT WORKING HOUR FORM ')
                 pdfcreate.drawString(210, 770, 'SEMESTER : 1  YEAR : 2560')
@@ -637,7 +668,18 @@ def addworking():
 def teacherworkformnew():
     timesheets = It.connect("databaseall.db")
     timesheetcur = timesheets.cursor()
-    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1' ")
+    subject = It.connect("databaseall.db")
+    subjectcur = subject.cursor()
+    subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % username)
+    print(username)
+    subject = []
+    for pdfrow in subjectcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+        subject.append(pdflist)
+    print(subject[0][0])
+    timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'")
     name = []
     for pdfrow in timesheetcur.fetchall():
         pdflist = []
@@ -648,21 +690,54 @@ def teacherworkformnew():
 
 @app.route('/Teacherselectnew' , methods= ['post'])
 def selectnew():
-    datawork = It.connect("databaseall.db")
-    dataworkcur = datawork.cursor()
-    x = dict(request.form.items())
-    nameta=[]
-    for i in x:
-        nameta.append(i)
-    dataworkcur.execute("SELECT DayMonthYear ,TimeCome,TimeBack FROM timesheet WHERE Username='%s'" % nameta)
-    dataworkta = []
-    for pdfrow in timesheetcur.fetchall():
-        pdflist = []
-        for i in pdfrow:
-            pdflist.append(i)
-            dataworkta.append(pdflist)
+    def selectnew():
+        datawork = It.connect("databaseall.db")
+        dataworkcur = datawork.cursor()
+        x = dict(request.form.items())
 
-    return 'xxxx'
+        nameta = []
+        for i in x:
+            nameta.append(i)
+
+        dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
+        daymonthyear = []
+        for pdfrow in dataworkcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                daymonthyear.append(pdflist)
+
+        dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
+        timecome = []
+        for pdfrow in dataworkcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                timecome.append(pdflist)
+
+        dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+        timeback = []
+        for pdfrow in dataworkcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                timeback.append(pdflist)
+
+        dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+        whatdo = []
+        for pdfrow in dataworkcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                whatdo.append(pdflist)
+        print(daymonthyear)
+        print(timecome)
+        print(timeback)
+        print(whatdo)
+        nametashow = nameta[0]
+
+        return (render_template("Aj/showWorkingForm_Aj.html", nametashow=nametashow, daymonthyear=daymonthyear,
+                                timecome=timecome, timeback=timeback, whatdo=whatdo))
 '''
 @app.route('/Teacherworkform')
 def teacherworkform():
