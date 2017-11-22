@@ -152,6 +152,14 @@ def evaluation():
     else:
         return(home())
 
+@app.route("/testfor1")
+def testfor1():
+    returnrender_template("Po/Showfor1.html")
+
+@app.route("/testfor2")
+def testfor2():
+    returnrender_template("Po/Showfor2.html")
+
 @app.route("/Aj_needing")
 def Aj_needing():
     if(a.type_user == 'teacher'):
@@ -203,6 +211,7 @@ def Show_inforTA_Teacher(username):
     cur2 = teacher.cursor()
     cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % i )
     Subject = cur2.fetchall
+    len_list = len(Subject)
     for i in Subject:
         cur3 = student.cursor()
         cur3.execute("SELECT Name FROM student WHERE Subject = '%s'" % i)
@@ -233,9 +242,6 @@ def Show_inforTA_Teacher(username):
 #@app.route('/showlist_regis_admin')
 #def showlist_regis_admin():
 
-
-
-
 @app.route('/TA_working_form')
 def TA_working_form_TA():
     if(a.type_user == 'student'):
@@ -264,7 +270,7 @@ def TA_working_form_TA():
                 pdflist.append(i)
                 name.append(pdflist)
         subjectteacher = subject[0][0]
-        return (render_template('Aj/choose_workingForm.html', name=name, subjectteacher=subjectteacher))
+        return (render_template('Aj/choose_workingForm1.html', name=name, subjectteacher=subjectteacher))
 
 @app.route('/notification')
 def notification():
@@ -694,7 +700,7 @@ def selectnew():
     for i in x:
         nameta.append(i)
 
-    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
+    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[2])
     daymonthyear = []
     for pdfrow in dataworkcur.fetchall():
         pdflist = []
@@ -702,7 +708,7 @@ def selectnew():
             pdflist.append(i)
             daymonthyear.append(pdflist)
 
-    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
+    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[2])
     timecome = []
     for pdfrow in dataworkcur.fetchall():
         pdflist = []
@@ -710,7 +716,7 @@ def selectnew():
             pdflist.append(i)
             timecome.append(pdflist)
 
-    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[2])
     timeback = []
     for pdfrow in dataworkcur.fetchall():
         pdflist = []
@@ -718,7 +724,7 @@ def selectnew():
             pdflist.append(i)
             timeback.append(pdflist)
 
-    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+    dataworkcur.execute("SELECT whatdo FROM timesheet WHERE Username='%s'" % nameta[2])
     whatdo = []
     for pdfrow in dataworkcur.fetchall():
         pdflist = []
@@ -729,9 +735,11 @@ def selectnew():
     print(timecome)
     print(timeback)
     print(whatdo)
-    nametashow = nameta[0]
+    print(nameta)
+    print('testtesttest')
+    nametashow = nameta[2]
 
-    return (render_template("Aj/showWorkingForm_Aj.html", nametashow=nametashow, daymonthyear=daymonthyear,
+    return (render_template("Aj/showWorkingForm_Aj1.html", nametashow=nametashow, daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
 
 @app.route('/teachercomment' , methods= ['get','post'])
