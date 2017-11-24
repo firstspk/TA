@@ -148,7 +148,80 @@ def evaluation():
     if(a.type_user == 'student'):
         return(render_template('TA/FromTest.html'))
     if(a.type_user == 'admin'):
-        return(render_template('Admin/assessmentTA_1_admin.html'))
+        data = It.connect("databaseall.db")
+        datacur = data.cursor()
+        datacur.execute("SELECT One1 FROM evaluate")
+        one1 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            one1.append(list)
+        datacur.execute("SELECT One2 FROM evaluate")
+        one2 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            one2.append(list)
+        datacur.execute("SELECT One3 FROM evaluate")
+        one3 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            one3.append(list)
+        datacur.execute("SELECT Two1 FROM evaluate")
+        two1 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            two1.append(list)
+        datacur.execute("SELECT Two2 FROM evaluate")
+        two2 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            two2.append(list)
+        datacur.execute("SELECT Two3 FROM evaluate")
+        two3 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            two3.append(list)
+        datacur.execute("SELECT Three1 FROM evaluate")
+        three1 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            three1.append(list)
+        datacur.execute("SELECT Three2 FROM evaluate")
+        three2 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            three2.append(list)
+        datacur.execute("SELECT Three3 FROM evaluate")
+        three3 = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            three3.append(list)
+        datacur.execute("SELECT Comment FROM evaluate")
+        comment = []
+        for row1 in datacur.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+            comment.append(list)
+
+        return(render_template('Admin/evaluate show.html',one1=one1,one2=one2,one3=one3,two1=two1,two2=two2,two3=two3,three1=three1,three2=three2,three3=three3,comment=comment))
     else:
         return(home())
 
