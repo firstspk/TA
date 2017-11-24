@@ -399,6 +399,10 @@ def register():
 def Register():
     return(render_template("Po/Register_po.html"))
 
+@app.route("/Register_forTA")
+def Register_forTA():
+    return(render_template("TA/Register_ta.html"))
+
 @app.route("/addregisnormal", methods=['POST'])
 def addregisnormal():
     x = dict(request.form.items())
