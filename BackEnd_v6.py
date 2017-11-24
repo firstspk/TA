@@ -237,12 +237,17 @@ def testfor2():
 def editupdate():
     if (a.type_user == 'admin'):
         return (render_template('Admin/edit_postNews.html'))
+
 @app.route("/Aj_needing")
 def Aj_needing():
     if(a.type_user == 'teacher'):
-        return render_template('Aj/Need_Aj2_aj.html')
+        teacher = It.connect("databaseall.db")
+        cur2 = teacher.cursor()
+        cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
+        subject = cur2.fetchall
+        return render_template('Aj/Need_Aj2_aj.html',subject =subject)
     if(a.type_user == 'admin'):
-        teacher = It.connect("teacher_v2.db")
+        teacher = It.connect("databaseal.db")
         cur1 = teacher.cursor()
         cur1.execute("SELECT Subject,NumWant,Level,Grade,Attribute FROM teacher")
         listTW = []
@@ -255,69 +260,75 @@ def Aj_needing():
         teacher.close()
         return (render_template('Admin/wantTeacher_1_admin.html', var=a1))
 
-@app.route('/Show_Teacherwant_Admin')
+@app.route('/Show_Teacherwant_Admin', methods=['POST'])
 def Show_Teacherwant_Admin():
-    teacher = It.connect("teacher_v2.db")
-    cur2 = teacher.cursor()
-    cur2.execute("SELECT Name FROM teacher ")
-    Name = cur2.fetchall()
-    cur3 = teacher.cursor()
-    cur3.execute("SELECT Surname FROM teacher ")
-    Surname = cur3.fetchall()
+    input = dict(request.form.items())
+    print(input)
+    #print ('kkkkkkk')
+    teacher = It.connect("databaseall.db")
     cur4 = teacher.cursor()
-    cur4.execute("SELECT Subject FROM teacher ")
+    cur4.execute("SELECT Subject FROM teacherwant ")
     Subject = cur4.fetchall()
+    print (Subject)
     cur5 = teacher.cursor()
-    cur5.execute("SELECT NumWant FROM teacher ")
+    cur5.execute("SELECT Numwant FROM teacherwant ")
     Num = cur5.fetchall()
+    print (Num)
     cur6 = teacher.cursor()
-    cur6.execute("SELECT Level FROM teacher ")
+    cur6.execute("SELECT Level FROM teacherwant ")
     Level = cur6.fetchall()
+    print (Level)
     cur7 = teacher.cursor()
-    cur7.execute("SELECT Grade FROM teacher ")
+    cur7.execute("SELECT Grade FROM teacherwant ")
     Grade = cur7.fetchall()
+    print (Grade)
     cur8 = teacher.cursor()
-    cur8.execute("SELECT Attribute FROM teacher ")
+    cur8.execute("SELECT Attribute FROM teacherwant ")
     Attri = cur8.fetchall()
-    return (render_template('-----------', name=Name,surname=Surname,subject =Subject,number=Num,level=Level,grade=Grade,Attribute = Attri))
-
+    #cur9 = teacher.cursor()
+    #cur9.execute("SELECT Syllabus FROM teacherwant ")
+    #Syllabus = cur9.fetchall()
+    #print (Syllabus)
+    return (render_template('Admin/Show_Teacherwant_Ad.html',Subject =Subject,Num=Num,Level=Level,Grade=Grade,Attri = Attri))
 
 @app.route('/Show_inforTA_Teacher')
 def Show_inforTA_Teacher(username):
-    teacher = It.connect("teacher_v2.db")
+    teacher = It.connect("databaseall.db")
     cur2 = teacher.cursor()
     cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % i )
-    Subject = cur2.fetchall
-    len_list = len(Subject)
+    subject = cur2.fetchall
+    print (subject)
     for i in Subject:
         cur3 = student.cursor()
         cur3.execute("SELECT Name FROM student WHERE Subject = '%s'" % i)
-        Name = cur3.fetchall()
+        name = cur3.fetchall()
+        print (name)
         cur4 = teacher.cursor()
         cur4.execute("SELECT Surname FROM student WHERE Subject = '%s'" % i)
-        Surname = cur4.fetchall()
+        surname = cur4.fetchall()
+        print (surname)
         cur5 = teacher.cursor()
         cur5.execute("SELECT IDNUMBER FROM student WHERE Subject = '%s'" % i)
-        IDNUMBER = cur5.fetchall()
+        IDnumber = cur5.fetchall()
+        print (IDnumber)
         cur6 = teacher.cursor()
         cur6.execute("SELECT Level FROM student WHERE Subject = '%s'" % i)
-        Level = cur6.fetchall()
+        level = cur6.fetchall()
+        print (level)
         cur7 = teacher.cursor()
         cur7.execute("SELECT Departmant FROM student WHERE Subject = '%s'" % i)
-        Departmant = cur7.fetchall()
+        departmant = cur7.fetchall()
         cur8 = teacher.cursor()
         cur8.execute("SELECT Grade FROM student WHERE Subject = '%s'" % i)
-        Grade = cur8.fetchall()
+        grade = cur8.fetchall()
         cur9 = teacher.cursor()
         cur9.execute("SELECT Tel FROM student WHERE Subject = '%s'" % i)
-        Tel = cur9.fetchall()
+        tel = cur9.fetchall()
         cur10 = teacher.cursor()
         cur10.execute("SELECT Email FROM student WHERE Subject = '%s'" % i)
-        Email = cur10.fetchall()
-    return (render_template("----------",subject = Subject ,name = Name,surname = Surname , IDnumber = IDNUMBER , level = Level , department = Departmant ,grade = Grade,tel = Tel,email = Email))
+        email = cur10.fetchall()
+    return (render_template("Aj/Show_inforTA.html",subject = subject ,name = name,surname = surname , IDnumber = IDnumber , level = level , department = departmant ,grade = grade,tel = tel,email = email))
 
-#@app.route('/showlist_regis_admin')
-#def showlist_regis_admin():
 
 @app.route('/TA_working_form')
 def TA_working_form_TA():
@@ -425,6 +436,10 @@ def Register():
 @app.route("/Register_forTA")
 def Register_forTA():
     return(render_template("TA/Register_ta.html"))
+
+@app.route("/Register_forAJ")
+def Register_forAJ():
+    return(render_template("AJ/Register_aj.html"))
 
 @app.route("/addregisnormal", methods=['POST'])
 def addregisnormal():
