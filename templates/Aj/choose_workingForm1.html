@@ -83,19 +83,27 @@ body {
     <td height="614" colspan="5" align="center" valign="top" class="bg-color shadow"><p>&nbsp;</p>
       <table width="657" border="1" class="font2">
         <tr>
-          <td width="446" align="center">ชื่อ</td>
-          <td width="195" align="center">รายละเอียด</td>
+
+          <td width="200" align="center">ชื่อ</td>
+          <td width="200" align="center">รายละเอียด</td>
         </tr>
+
         {% for i in name %}
         <tr>
-          <td height="44" align="center" valign="middle"> 
-            {% for j in i %}{{j}} 
-            {% endfor %}</td>
-          <td align="center" valign="middle"> 
-            {% for j in i %} 
-            <button  name="{{j}}" type="submit" class="btn btn-info">detail</button>
-            {% endfor %} </td>
-        </tr>{% endfor %}
+
+          <td height="44" align="center" valign="middle">
+            {{i}}
+            </td>
+
+          <td align="center" valign="middle">
+
+            <button  name="{{i}}" type="submit" class="btn btn-info">detail</button>
+               </td>
+
+
+        </tr>
+          {% endfor %}
+
         <tr></tr>
       </table>
       <p></p>
