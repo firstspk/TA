@@ -346,7 +346,31 @@ def TA_working_form_TA():
                     name.append(i)
         print(name)
         return (render_template('Aj/choose_workingForm1.html', name=name))
+    if(a.type_user == 'admin'):
+        timesheets = It.connect("databaseall.db")
+        timesheetcur = timesheets.cursor()
+        subject = It.connect("databaseall.db")
+        subjectcur = subject.cursor()
+        subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % a.username)
+        print(a.username)
+        subjectteacher = []
 
+        for pdfrow in subjectcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+            subjectteacher.append(pdflist)
+        print(subject[0][0])
+        print('kkkkkkkkkk')
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % subject[0][0])
+        name = []
+        for pdfrow in timesheetcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+                name.append(pdflist)
+        print('xxxxxxxxxxx')
+        return (render_template('Aj/choose_workingForm1.html', name=name, subjectteacher=subjectteacher))
 
 @app.route('/notification')
 def notification():
