@@ -21,6 +21,6 @@ testcur = test.cursor()
 #testcur.execute("create table evaluate(One1 text,One2 text,One3 text,Two1 text,Two2 text,Two3 text,Three1 text,Three2 text,Three3 text,Comment text)")
 
 
-#testcur.execute("INSERT INTO teacherwant(Username,Subject) VALUES(?,?)",('Teacher1','FRA121'))
+#testcur.execute("INSERT INTO teacher(Username,Password,TypeUser) VALUES(?,?,?)",('Admin1','1234','admin'))
 test.commit()
 
