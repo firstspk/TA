@@ -330,24 +330,23 @@ def TA_working_form_TA():
         subjectcur = subject.cursor()
         subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % a.username)
         print(a.username)
-        subject = []
+        subjectteacher = []
 
         for pdfrow in subjectcur.fetchall():
             pdflist = []
             for i in pdfrow:
                 pdflist.append(i)
-            subject.append(pdflist)
-        print(subject[0][0])
-        print('kkkkkkkkkk')
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % subject[0][0])
+                subjectteacher.append(i)
         name = []
-        for pdfrow in timesheetcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-                name.append(pdflist)
-        subjectteacher = subject[0][0]
-        return (render_template('Aj/choose_workingForm1.html', name=name, subjectteacher=subjectteacher))
+        for i in subjectteacher:
+            timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % i)
+            for pdfrow in timesheetcur.fetchall():
+                pdflist = []
+                for i in pdfrow:
+                    name.append(i)
+        print(name)
+        return (render_template('Aj/choose_workingForm1.html', name=name))
+
 
 @app.route('/notification')
 def notification():
@@ -778,7 +777,7 @@ def selectnew():
     for i in x:
         nameta.append(i)
 
-    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[2])
+    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
     daymonthyear = []
     for pdfrow in dataworkcur.fetchall():
         pdflist = []
@@ -786,7 +785,7 @@ def selectnew():
             pdflist.append(i)
             daymonthyear.append(pdflist)
 
-    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[2])
+    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
     timecome = []
     for pdfrow in dataworkcur.fetchall():
         pdflist = []
@@ -794,7 +793,7 @@ def selectnew():
             pdflist.append(i)
             timecome.append(pdflist)
 
-    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[2])
+    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
     timeback = []
     for pdfrow in dataworkcur.fetchall():
         pdflist = []
@@ -802,7 +801,7 @@ def selectnew():
             pdflist.append(i)
             timeback.append(pdflist)
 
-    dataworkcur.execute("SELECT whatdo FROM timesheet WHERE Username='%s'" % nameta[2])
+    dataworkcur.execute("SELECT whatdo FROM timesheet WHERE Username='%s'" % nameta[0])
     whatdo = []
     for pdfrow in dataworkcur.fetchall():
         pdflist = []
@@ -813,9 +812,9 @@ def selectnew():
     print(timecome)
     print(timeback)
     print(whatdo)
-    print(nameta[2])
+    print(nameta[0])
     print('testtesttest')
-    nametashow = nameta[2]
+    nametashow = nameta[0]
 
     return (render_template("Aj/showWorkingForm_Aj1.html", nametashow=nametashow, daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
