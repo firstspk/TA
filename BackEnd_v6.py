@@ -458,7 +458,7 @@ def addworking():
             timesheets = It.connect("databaseall.db")
             timesheetcur = timesheets.cursor()
             timesheetcur.execute(
-                "SELECT DayMonthYear ,Timecome,Timeback, Status ,whatdo FROM timesheet WHERE Username='%s'" % username)
+                "SELECT DayMonthYear ,Timecome,Timeback, StatusAj ,whatdo FROM timesheet WHERE Username='%s'" % username)
             pdfwork = []
             for pdfrow in timesheetcur.fetchall():
                 pdflist = []
@@ -467,7 +467,7 @@ def addworking():
                 pdfwork.append(pdflist)
 
             #pdfwork[0][3] == '0' and
-            if printworkingForm == 'print':
+            if printworkingForm == 'print'and pdfwork[0][3] == '1':
                 pdfcreate = canvas.Canvas('%s.pdf' % username)
                 pdfcreate.drawString(100, 800, 'INSTITUTE OF FIELD ROBOTICS STUDENT WORKING HOUR FORM ')
                 pdfcreate.drawString(210, 770, 'SEMESTER : 1  YEAR : 2560')
@@ -565,10 +565,11 @@ def addworking():
                 pdfcreate2.drawString(50, 560, pdfwork[7][0])
                 pdfcreate2.drawString(200, 560, pdfwork[7][4])
                 pdfcreate2.save()
+
                 os.startfile('%s.pdf' % username)
                 os.startfile('%sP2.pdf' % username)
-
-
+            else:
+                return 'plz wait AJ comment'
 
 
         if i == 'save_workingForm':
