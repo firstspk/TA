@@ -843,8 +843,37 @@ def selectnew():
     print(nameta[0])
     print('testtesttest')
     nametashow = nameta[0]
+    dataworkcur.execute("SELECT Name FROM student WHERE Username ='%s' " % nametashow)
+    name = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            name.append(i)
+    dataworkcur.execute("SELECT Surname FROM student WHERE Username ='%s' " % nametashow)
+    surname = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            surname.append(i)
+    dataworkcur.execute("SELECT IDNUMBER FROM student WHERE Username ='%s' " % nametashow)
+    idnum = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            idnum.append(i)
+    dataworkcur.execute("SELECT Level FROM student WHERE Username ='%s' " % nametashow)
+    level = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            level.append(i)
+    dataworkcur.execute("SELECT Department FROM student WHERE Username ='%s' " % nametashow)
+    department = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            department.append(i)
+    print(idnum[0])
+    print(level[0])
+    print(department[0])
 
-    return (render_template("Aj/showWorkingForm_Aj1.html", nametashow=nametashow, daymonthyear=daymonthyear,
+
+    return (render_template("Aj/showWorkingForm_Aj1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow[0],department=department[0], daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
 
 @app.route('/teachercomment' , methods= ['get','post'])
