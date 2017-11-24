@@ -856,9 +856,9 @@ def teachercomment():
     listdata=[]
     for i in x:
         listdata.append(i)
-    nameta=str(listdata[2])
+    nameta=str(listdata[0])
     comment = x['%s'%(nameta)]
-    passfail=str(listdata[3])
+    passfail=str(listdata[1])
     print(nameta)
     print(comment)
     print(passfail)
