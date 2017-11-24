@@ -739,7 +739,7 @@ def selectnew():
     print(timecome)
     print(timeback)
     print(whatdo)
-    print(nameta)
+    print(nameta[2])
     print('testtesttest')
     nametashow = nameta[2]
 
@@ -755,9 +755,9 @@ def teachercomment():
     listdata=[]
     for i in x:
         listdata.append(i)
-    nameta=str(listdata[0])
+    nameta=str(listdata[2])
     comment = x['%s'%(nameta)]
-    passfail=str(listdata[1])
+    passfail=str(listdata[3])
     print(nameta)
     print(comment)
     print(passfail)
