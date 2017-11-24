@@ -40,7 +40,7 @@ body {
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
+<form id="contact-form" action="/addworkingform", method="POST">
 <body onload="MM_preloadImages('static/img/home_icon_1.png','static/img/end2.png')">
 
 <table height="1301" border="0" align="center" class="header_img">
@@ -79,14 +79,14 @@ body {
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
 					<h1>Login to Your Account</h1><br>
-				  <form>
+				  
 					<input type="text" name="user" placeholder="Username">
 					<input type="password" name="pass" placeholder="Password">
-					<a href="login" class="btn btn-info btn-lg" role="button"></a>
-				  </form>
+					<a href="#" class="btn btn-info btn-lg" role="button"><font color="#FFFFFF" class="font">Login</a>
+
 					
 				  <div class="login-help">
-					<a href="forgot_password">Forgot Password</a>
+					<a href="#">Forgot Password</a>
 				  </div>
 				</div>
 			</div>
@@ -118,29 +118,29 @@ body {
         <tr>
           <td width="58" align="right">1.</td>
           <td width="111" align="right">วัน/เดือน/ปี : </td>
-          <td width="284"><form id="form2" name="form2" method="post" action="">
-            <label for="dateWorking_1"></label>
-            <input type="text" name="dateWorking_1" id="dateWorking_1" />
+          <td width="284">
+          	<label for="dateWorking_1"></label>
+            <input type="text" name="dmy" id="dateWorking_1" />
             <font color="#FF0000"> **วว/ดด/ปป** </font>
-          </form></td>
+          </td>
           <td width="71" align="right">เวลามา : </td>
-          <td width="148"><form id="form3" name="form3" method="post" action="">
-            <label for="timeWorking_C1"></label>
-            <input type="text" name="timeWorking_C1" id="timeWorking_C1" />
-          </form></td>
+          <td width="148">
+          	<label for="timeWorking_C1"></label>
+            <input type="text" name="timecome" id="timeWorking_C1" />
+          </td>
           <td width="82" align="right">เวลากลับ : </td>
-          <td width="152"><form id="form4" name="form4" method="post" action="">
-            <label for="timeWorking_B1"></label>
-            <input type="text" name="timeWorking_B1" id="timeWorking_B1" />
-          </form></td>
+          <td width="152">
+          	<label for="timeWorking_B1"></label>
+            <input type="text" name="timeback" id="timeWorking_B1" />
+          </td>
         </tr>
         <tr>
           <td width="58" align="right">&nbsp;</td>
           <td width="111" align="right">สิ่งที่ได้ปฎิบัติ :</td>
-          <td><form id="form1" name="form1" method="post" action="">
-            <label for="working_1"></label>
-            <textarea name="working_1" id="working_1" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
-          </form></td>
+          <td>
+          	<label for="working_1"></label>
+            <textarea name="whatdo" id="working_1" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
+          </td>
           <td width="71" align="right">&nbsp;</td>
           <td width="148">&nbsp;</td>
           <td width="82" align="right">&nbsp;</td>
@@ -149,29 +149,28 @@ body {
         <tr>
           <td align="right">2.</td>
           <td align="right">วัน/เดือน/ปี : </td>
-          <td><form id="form2" name="form2" method="post" action="">
-            <label for="dateWorking_2"></label>
-            <input type="text" name="dateWorking_2" id="dateWorking_2" />
-            <font color="#FF0000"> **วว/ดด/ปป** </font>
-          </form></td>
+          <td>
+          <label for="dateWorking_2"></label>
+            <input type="text" name="dmy2" id="dateWorking_2" /><font color="#FF0000">
+          **วว/ดด/ปป**
+          </font>
+          </td>
           <td align="right">เวลามา : </td>
-          <td><form id="form3" name="form3" method="post" action="">
-            <label for="timeWorking_C2"></label>
-            <input type="text" name="timeWorking_C2" id="timeWorking_C2" />
-          </form></td>
+          <td>
+          	<label for="timeWorking_C2"></label>
+            <input type="text" name="timecome2" id="timeWorking_C2" /></td>
           <td align="right">เวลากลับ : </td>
-          <td><form id="form4" name="form4" method="post" action="">
-            <label for="timeWorking_B2"></label>
-            <input type="text" name="timeWorking_B2" id="timeWorking_B2" />
-          </form></td>
+          <td><label for="timeWorking_B2"></label>
+            <input type="text" name="timeback2" id="timeWorking_B2" />
+          </td>
         </tr>
         <tr>
           <td align="right">&nbsp;</td>
           <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
-          <td><form id="form1" name="form1" method="post" action="">
-            <label for="working_2"></label>
-            <textarea name="working_2" id="working_2" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
-          </form></td>
+          <td>
+          <label for="working_2"></label>
+            <textarea name="whatdo2" id="working_2" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
+          </td>
           <td align="right">&nbsp;</td>
           <td>&nbsp;</td>
           <td align="right">&nbsp;</td>
@@ -180,29 +179,29 @@ body {
         <tr>
           <td align="right">3.</td>
           <td align="right">วัน/เดือน/ปี : </td>
-          <td><form id="form2" name="form2" method="post" action="">
-            <label for="dateWorking_3"></label>
-            <input type="text" name="dateWorking_3" id="dateWorking_3" />
-            <font color="#FF0000"> **วว/ดด/ปป** </font>
-          </form></td>
+          <td>
+          <label for="dateWorking_3"></label>
+            <input type="text" name="day3" id="dateWorking_3" /><font color="#FF0000">
+          **วว/ดด/ปป**
+          </font>
+          </td>
           <td align="right">เวลามา : </td>
-          <td><form id="form3" name="form3" method="post" action="">
+          <td>
+          <form id="form3" name="timecome3" method="post" action="">
             <label for="timeWorking_C3"></label>
-            <input type="text" name="timeWorking_C3" id="timeWorking_C3" />
-          </form></td>
+            <input type="text" name="timecome3" id="timeWorking_C3" />
+          </td>
           <td align="right">เวลากลับ : </td>
-          <td><form id="form4" name="form4" method="post" action="">
-            <label for="timeWorking_B3"></label>
-            <input type="text" name="timeWorking_B3" id="timeWorking_B3" />
-          </form></td>
+          <td><label for="timeWorking_B3"></label>
+            <input type="text" name="timeback3" id="timeWorking_B3" /></td>
         </tr>
         <tr>
           <td align="right">&nbsp;</td>
           <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
-          <td><form id="form1" name="form1" method="post" action="">
-            <label for="working_3"></label>
-            <textarea name="working_3" id="working_3" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
-          </form></td>
+          <td>
+          <label for="working_3"></label>
+            <textarea name="whatdo3" id="working_3" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
+          </td>
           <td align="right">&nbsp;</td>
           <td>&nbsp;</td>
           <td align="right">&nbsp;</td>
@@ -211,29 +210,29 @@ body {
         <tr>
           <td align="right">4.</td>
           <td align="right">วัน/เดือน/ปี : </td>
-          <td><form id="form2" name="form2" method="post" action="">
-            <label for="dateWorking_4"></label>
-            <input type="text" name="dateWorking_4" id="dateWorking_4" />
-            <font color="#FF0000"> **วว/ดด/ปป**</font>
-          </form></td>
+          <td>
+          <label for="dateWorking_4"></label>
+            <input type="text" name="dmy4" id="dateWorking_4" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
+          </td>
           <td align="right">เวลามา : </td>
-          <td><form id="form3" name="form3" method="post" action="">
-            <label for="timeWorking_C4"></label>
-            <input type="text" name="timeWorking_C4" id="timeWorking_C4" />
-          </form></td>
+          <td>
+           <label for="timeWorking_C4"></label>
+            <input type="text" name="timecome4" id="timeWorking_C4" />
+          </td>
           <td align="right">เวลากลับ : </td>
-          <td><form id="form4" name="form4" method="post" action="">
-            <label for="timeWorking_B4"></label>
-            <input type="text" name="timeWorking_B4" id="timeWorking_B4" />
-          </form></td>
+          <td>
+          <label for="timeWorking_B4"></label>
+            <input type="text" name="timeback4" id="timeWorking_B4" />
+          </td>
         </tr>
         <tr>
           <td align="right">&nbsp;</td>
           <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
-          <td><form id="form1" name="form1" method="post" action="">
-            <label for="working_4"></label>
-            <textarea name="working_4" id="working_4" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
-          </form></td>
+          <td>
+          <label for="working_4"></label>
+            <textarea name="whatdo4" id="working_4" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
+          </td>
           <td align="right">&nbsp;</td>
           <td>&nbsp;</td>
           <td align="right">&nbsp;</td>
@@ -242,29 +241,23 @@ body {
         <tr>
           <td align="right">5.</td>
           <td align="right">วัน/เดือน/ปี : </td>
-          <td><form id="form2" name="form2" method="post" action="">
-            <label for="dateWorking_5"></label>
-            <input type="text" name="dateWorking_5" id="dateWorking_5" />
-            <font color="#FF0000"> **วว/ดด/ปป**</font>
-          </form></td>
+          <td><label for="dateWorking_5"></label>
+            <input type="text" name="day5" id="dateWorking_5" /><font color="#FF0000">
+          **วว/ดด/ปป**</font></td>
           <td align="right">เวลามา : </td>
-          <td><form id="form3" name="form3" method="post" action="">
-            <label for="timeWorking_C5"></label>
-            <input type="text" name="timeWorking_C5" id="timeWorking_C5" />
-          </form></td>
+          <td>
+          <label for="timeWorking_C5"></label>
+            <input type="text" name="timecome5" id="timeWorking_C5" />
+          </td>
           <td align="right">เวลากลับ : </td>
-          <td><form id="form4" name="form4" method="post" action="">
-            <label for="timeWorking_B5"></label>
-            <input type="text" name="timeWorking_B5" id="timeWorking_B5" />
-          </form></td>
+          <td><label for="timeWorking_B5"></label>
+            <input type="text" name="timeback5" id="timeWorking_B5" /></td>
         </tr>
         <tr>
           <td align="right">&nbsp;</td>
           <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
-          <td><form id="form1" name="form1" method="post" action="">
-            <label for="working_5"></label>
-            <textarea name="working_5" id="working_5" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
-          </form></td>
+          <td><label for="working_5"></label>
+            <textarea name="whatdo5" id="working_5" cols="35" rows="5" style="overflow:auto;resize:none"></textarea></td>
           <td align="right">&nbsp;</td>
           <td>&nbsp;</td>
           <td align="right">&nbsp;</td>
@@ -273,29 +266,29 @@ body {
         <tr>
           <td align="right">6.</td>
           <td align="right">วัน/เดือน/ปี : </td>
-          <td><form id="form2" name="form2" method="post" action="">
-            <label for="dateWorking_6"></label>
-            <input type="text" name="dateWorking_6" id="dateWorking_6" />
-            <font color="#FF0000"> **วว/ดด/ปป**</font>
-          </form></td>
+          <td>
+          <label for="working_6"></label>
+            <input type="text" name="dmy6" id="dateWorking_6" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
+          </td>
           <td align="right">เวลามา : </td>
-          <td><form id="form3" name="form3" method="post" action="">
-            <label for="timeWorking_C6"></label>
-            <input type="text" name="timeWorking_C6" id="timeWorking_C6" />
-          </form></td>
+          <td>
+          <label for="timeWorking_C6"></label>
+            <input type="text" name="timecome6" id="timeWorking_C6" />
+          </td>
           <td align="right">เวลากลับ : </td>
-          <td><form id="form4" name="form4" method="post" action="">
-            <label for="timeWorking_B6"></label>
-            <input type="text" name="timeWorking_B6" id="timeWorking_B6" />
-          </form></td>
+          <td>
+          <label for="timeWorking_B6"></label>
+            <input type="text" name="timeback6" id="timeWorking_B6" />
+          </td>
         </tr>
         <tr>
           <td align="right">&nbsp;</td>
           <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
-          <td><form id="form1" name="form1" method="post" action="">
-            <label for="working_6"></label>
-            <textarea name="working_6" id="working_6" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
-          </form></td>
+          <td>
+          <label for="working_6"></label>
+            <textarea name="whatdo6" id="working_6" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
+          </td>
           <td align="right">&nbsp;</td>
           <td>&nbsp;</td>
           <td align="right">&nbsp;</td>
@@ -304,29 +297,25 @@ body {
         <tr>
           <td align="right">7.</td>
           <td align="right">วัน/เดือน/ปี : </td>
-          <td><form id="form2" name="form2" method="post" action="">
-            <label for="dateWorking_7"></label>
-            <input type="text" name="dateWorking_7" id="dateWorking_7" />
-            <font color="#FF0000"> **วว/ดด/ปป**</font>
-          </form></td>
+          <td>
+          <label for="dateWorking_7"></label>
+            <input type="text" name="dmy7" id="dateWorking_7" /><font color="#FF0000">
+          **วว/ดด/ปป**</font>
+          </td>
           <td align="right">เวลามา : </td>
-          <td><form id="form3" name="form3" method="post" action="">
-            <label for="timeWorking_C7"></label>
-            <input type="text" name="timeWorking_C7" id="timeWorking_C7" />
-          </form></td>
+          <td><label for="timeWorking_C7"></label>
+            <input type="text" name="timecome7" id="timeWorking_C7" /></td>
           <td align="right">เวลากลับ : </td>
-          <td><form id="form4" name="form4" method="post" action="">
-            <label for="timeWorking_B7"></label>
-            <input type="text" name="timeWorking_B7" id="timeWorking_B7" />
-          </form></td>
+          <td>
+          <label for="timeWorking_B7"></label>
+            <input type="text" name="timeback7" id="timeWorking_B7" />
+          </td>
         </tr>
         <tr>
           <td align="right">&nbsp;</td>
           <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
-          <td><form id="form1" name="form1" method="post" action="">
-            <label for="working_7"></label>
-            <textarea name="working_7" id="working_7" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
-          </form></td>
+          <td><label for="working_7"></label>
+            <textarea name="whatdo7" id="working_7" cols="35" rows="5" style="overflow:auto;resize:none"></textarea></td>
           <td align="right">&nbsp;</td>
           <td>&nbsp;</td>
           <td align="right">&nbsp;</td>
@@ -335,29 +324,23 @@ body {
         <tr>
           <td align="right">8.</td>
           <td align="right">วัน/เดือน/ปี : </td>
-          <td><form id="form2" name="form2" method="post" action="">
-            <label for="dateWorking_8"></label>
-            <input type="text" name="dateWorking_8" id="dateWorking_8" />
-            <font color="#FF0000"> **วว/ดด/ปป**</font>
-          </form></td>
+          <td><label for="dateWorking_8"></label>
+            <input type="text" name="dmy8" id="dateWorking_8" /><font color="#FF0000">
+          **วว/ดด/ปป**</font></td>
           <td align="right">เวลามา : </td>
-          <td><form id="form3" name="form3" method="post" action="">
-            <label for="timeWorking_C8"></label>
-            <input type="text" name="timeWorking_C8" id="timeWorking_C8" />
-          </form></td>
+          <td><label for="timeWorking_C8"></label>
+            <input type="text" name="timecome8" id="timeWorking_C8" /></td>
           <td align="right">เวลากลับ : </td>
-          <td><form id="form4" name="form4" method="post" action="">
-            <label for="timeWorking_B8"></label>
-            <input type="text" name="timeWorking_B8" id="timeWorking_B8" />
-          </form></td>
+          <td>
+          <label for="timeWorking_B8"></label>
+            <input type="text" name="timeback8" id="timeWorking_B8" />
+          </td>
         </tr>
         <tr>
           <td align="right">&nbsp;</td>
           <td align="right">สิ่งที่ได้ปฎิบัติ :</td>
-          <td><form id="form1" name="form1" method="post" action="">
-            <label for="working_8"></label>
-            <textarea name="working_8" id="working_8" cols="35" rows="5" style="overflow:auto;resize:none"></textarea>
-          </form></td>
+          <td><label for="working_8"></label>
+            <textarea name="whatdo8" id="working_8" cols="35" rows="5" style="overflow:auto;resize:none"></textarea></td>
           <td align="right">&nbsp;</td>
           <td>&nbsp;</td>
           <td align="right">&nbsp;</td>
@@ -372,46 +355,34 @@ body {
           <td>&nbsp;</td>
           <td>&nbsp;</td>
         </tr>
-        <tr>
-          <td colspan="7" align="center">ขอเบิกเพียง<span id="sprytextfield6">
-            <label for="hours_to_pay"></label>
-            <input type="text" name="hours_to_pay" id="hours_to_pay" />
-            <span class="textfieldRequiredMsg">A value is required.</span></span> ชั่วโมง</td>
-</tr>
-        <tr>
-          <td colspan="7" align="center">รวมจำนวนที่ขอเบิกเงินทั้งสิ้นชั่วโมง <span id="sprytextfield8">
-            <label for="pay_unit"></label>
-            <input name="pay_unit" type="text" disabled="disabled" id="pay_unit" readonly="readonly" />
-            <span class="textfieldRequiredMsg">A value is required.</span></span> บาท = <span id="sprytextfield9">
-            <label for="price_work"></label>
-            <input name="price_work" type="text" disabled="disabled" id="price_work" readonly="readonly" />
-            <span class="textfieldRequiredMsg">A value is required.</span></span>บาท</td>
-</tr>
-        <tr> </tr>
-        <tr> </tr>
+        <tr> 
       </table>
     <p>&nbsp;</p>
     <table width="177" border="0">
       <tr>
         <td>
         
-        <a href="#" class="btn btn-info font" role="button">พิมพ์</a>
+        <input type="submit" name="save_workingForm" id="save_workingForm" value="submit" class="font" />
         
-        &nbsp;</td>
+        </td>
         <td>
         
-        <a href="#" class="btn btn-info font" role="button">บันทึก</a>
+        <input type="submit" name="printworkingForm" id="print" value="print" class="font" />
         
-        &nbsp;</td>
+        </td>
       </tr>
+      <tr>
+
+    <td colspan="2"></td>
     </table>
     <p>&nbsp;</p></td>
   </tr>
 </table>
 <script type="text/javascript">
-var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9");
 var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6");
 var sprytextfield8 = new Spry.Widget.ValidationTextField("sprytextfield8");
+var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9");
 </script>
 </body>
+</form>
 </html>
