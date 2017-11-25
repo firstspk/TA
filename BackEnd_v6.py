@@ -888,7 +888,7 @@ def selectnew():
     print(department[0])
 
 
-    return (render_template("Aj/showWorkingForm_Aj1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow[0],department=department[0], daymonthyear=daymonthyear,
+    return (render_template("Aj/showWorkingForm_Aj1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0], daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
 
 @app.route('/teachercomment' , methods= ['get','post'])
@@ -900,9 +900,9 @@ def teachercomment():
     listdata=[]
     for i in x:
         listdata.append(i)
-    nameta=str(listdata[0])
+    nameta=str(listdata[2])
     comment = x['%s'%(nameta)]
-    passfail=str(listdata[1])
+    passfail=str(listdata[3])
     print(nameta)
     print(comment)
     print(passfail)
