@@ -98,8 +98,9 @@ def printworkta():
         do.append(i)
         print(i)
     print(do[2])
-    usename='test2'
-    dataworkcur.execute("SELECT StatusAj,StatusAdmin FROM timesheet WHERE Username='%s' and ID = '1'"% usename)
+    username='test2' #อย่าลืมแก้
+    #username=a.username-------------------------------------------------------------
+    dataworkcur.execute("SELECT StatusAj,StatusAdmin FROM timesheet WHERE Username='%s' and ID = '1'"% username)
     status = []
     for pdfrow in dataworkcur.fetchall():
         for i in pdfrow:
@@ -109,10 +110,125 @@ def printworkta():
     if do[2]=='edit':
         return render_template('TA/WorkingForm_TA_v3_ta.html')
     if do[2] == 'print'and status[0]=='1':
+        student = It.connect("databaseall.db")
+        cur = student.cursor()
+        cur.execute("SELECT Name,Surname,Subject,Department,Level,Grade,Tel,Email FROM student WHERE Username='%s'" % username)
+        pdf = []
+        for pdfrow in cur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+            pdf.append(pdflist)
+        timesheets = It.connect("databaseall.db")
+        timesheetcur = timesheets.cursor()
+        timesheetcur.execute(
+            "SELECT DayMonthYear ,Timecome,Timeback, StatusAj ,whatdo FROM timesheet WHERE Username='%s'" % username)
+        pdfwork = []
+        for pdfrow in timesheetcur.fetchall():
+            pdflist = []
+            for i in pdfrow:
+                pdflist.append(i)
+            pdfwork.append(pdflist)
+
+        pdfcreate = canvas.Canvas('%s.pdf' % username)
+        pdfcreate.drawString(100, 800, 'INSTITUTE OF FIELD ROBOTICS STUDENT WORKING HOUR FORM ')
+        pdfcreate.drawString(210, 770, 'SEMESTER : 1  YEAR : 2560')
+        pdfcreate.drawString(130, 740, 'KING MONGKUT UNIVERSITY OF TECHNOLOGY THONBURI')
+        pdfcreate.drawString(80, 710, '==============================================================')
+        pdfcreate.drawString(50, 680, 'Name :')
+        pdfcreate.drawString(120, 680, pdf[0][0])
+        pdfcreate.drawString(220, 680, 'Surname :')
+        pdfcreate.drawString(300, 680, pdf[0][1])
+        pdfcreate.drawString(400, 680, 'Subject :')
+        pdfcreate.drawString(480, 680, pdf[0][2])
+        pdfcreate.drawString(50, 650, 'Department :')
+        pdfcreate.drawString(120, 650, pdf[0][3])
+        pdfcreate.drawString(220, 650, 'Level :')
+        pdfcreate.drawString(300, 650, pdf[0][4])
+        pdfcreate.drawString(400, 650, 'Grade :')
+        pdfcreate.drawString(480, 650, pdf[0][5])
+        pdfcreate.drawString(50, 620, 'Tel :')
+        pdfcreate.drawString(120, 620, pdf[0][6])
+        pdfcreate.drawString(220, 620, 'Email :')
+        pdfcreate.drawString(300, 620, pdf[0][7])
+        pdfcreate.drawString(450, 590, 'Workingdata')
+        pdfcreate.drawString(50, 560, 'Day/Month/Year :')
+        pdfcreate.drawString(200, 560, pdfwork[0][0])
+        pdfcreate.drawString(350, 560, 'Timecome :')
+        pdfcreate.drawString(420, 560, pdfwork[0][1])
+        pdfcreate.drawString(450, 560, 'Timeback :')
+        pdfcreate.drawString(520, 560, pdfwork[0][2])
+        pdfcreate.drawString(50, 530, 'Day/Month/Year :')
+        pdfcreate.drawString(200, 530, pdfwork[1][0])
+        pdfcreate.drawString(350, 530, 'Timecome :')
+        pdfcreate.drawString(420, 530, pdfwork[1][1])
+        pdfcreate.drawString(450, 530, 'Timeback :')
+        pdfcreate.drawString(520, 530, pdfwork[1][2])
+        pdfcreate.drawString(50, 500, 'Day/Month/Year :')
+        pdfcreate.drawString(200, 500, pdfwork[2][0])
+        pdfcreate.drawString(350, 500, 'Timecome :')
+        pdfcreate.drawString(420, 500, pdfwork[2][1])
+        pdfcreate.drawString(450, 500, 'Timeback :')
+        pdfcreate.drawString(520, 500, pdfwork[2][2])
+        pdfcreate.drawString(50, 470, 'Day/Month/Year :')
+        pdfcreate.drawString(200, 470, pdfwork[3][0])
+        pdfcreate.drawString(350, 470, 'Timecome :')
+        pdfcreate.drawString(420, 470, pdfwork[3][1])
+        pdfcreate.drawString(450, 470, 'Timeback :')
+        pdfcreate.drawString(520, 470, pdfwork[3][2])
+        pdfcreate.drawString(50, 440, 'Day/Month/Year :')
+        pdfcreate.drawString(200, 440, pdfwork[4][0])
+        pdfcreate.drawString(350, 440, 'Timecome :')
+        pdfcreate.drawString(420, 440, pdfwork[4][1])
+        pdfcreate.drawString(450, 440, 'Timeback :')
+        pdfcreate.drawString(520, 440, pdfwork[4][2])
+        pdfcreate.drawString(50, 410, 'Day/Month/Year :')
+        pdfcreate.drawString(200, 410, pdfwork[5][0])
+        pdfcreate.drawString(350, 410, 'Timecome :')
+        pdfcreate.drawString(420, 410, pdfwork[5][1])
+        pdfcreate.drawString(450, 410, 'Timeback :')
+        pdfcreate.drawString(520, 410, pdfwork[5][2])
+        pdfcreate.drawString(50, 380, 'Day/Month/Year :')
+        pdfcreate.drawString(200, 380, pdfwork[6][0])
+        pdfcreate.drawString(350, 380, 'Timecome :')
+        pdfcreate.drawString(420, 380, pdfwork[6][1])
+        pdfcreate.drawString(450, 380, 'Timeback :')
+        pdfcreate.drawString(520, 380, pdfwork[6][2])
+        pdfcreate.drawString(50, 350, 'Day/Month/Year :')
+        pdfcreate.drawString(200, 350, pdfwork[7][0])
+        pdfcreate.drawString(350, 350, 'Timecome :')
+        pdfcreate.drawString(420, 350, pdfwork[7][1])
+        pdfcreate.drawString(450, 350, 'Timeback :')
+        pdfcreate.drawString(520, 350, pdfwork[7][2])
+        pdfcreate.drawString(400, 320, '.......................')
+        pdfcreate.save()
+
+        pdfcreate2 = canvas.Canvas('%sP2.pdf' % username)
+        pdfcreate2.drawString(100, 800, 'Job Description ')
+        pdfcreate2.drawString(50, 770, pdfwork[0][0])
+        pdfcreate2.drawString(200, 770, pdfwork[0][4])
+        pdfcreate2.drawString(50, 740, pdfwork[1][0])
+        pdfcreate2.drawString(200, 740, pdfwork[1][4])
+        pdfcreate2.drawString(50, 710, pdfwork[2][0])
+        pdfcreate2.drawString(200, 710, pdfwork[2][4])
+        pdfcreate2.drawString(50, 680, pdfwork[3][0])
+        pdfcreate2.drawString(200, 680, pdfwork[3][4])
+        pdfcreate2.drawString(50, 650, pdfwork[4][0])
+        pdfcreate2.drawString(200, 650, pdfwork[4][4])
+        pdfcreate2.drawString(50, 620, pdfwork[5][0])
+        pdfcreate2.drawString(200, 620, pdfwork[5][4])
+        pdfcreate2.drawString(50, 590, pdfwork[6][0])
+        pdfcreate2.drawString(200, 590, pdfwork[6][4])
+        pdfcreate2.drawString(50, 560, pdfwork[7][0])
+        pdfcreate2.drawString(200, 560, pdfwork[7][4])
+        pdfcreate2.save()
+
+        os.startfile('%s.pdf' % username)
+        os.startfile('%sP2.pdf' % username)
+
         return 'kkkkkk'
     if do[2] == 'print'and status[0]=='0':
         return redirect(url_for('printpdf'))
-    return 'kjkjkj'
 
 
 @app.route('/recruitment')
