@@ -606,10 +606,7 @@ def forgot_password():
 @app.route('/register')
 def register():
     if(a.type_user == None):
-        #return(render_template('Po/Register_po.html'))
-        return render_template('Po/registernormal_po.html')
-    else:
-        return (render_template('Po/register_Sucess_po.html'))
+        return(render_template('Po/Register_po.html'))
 
 @app.route("/Register")
 def Register():
@@ -625,6 +622,7 @@ def Register_forAJ():
 
 @app.route("/addregisnormal", methods=['POST'])
 def addregisnormal():
+    print('kkkkkkkkk')
     x = dict(request.form.items())
     print(x)
     name = x['name']
@@ -645,7 +643,8 @@ def addregisnormal():
     stnormalcur = studentnormal.cursor()
     stnormalcur.execute("INSERT INTO studentnormal(Name,Surname,Department,Branch,Degree,Level,Idnum,Grade,Email,Tel,Subject,AccountNum,Attribute) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)", (name,surname,department,branch,degree,level,idnumber,grade,email,tel,subject,accountnum,attribute))
     studentnormal.commit()
-    return(render_template('Po/Register_Success_po.html'))
+    return home()
+
 
 @app.route('/register_TA',methods=['post'])
 def register_TA():
