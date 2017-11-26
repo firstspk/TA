@@ -33,6 +33,87 @@ def index():
 @app.route('/home')
 def home():
     return(index())
+@app.route('/printworkpdf')
+def printpdf():
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    username ='test2' #แก้ด้วย
+
+
+    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % username)
+    daymonthyear = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            daymonthyear.append(i)
+
+    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % username)
+    timecome = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            timecome.append(i)
+    print(timecome)
+    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % username)
+    timeback = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            timeback.append(i)
+    print(timeback)
+    print('tsijofpdsj;djs')
+    dataworkcur.execute("SELECT whatdo FROM timesheet WHERE Username='%s'" % username)
+    whatdo = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            whatdo.append(i)
+    dataworkcur.execute("SELECT Comment FROM timesheet WHERE Username='%s' and ID='1'" % username)
+    comment = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            comment.append(i)
+    dataworkcur.execute("SELECT StatusAj FROM timesheet WHERE Username='%s' and ID='1'" % username)
+    statusaj = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            statusaj.append(i)
+    dataworkcur.execute("SELECT StatusAdmin FROM timesheet WHERE Username='%s' and ID='1'" % username)
+    statusad = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            statusad.append(i)
+    print(statusaj[0])
+    if statusaj[0]=='0' or statusad[0]=='0':
+        warn=[]
+        warn.append('"แบบฟอร์มไม่ผ่าน" กรุณากดแก้ไขอีกครั้ง')
+    if statusaj[0]=='1' or statusad[0]=='1':
+        warn=[]
+        warn.append('"แบบฟอร์มผ่าน" สามารถพิมพ์แบบฟอร์มได้')
+    return (render_template('TA/printingFrom_TA.html', daymonthyear=daymonthyear,timecome=timecome, timeback=timeback, whatdo=whatdo,comment=comment[0],warn=warn[0]))
+
+@app.route('/printworkta', methods=["POST"])
+def printworkta():
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    x = dict(request.form.items())
+    do=[]
+    for i in x:
+        do.append(i)
+        print(i)
+    print(do[2])
+    usename='test2'
+    dataworkcur.execute("SELECT StatusAj,StatusAdmin FROM timesheet WHERE Username='%s' and ID = '1'"% usename)
+    status = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            status.append(i)
+    print(status[0])
+
+    if do[2]=='edit':
+        return render_template('TA/WorkingForm_TA_v3_ta.html')
+    if do[2] == 'print'and status[0]=='1':
+        return 'kkkkkk'
+    if do[2] == 'print'and status[0]=='0':
+        return redirect(url_for('printpdf'))
+    return 'kjkjkj'
+
 
 @app.route('/recruitment')
 def recruitment():
@@ -357,31 +438,16 @@ def TA_working_form_TA():
                     name.append(i)
         print(name)
         return (render_template('Aj/choose_workingForm1.html', name=name))
-    if(a.type_user == 'admin'):
+    if (a.type_user == 'admin'):
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
-        subject = It.connect("databaseall.db")
-        subjectcur = subject.cursor()
-        subjectcur.execute("SELECT Subject FROM teacher WHERE Username='%s'" % a.username)
-        print(a.username)
-        subjectteacher = []
-
-        for pdfrow in subjectcur.fetchall():
-            pdflist = []
-            for i in pdfrow:
-                pdflist.append(i)
-            subjectteacher.append(pdflist)
-        print(subject[0][0])
-        print('kkkkkkkkkk')
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % subject[0][0])
         name = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'")
         for pdfrow in timesheetcur.fetchall():
-            pdflist = []
             for i in pdfrow:
-                pdflist.append(i)
-                name.append(pdflist)
-        print('xxxxxxxxxxx')
-        return (render_template('Aj/choose_workingForm1.html', name=name, subjectteacher=subjectteacher))
+                name.append(i)
+
+        return (render_template('Admin/adminchooseworkform1.html', name=name))
 
 @app.route('/notification')
 def notification():
