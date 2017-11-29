@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>แจ้งปัญหา / ติดต่อเรา</title>
+<title>แสดงความต้องการของอาจารย์</title>
 <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
@@ -57,8 +57,14 @@ body {
       <li><a href="recruitment">ประกาศรับสมัคร</a></li>
       <li><a href="pass_audition">ประกาศรายชือผู้ผ่านการคัดเลือก</a></li>
       <li><a href="EX_TA_form">ตัวอย่างการกรอกแบบฟอร์มการทำงาน</a></li>
-      <li><a href="subject_detail">รายละเอียดวิชาที่เปิดรับ TA</a></li>
       <li><a href="contact">ติดต่อ/แจ้งปัญหา</a></li>
+      <div class="dropdown-divider"></div>
+      <li><a href="Show_Teacherwant_Admin">ความต้องการของอาจารย์</a></li>
+      <li><a href="Show_register1">รายชื่อผู้สมัคร + ผู้ผ่านการคัดเลือก</a></li>
+      <li><a href="TA_working_form">ตรวจแบบฟอร์มชั่วโมงการทำงาน</a></li>
+      <li><a href="#">แก้ไข/อัพเดท ประกาศ </a></li>
+      <li><a href="evaluation">ผลการประเมิน</a></li>
+      <li><a href="post_TA">อัพโหลดไฟล์ PDF</a></li>
     </ul>
   </div>
 
@@ -105,29 +111,30 @@ body {
   </thead>
   <tbody>
     <tr>
-      <td><br>{% for i in Subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in Subject %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Num %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in Num %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Level %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in Level %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Grade %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in Grade %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td>&nbsp<br>{% for i in Attri %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp<br>{% for i in Attri %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in subject %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
+
     </tr>
 
   </tbody>
