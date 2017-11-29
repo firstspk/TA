@@ -467,9 +467,6 @@ def Aj_needing():
 
 @app.route('/Show_Teacherwant_Admin', methods=['POST'])
 def Show_Teacherwant_Admin():
-    input = dict(request.form.items())
-    print(input)
-    #print ('kkkkkkk')
     teacher = It.connect("databaseall.db")
     cur4 = teacher.cursor()
     cur4.execute("SELECT Subject FROM teacherwant ")
@@ -497,10 +494,10 @@ def Show_Teacherwant_Admin():
     return (render_template('Admin/Show_Teacherwant_Ad.html',Subject =Subject,Num=Num,Level=Level,Grade=Grade,Attri = Attri))
 
 @app.route('/Show_inforTA_Teacher')
-def Show_inforTA_Teacher(username):
+def Show_inforTA_Teacher():
     teacher = It.connect("databaseall.db")
     cur2 = teacher.cursor()
-    cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % i )
+    cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username )
     subject = cur2.fetchall
     print (subject)
     for i in Subject:
@@ -1180,16 +1177,20 @@ def selectnew():
         for i in pdfrow:
             level.append(i)
     dataworkcur.execute("SELECT Department FROM student WHERE Username ='%s' " % nametashow)
-    department = []
+    Tel = []
     for pdfrow in dataworkcur.fetchall():
         for i in pdfrow:
-            department.append(i)
+            Tel.append(i)
+    dataworkcur.execute("SELECT Email FROM student WHERE Username ='%s' " % nametashow)
+    Email = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            Email.append(i)
     print(idnum[0])
     print(level[0])
-    print(department[0])
 
 
-    return (render_template("Aj/showWorkingForm_Aj1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0], daymonthyear=daymonthyear,
+    return (render_template("Aj/showWorkingForm_Aj1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,Tel=Tel[0],Email=Email[0], daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
 
 @app.route('/teachercomment' , methods= ['get','post'])
