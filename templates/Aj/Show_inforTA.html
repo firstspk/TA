@@ -97,64 +97,54 @@ body {
     <tr>
       <th>&nbsp;</th>
       <th>วิชา</th>
-      {% for i in subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>ชื่อ</th>
-      {% for i in name %}
-      <h>{{i}}</h><br>
-      {% endfor %}>
-
       <th>นามกุล</th>
-      {% for i in surname %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>รหัสนักศึกษา</th>
-      {% for i in IDnumber %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>ชั้นปี</th>
-      {% for i in level %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>คณะ</th>
-      {% for i in department %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>เกรด</th>
-      {% for i in grade %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>เบอร์โทร</th>
-      {% for i in tel %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>E-mail</th>
-      {% for i in email %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
 
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>{% for i in subject %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp;{% for i in name %}
+      <h>{{i}}</h><br>
+      {% endfor %}></td>
+
+      <td>{% for i in surname %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>{% for i in IDnumber %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>{% for i in level %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>{% for i in department %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>{% for i in grade %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>{% for i in tel %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp{% for i in email %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
     </tr>
 
   </tbody>
