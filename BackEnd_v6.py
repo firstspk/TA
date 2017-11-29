@@ -1180,7 +1180,7 @@ def Register_forTA():
 
 @app.route("/Register_forAJ")
 def Register_forAJ():
-    return(render_template("AJ/Register_aj.html"))
+    return(render_template("AJ/Register_aj1.html"))
 
 @app.route("/addregisnormal", methods=['POST'])
 def addregisnormal():
