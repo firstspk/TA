@@ -547,7 +547,7 @@ def TA_working_form_TA():
                 subjectteacher.append(i)
         name = []
         for i in subjectteacher:
-            timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' " % i)
+            timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='%s' and StatusAj!='1'" % i)
             for pdfrow in timesheetcur.fetchall():
                 pdflist = []
                 for i in pdfrow:
@@ -558,12 +558,19 @@ def TA_working_form_TA():
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
         nameFRA121 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='FRA121'")
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA121' and StatusAj!='1'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA121.append(i)
-        print(nameFRA121)
-        return (render_template('Admin/adminchooseworkform1.html', nameFRA121=nameFRA121))
+        timesheets = It.connect("databaseall.db")
+        timesheetcur = timesheets.cursor()
+        nameFRA221 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221' and StatusAj!='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA161.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA221=nameFRA221))
+
 
 @app.route('/notification')
 def notification():
