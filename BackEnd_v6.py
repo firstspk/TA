@@ -107,7 +107,9 @@ def printworkta():
 
     if do[2]=='edit':
         return render_template('TA/WorkingForm_TA_v3_ta.html')
-    if do[2] == 'print'and status[0]=='1':
+    if do[2] == 'print'and status[0]=='1' and status[1]=='1':
+        date=strftime("%d%b", gmtime())
+        print(date)
         student = It.connect("databaseall.db")
         cur = student.cursor()
         cur.execute("SELECT Name,Surname,Subject,Department,Level,Grade,Tel,Email FROM student WHERE Username='%s'" % username)
@@ -127,13 +129,16 @@ def printworkta():
             for i in pdfrow:
                 pdflist.append(i)
             pdfwork.append(pdflist)
-
-        pdfcreate = canvas.Canvas('%s.pdf' % username)
+        namepdf=str(username)+str(date)
+        print(namepdf)
+        print(type(namepdf))
+        pdfcreate = canvas.Canvas('%s.pdf' % namepdf)
         pdfcreate.drawString(100, 800, 'INSTITUTE OF FIELD ROBOTICS STUDENT WORKING HOUR FORM ')
         pdfcreate.drawString(210, 770, 'SEMESTER : 1  YEAR : 2560')
         pdfcreate.drawString(130, 740, 'KING MONGKUT UNIVERSITY OF TECHNOLOGY THONBURI')
         pdfcreate.drawString(80, 710, '==============================================================')
         pdfcreate.drawString(50, 680, 'Name :')
+
         pdfcreate.drawString(120, 680, pdf[0][0])
         pdfcreate.drawString(220, 680, 'Surname :')
         pdfcreate.drawString(300, 680, pdf[0][1])
@@ -149,7 +154,9 @@ def printworkta():
         pdfcreate.drawString(120, 620, pdf[0][6])
         pdfcreate.drawString(220, 620, 'Email :')
         pdfcreate.drawString(300, 620, pdf[0][7])
+
         pdfcreate.drawString(450, 590, 'Workingdata')
+
         pdfcreate.drawString(50, 560, 'Day/Month/Year :')
         pdfcreate.drawString(200, 560, pdfwork[0][0])
         pdfcreate.drawString(350, 560, 'Timecome :')
@@ -201,7 +208,7 @@ def printworkta():
         pdfcreate.drawString(400, 320, '.......................')
         pdfcreate.save()
 
-        pdfcreate2 = canvas.Canvas('%sP2.pdf' % username)
+        pdfcreate2 = canvas.Canvas('%sP2.pdf' % namepdf)
         pdfcreate2.drawString(100, 800, 'Job Description ')
         pdfcreate2.drawString(50, 770, pdfwork[0][0])
         pdfcreate2.drawString(200, 770, pdfwork[0][4])
@@ -220,13 +227,13 @@ def printworkta():
         pdfcreate2.drawString(50, 560, pdfwork[7][0])
         pdfcreate2.drawString(200, 560, pdfwork[7][4])
         pdfcreate2.save()
-
-        os.startfile('%s.pdf' % username)
-        os.startfile('%sP2.pdf' % username)
-
+        os.startfile('%s.pdf' % namepdf)
+        os.startfile('%sP2.pdf' % namepdf)
         return 'kkkkkk'
     if do[2] == 'print'and status[0]=='0':
         return redirect(url_for('printpdf'))
+    return 'kjkjkj'
+
 
 
 @app.route('/recruitment')
@@ -688,13 +695,12 @@ def TA_working_form_TA():
                 nameFRA121.append(i)
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
-        nameFRA221 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221' and StatusAj!='1'")
+        nameFRA161 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA161'and StatusAj!='1'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA161.append(i)
-        return (render_template('Admin/adminchooseworkform1.html', nameFRA221=nameFRA221))
-
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161,nameFRA121=nameFRA121))
 
 @app.route('/notification')
 def notification():
@@ -1121,6 +1127,105 @@ def teacherworkformnew():
             pdflist.append(i)
             name.append(pdflist)
     return (render_template("Aj/WorkingFormselectnew.html",name=name))
+
+
+@app.route('/adminselectnew' , methods= ['post'])
+def adselectnew():
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    x = dict(request.form.items())
+
+    nameta = []
+    for i in x:
+        nameta.append(i)
+
+    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % nameta[0])
+    daymonthyear = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            daymonthyear.append(pdflist)
+
+    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % nameta[0])
+    timecome = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            timecome.append(pdflist)
+
+    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % nameta[0])
+    timeback = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            timeback.append(pdflist)
+
+    dataworkcur.execute("SELECT whatdo FROM timesheet WHERE Username='%s'" % nameta[0])
+    whatdo = []
+    for pdfrow in dataworkcur.fetchall():
+        pdflist = []
+        for i in pdfrow:
+            pdflist.append(i)
+            whatdo.append(pdflist)
+    print(nameta[0])
+    print('testtesttest')
+    nametashow = nameta[0]
+    dataworkcur.execute("SELECT Name FROM student WHERE Username ='%s' " % nametashow)
+    name = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            name.append(i)
+    dataworkcur.execute("SELECT Surname FROM student WHERE Username ='%s' " % nametashow)
+    surname = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            surname.append(i)
+    dataworkcur.execute("SELECT IDNUMBER FROM student WHERE Username ='%s' " % nametashow)
+    idnum = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            idnum.append(i)
+    dataworkcur.execute("SELECT Level FROM student WHERE Username ='%s' " % nametashow)
+    level = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            level.append(i)
+    dataworkcur.execute("SELECT Department FROM student WHERE Username ='%s' " % nametashow)
+    department = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            department.append(i)
+
+    return (render_template("Admin/showWorkingForm_Admin1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0], daymonthyear=daymonthyear,
+                            timecome=timecome, timeback=timeback, whatdo=whatdo))
+@app.route('/admincomment' , methods= ['get','post'])
+def admincomment():
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    x = dict(request.form.items())
+    print(x)
+    listdata=[]
+    for i in x:
+        listdata.append(i)
+    nameta=str(listdata[2])
+    comment = x['%s'%(nameta)]
+    passfail=str(listdata[3])
+    print(nameta)
+    print(comment)
+    print(passfail)
+    if passfail == 'pass':
+        dataworkcur.execute("UPDATE timesheet SET StatusAdmin = '%s' WHERE Username = '%s'and ID ='1'" % ('1', nameta))
+        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s' and ID ='1'" % (comment,nameta))
+
+        datawork.commit()
+    if passfail == 'notpass':
+        dataworkcur.execute("UPDATE timesheet SET StatusAdmin = '%s' WHERE Username = '%s' and ID ='1'" % ('0', nameta))
+        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s' and ID ='1'" % (comment,nameta))
+        datawork.commit()
+    return(home())
 
 @app.route('/Teacherselectnew' , methods= ['post'])
 def selectnew():
