@@ -238,9 +238,18 @@ def printworkta():
         pdfcreate2.drawString(50, 560, pdfwork[7][0])
         pdfcreate2.drawString(200, 560, pdfwork[7][4])
         pdfcreate2.save()
+
+        timesheets = It.connect("databaseall.db")
+        timesheetcur = timesheets.cursor()
+        timesheetcur.execute(
+            "UPDATE timesheet SET StatusAdmin = '0' WHERE Username = '%s'and ID = '1'" % (username))
+        timesheetcur.execute(
+            "UPDATE timesheet SET StatusAj = '0' WHERE Username = '%s'and ID = '1'" % (username))
+        timesheets.commit()
+
         os.startfile('%s.pdf' % namepdf)
         os.startfile('%sP2.pdf' % namepdf)
-        return 'kkkkkk'
+        return (home())
     if do[2] == 'print':
         if status[0]=='x'or status[1]=='x':
             return redirect(url_for('printpdf'))
@@ -992,8 +1001,11 @@ def addworking():
                 pdfcreate2.drawString(200, 560, pdfwork[7][4])
                 pdfcreate2.save()
 
+
                 os.startfile('%s.pdf' % username)
                 os.startfile('%sP2.pdf' % username)
+
+
             else:
                 return 'plz wait AJ comment'
 
