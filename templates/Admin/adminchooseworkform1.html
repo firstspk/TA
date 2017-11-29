@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <form id="contact-form" action="/adminselectnew", method="POST">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ตรวจแบบฟอร์มการทำงาน</title>
 <script type="text/javascript">
@@ -40,7 +42,7 @@ body {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="MM_preloadImages('static/img/user_icon_1.png','static/img/home_icon_1.png')">
+<form onload="MM_preloadImages('static/img/user_icon_1.png','static/img/home_icon_1.png')">
 
 <table width="985" height="848" border="0" align="center" class="header_img">
  <tr>
@@ -91,17 +93,16 @@ body {
             <tr>
               <td colspan="2" align="center"><table width="678" height="91" border="1">
                 <tr>
-                  {% for i in nameFRA121 %}
-
 
                   <td width="414" align="center">ชื่อ</td>
-                  {{i}}{% endfor %}
+
                   <td width="248" align="center">รายละเอียด</td>
                 </tr>
                 <tr>
-                  <td height="55" align="center">&nbsp;</td>
+                  <td height="55" align="center">{% for i in nameFRA121 %}{{i}}<br><br>{% endfor %}</td>
                   <td align="center" valign="middle">
-                  <a href="#" class="btn btn-info" role="button">Detail</a>
+                    <br>{% for i in nameFRA121 %}
+                    <button  name="{{i}}" type="submit" class="btn btn-info">detail</button><br><br>{% endfor %}
                   </td>
                 </tr>
               </table></td>
@@ -121,9 +122,11 @@ body {
                   <td width="248" align="center">รายละเอียด</td>
                 </tr>
                 <tr>
-                  <td height="55" align="center">&nbsp;</td>
-                  <td align="center" valign="middle"><a href="#" class="btn btn-info" role="button">Detail</a></td>
-                </tr>
+                  <td height="55" align="center">{% for i in nameFRA161 %}{{i}}<br><br>{% endfor %}</td>
+                  <td align="center" valign="middle">
+                    <br>{% for i in nameFRA161 %}
+                    <button  name="{{i}}" type="submit" class="btn btn-info">detail</button><br><br>{% endfor %}
+                  </td>
               </table></td>
             </tr>
           </table></td>
@@ -353,5 +356,6 @@ body {
     <p>&nbsp;</p></td>
   </tr>
 </table>
+</form>
 </body>
 </html>
