@@ -483,6 +483,7 @@ def Aj_needing():
 
 @app.route("/Need_Aj5_aj" , methods=["POST"] )
 def Need_Aj5_aj():
+    print("55555")
     x = dict(request.form.items())
     subject =x['subject']
     numwant = x['numwant']
@@ -497,10 +498,11 @@ def Need_Aj5_aj():
     cur2.execute("UPDATE teacher SET Attribute = '%s' WHERE Subject = '%s'" % (attribute, subject))
     teacher.commit()
     teacher.close()
-    return("wwwwww")
+    return render_template("Aj/Need_Aj3_aj.html")
 
 @app.route("/Need_Aj4_aj")
 def Need_Aj4_aj():
+    print("4444444444")
     teacher = It.connect("databaseall.db")
     cur2 = teacher.cursor()
     cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
@@ -511,57 +513,58 @@ def Need_Aj4_aj():
             list.append(i)
             subject.append(list)
     print(subject)
-    for i in subject:
-        cur5 = teacher.cursor()
-        cur5.execute("SELECT Numwant FROM teacherwant WHERE Subject = '%s'" % i)
-        Num = []
-        for row1 in cur5.fetchall():
-            list = []
-            for i in row1:
-                list.append(i)
-                Num.append(list)
-        print (Num)
+    for j in subject:
+        for i in j:
+            cur5 = teacher.cursor()
+            cur5.execute("SELECT Numwant FROM teacherwant WHERE Subject = '%s'" % i)
+            Num = []
+            for row1 in cur5.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    Num.append(list)
+            print (Num)
 
-        cur6 = teacher.cursor()
-        cur6.execute("SELECT Level FROM teacherwant WHERE Subject = '%s'" % i)
-        Level = []
-        for row1 in cur6.fetchall():
-            list = []
-            for i in row1:
-                list.append(i)
-                Level.append(list)
-        print (Level)
+            cur6 = teacher.cursor()
+            cur6.execute("SELECT Level FROM teacherwant WHERE Subject = '%s'" % i)
+            Level = []
+            for row1 in cur6.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    Level.append(list)
+            print (Level)
 
-        cur7 = teacher.cursor()
-        cur7.execute("SELECT Grade FROM teacherwant WHERE Subject = '%s'" % i)
-        Grade = []
-        for row1 in cur7.fetchall():
-            list = []
-            for i in row1:
-                list.append(i)
-                Grade.append(list)
-        print (Grade)
+            cur7 = teacher.cursor()
+            cur7.execute("SELECT Grade FROM teacherwant WHERE Subject = '%s'" % i)
+            Grade = []
+            for row1 in cur7.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    Grade.append(list)
+            print (Grade)
 
-        cur8 = teacher.cursor()
-        cur8.execute("SELECT Attribute FROM teacherwant WHERE Subject = '%s'" % i)
-        Attri = []
-        for row1 in cur8.fetchall():
-            list = []
-            for i in row1:
-                list.append(i)
-                Attri.append(list)
-        print(Attri)
+            cur8 = teacher.cursor()
+            cur8.execute("SELECT Attribute FROM teacherwant WHERE Subject = '%s'" % i)
+            Attri = []
+            for row1 in cur8.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    Attri.append(list)
+            print(Attri)
 
-        cur9 = teacher.cursor()
-        cur9.execute("SELECT Syllabus FROM teacherwant ")
-        Syllabus = []
-        for row1 in cur9.fetchall():
-            list = []
-            for i in row1:
-                list.append(i)
-                Syllabus.append(list)
-        print (Syllabus)
-    return (render_template('Admin/Show_Teacherwant_Aj.html', Subject=Subject, Num=Num, Level=Level, Grade=Grade,Attri=Attri,Syllabus =Syllabus))
+            cur9 = teacher.cursor()
+            cur9.execute("SELECT Syllabus FROM teacherwant ")
+            Syllabus = []
+            for row1 in cur9.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    Syllabus.append(list)
+            print (Syllabus)
+    return (render_template('Aj/Show_Teacherwant_Aj.html', Subject= subject, Num=Num, Level=Level, Grade=Grade,Attri=Attri,Syllabus =Syllabus))
 
 @app.route('/Show_register_Ad')
 def Show_register_Ad():
@@ -909,6 +912,7 @@ def Show_Teacherwant_Admin():
     print (Syllabus)
 
     return (render_template('Admin/Show_Teacherwant_Ad.html',Subject =Subject,Num=Num,Level=Level,Grade=Grade,Attri = Attri,Syllabus = Syllabus))
+
 
 @app.route('/Show_inforTA_Teacher')
 def Show_inforTA_Teacher():
