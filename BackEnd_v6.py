@@ -1280,7 +1280,7 @@ def TA_selectpassfail():
     for i in x:
         subject.append(i)
     print(subject[0])
-    return 'kkkkkkkk'
+    return(render_template('Aj/TA_select_detail3_aj.html'))
 
 @app.route('/TA_select_detail' , methods= ['post'])
 def TA_select_detail():
