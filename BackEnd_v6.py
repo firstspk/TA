@@ -82,12 +82,17 @@ def printpdf():
         for i in pdfrow:
             statusad.append(i)
     print(statusaj[0])
+
     if statusaj[0]=='0' or statusad[0]=='0':
+        if statusaj[0] == 'x' or statusad[0] == 'x':
+            warn = []
+            warn.append('แบบฟอร์มไม่ผ่านกรุณากดแก้ไขอีกครั้ง')
+        else:
+            warn = []
+            warn.append('กรุณารออาจารย์/แอดมินตรวจ')
+    if statusaj[0]=='1' and statusad[0]=='1':
         warn=[]
-        warn.append('"แบบฟอร์มไม่ผ่าน" กรุณากดแก้ไขอีกครั้ง')
-    if statusaj[0]=='1' or statusad[0]=='1':
-        warn=[]
-        warn.append('"แบบฟอร์มผ่าน" สามารถพิมพ์แบบฟอร์มได้')
+        warn.append('แบบฟอร์มผ่าน สามารถพิมพ์แบบฟอร์มได้')
     return (render_template('TA/printingFrom_TA.html', daymonthyear=daymonthyear,timecome=timecome, timeback=timeback, whatdo=whatdo,comment=comment[0],warn=warn[0]))
 
 @app.route('/printworkta', methods=["POST"])
@@ -233,8 +238,9 @@ def printworkta():
         os.startfile('%s.pdf' % namepdf)
         os.startfile('%sP2.pdf' % namepdf)
         return 'kkkkkk'
-    if do[2] == 'print'and status[0]=='0':
-        return redirect(url_for('printpdf'))
+    if do[2] == 'print':
+        if status[0]=='x'or status[1]=='x':
+            return redirect(url_for('printpdf'))
     return 'kjkjkj'
 
 
@@ -1323,13 +1329,12 @@ def teachercomment():
     print(comment)
     print(passfail)
     if passfail == 'pass':
-        dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s'" % ('1', nameta))
-        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s'" % (comment,nameta))
-
+        dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s' and ID = '1'" % ('1', nameta))
+        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s' and ID = '1'" % (comment,nameta))
         datawork.commit()
     if passfail == 'notpass':
-        dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s'" % ('0', nameta))
-        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s'" % (comment,nameta))
+        dataworkcur.execute("UPDATE timesheet SET StatusAj = '%s' WHERE Username = '%s'and ID = '1'" % ('x', nameta))
+        dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s'and ID = '1'" % (comment,nameta))
         datawork.commit()
     return(home())
 
