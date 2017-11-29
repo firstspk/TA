@@ -60,7 +60,6 @@ def printpdf():
         for i in pdfrow:
             timeback.append(i)
     print(timeback)
-    print('tsijofpdsj;djs')
     dataworkcur.execute("SELECT whatdo FROM timesheet WHERE Username='%s'" % username)
     whatdo = []
     for pdfrow in dataworkcur.fetchall():
@@ -1185,9 +1184,7 @@ def Register_forAJ():
 
 @app.route("/addregisnormal", methods=['POST'])
 def addregisnormal():
-    print('kkkkkkkkk')
     x = dict(request.form.items())
-    print(x)
     name = x['name']
     surname = x['surname']
     department = x['department']
@@ -1222,7 +1219,7 @@ def register_TA():
     level = x['level']
     idnumber = x['idnumber']
     email = x['email']
-    subject = x['subject']
+    #subject = x['subject']
     tel= x['attribute']
     accountnum = x['accountnum1']+x['accountnum2']+x['accountnum3']
     grade = x['grade']
@@ -1235,7 +1232,7 @@ def register_TA():
     cur.execute("UPDATE student SET Tel = '%s' WHERE Username = '%s'" % (tel, a.username))
     cur.execute("UPDATE student SET Email = '%s' WHERE Username = '%s'" % (email, a.username))
     cur.execute("UPDATE student SET AccountNum = '%s' WHERE Username = '%s'" % (accountnum, a.username))
-    cur.execute("UPDATE student SET Subject = '%s' WHERE Username = '%s'" % (subject, a.username))
+    #cur.execute("UPDATE student SET Subject = '%s' WHERE Username = '%s'" % (subject, a.username))
     student.commit()
     student.close()
     #test = DB()
