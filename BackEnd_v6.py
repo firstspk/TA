@@ -1854,6 +1854,13 @@ def TA_selectpassfail():
 @app.route('/ajselect', methods= ['post'])
 def ajselect():
     x = dict(request.form.items())
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    subject = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            subject.append(i)
+
     usernametest=[]
     passfail=[]
     for i in x:
