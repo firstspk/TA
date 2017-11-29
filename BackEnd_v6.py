@@ -1472,4 +1472,590 @@ def post_TA_finish():
     data.commit()
     return(index())
 
+""""-----FRA_141-----"""
+@app.route('/FRA_TA141')
+def FRA_TA141():
+    ID = 'FRA141'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property141')
+def FRA_TA_property141():
+    ID = 'FRA141'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course141')
+def FRA_TA_course141():
+    ID = 'FRA141'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring141')
+def FRA_Hiring141():
+    ID = 'FRA141'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property141')
+def FRA_Hiring_property141():
+    ID = 'FRA141'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course141')
+def FRA_Hiring_course141():
+    ID = 'FRA141'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_161-----"""
+@app.route('/FRA_TA161')
+def FRA_TA161():
+    ID = 'FRA161'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property161')
+def FRA_TA_property161():
+    ID = 'FRA161'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course161')
+def FRA_TA_course161():
+    ID = 'FRA161'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring161')
+def FRA_Hiring161():
+    ID = 'FRA161'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property161')
+def FRA_Hiring_property161():
+    ID = 'FRA161'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course161')
+def FRA_Hiring_course161():
+    ID = 'FRA161'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_221-----"""
+@app.route('/FRA_TA221')
+def FRA_TA221():
+    ID = 'FRA221'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property221')
+def FRA_TA_property221():
+    ID = 'FRA221'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course221')
+def FRA_TA_course221():
+    ID = 'FRA221'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring221')
+def FRA_Hiring221():
+    ID = 'FRA221'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property221')
+def FRA_Hiring_property221():
+    ID = 'FRA221'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course221')
+def FRA_Hiring_course221():
+    ID = 'FRA221'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_222-----"""
+@app.route('/FRA_TA222')
+def FRA_TA222():
+    ID = 'FRA222'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property222')
+def FRA_TA_property222():
+    ID = 'FRA222'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course222')
+def FRA_TA_course222():
+    ID = 'FRA221'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring222')
+def FRA_Hiring222():
+    ID = 'FRA222'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property222')
+def FRA_Hiring_property222():
+    ID = 'FRA222'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course222')
+def FRA_Hiring_course222():
+    ID = 'FRA222'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_231-----"""
+@app.route('/FRA_TA231')
+def FRA_TA231():
+    ID = 'FRA231'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property231')
+def FRA_TA_property231():
+    ID = 'FRA231'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course231')
+def FRA_TA_course231():
+    ID = 'FRA231'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring231')
+def FRA_Hiring231():
+    ID = 'FRA231'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property231')
+def FRA_Hiring_property231():
+    ID = 'FRA231'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course231')
+def FRA_Hiring_course231():
+    ID = 'FRA231'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_241-----"""
+@app.route('/FRA_TA241')
+def FRA_TA241():
+    ID = 'FRA241'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property241')
+def FRA_TA_property241():
+    ID = 'FRA241'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course241')
+def FRA_TA_course241():
+    ID = 'FRA241'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring241')
+def FRA_Hiring241():
+    ID = 'FRA241'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property241')
+def FRA_Hiring_property241():
+    ID = 'FRA241'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course241')
+def FRA_Hiring_course241():
+    ID = 'FRA241'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_261-----"""
+@app.route('/FRA_TA261')
+def FRA_TA261():
+    ID = 'FRA261'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property261')
+def FRA_TA_property261():
+    ID = 'FRA261'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course261')
+def FRA_TA_course261():
+    ID = 'FRA261'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring261')
+def FRA_Hiring261():
+    ID = 'FRA261'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property261')
+def FRA_Hiring_property261():
+    ID = 'FRA261'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course261')
+def FRA_Hiring_course261():
+    ID = 'FRA261'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_321-----"""
+@app.route('/FRA_TA321')
+def FRA_TA321():
+    ID = 'FRA321'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property321')
+def FRA_TA_property321():
+    ID = 'FRA321'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course321')
+def FRA_TA_course321():
+    ID = 'FRA321'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring321')
+def FRA_Hiring321():
+    ID = 'FRA321'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property321')
+def FRA_Hiring_property321():
+    ID = 'FRA321'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course321')
+def FRA_Hiring_course321():
+    ID = 'FRA321'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_331-----"""
+@app.route('/FRA_TA331')
+def FRA_TA331():
+    ID = 'FRA331'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property331')
+def FRA_TA_property331():
+    ID = 'FRA331'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course331')
+def FRA_TA_course331():
+    ID = 'FRA331'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring331')
+def FRA_Hiring331():
+    ID = 'FRA331'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property331')
+def FRA_Hiring_property331():
+    ID = 'FRA331'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course331')
+def FRA_Hiring_course31():
+    ID = 'FRA331'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_332-----"""
+@app.route('/FRA_TA332')
+def FRA_TA332():
+    ID = 'FRA332'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property332')
+def FRA_TA_property332():
+    ID = 'FRA332'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course332')
+def FRA_TA_course332():
+    ID = 'FRA332'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring332')
+def FRA_Hiring332():
+    ID = 'FRA332'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property332')
+def FRA_Hiring_property332():
+    ID = 'FRA332'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course332')
+def FRA_Hiring_course332():
+    ID = 'FRA332'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_341-----"""
+@app.route('/FRA_TA341')
+def FRA_TA341():
+    ID = 'FRA341'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property341')
+def FRA_TA_property341():
+    ID = 'FRA341'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course341')
+def FRA_TA_course341():
+    ID = 'FRA341'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring341')
+def FRA_Hiring341():
+    ID = 'FRA341'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property341')
+def FRA_Hiring_property341():
+    ID = 'FRA341'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course341')
+def FRA_Hiring_course341():
+    ID = 'FRA341'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_451-----"""
+@app.route('/FRA_TA451')
+def FRA_TA451():
+    ID = 'FRA451'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property451')
+def FRA_TA_property451():
+    ID = 'FRA451'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course451')
+def FRA_TA_course451():
+    ID = 'FRA451'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring451')
+def FRA_Hiring451():
+    ID = 'FRA451'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property451')
+def FRA_Hiring_property451():
+    ID = 'FRA451'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course451')
+def FRA_Hiring_course451():
+    ID = 'FRA451'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+""""-----FRA_452-----"""
+@app.route('/FRA_TA452')
+def FRA_TA452():
+    ID = 'FRA452'
+    type_user = 'TA'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_property452')
+def FRA_TA_property452():
+    ID = 'FRA452'
+    type_user = 'TA'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_TA_course452')
+def FRA_TA_course452():
+    ID = 'FRA452'
+    type_user = 'TA'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+@app.route('/FRA_Hiring452')
+def FRA_Hiring452():
+    ID = 'FRA452'
+    type_user = 'Hiring'
+    type = 'Result'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_property452')
+def FRA_Hiring_property452():
+    ID = 'FRA452'
+    type_user = 'Hiring'
+    type = 'Property'
+    open_pdf(ID,type_user,type)
+    return(index())
+@app.route('/FRA_Hiring_course452')
+def FRA_Hiring_course452():
+    ID = 'FRA452'
+    type_user = 'Hiring'
+    type = 'Course'
+    open_pdf(ID, type_user, type)
+    return(index())
+
+def open_pdf(ID,type_user,type):
+    data = It.connect("databaseall.db")
+    datacur = data.cursor()
+    #print(ID)
+    url = ''
+    if(type_user == 'TA'):
+        if(type == 'Property'):
+            datacur.execute("SELECT property FROM admin_pdf_TA WHERE ID = '%s'" % (ID))
+        if (type == 'Course'):
+            datacur.execute("SELECT course_syllabus FROM admin_pdf_TA WHERE ID = '%s'" % (ID))
+        if (type == 'Result'):
+            datacur.execute("SELECT Result FROM admin_pdf_TA WHERE ID = '%s'" % (ID))
+    if(type_user == 'Hiring'):
+        if (type == 'Property'):
+            datacur.execute("SELECT property FROM admin_pdf_Hiring WHERE ID = '%s'" % (ID))
+        if (type == 'Course'):
+            datacur.execute("SELECT course_syllabus FROM admin_pdf_Hiring WHERE ID = '%s'" % (ID))
+        if (type == 'Result'):
+            datacur.execute("SELECT Result FROM admin_pdf_Hiring WHERE ID = '%s'" % (ID))
+    for row1 in datacur.fetchall():
+        for i in row1:
+            url = i
+    data.commit()
+    if(url == ''):
+        return()
+    webbrowser.open(url)
 app.run(debug=True)
