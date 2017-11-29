@@ -1079,8 +1079,17 @@ def adselectnew():
     for pdfrow in dataworkcur.fetchall():
         for i in pdfrow:
             department.append(i)
+    Tel = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            Tel.append(i)
+    dataworkcur.execute("SELECT Email FROM student WHERE Username ='%s' " % nametashow)
+    Email = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            Email.append(i)
 
-    return (render_template("Admin/showWorkingForm_Admin1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0], daymonthyear=daymonthyear,
+    return (render_template("Admin/showWorkingForm_Admin1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0],Tel=Tel[0],Email=Email[0], daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
 @app.route('/admincomment' , methods= ['get','post'])
 def admincomment():
@@ -1186,11 +1195,16 @@ def selectnew():
     for pdfrow in dataworkcur.fetchall():
         for i in pdfrow:
             Email.append(i)
+    dataworkcur.execute("SELECT Department FROM student WHERE Username ='%s' " % nametashow)
+    department = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            department.append(i)
     print(idnum[0])
     print(level[0])
 
 
-    return (render_template("Aj/showWorkingForm_Aj1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,Tel=Tel[0],Email=Email[0], daymonthyear=daymonthyear,
+    return (render_template("Aj/showWorkingForm_Aj1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],department=department[0],nametashow=nametashow,Tel=Tel[0],Email=Email[0], daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
 
 @app.route('/teachercomment' , methods= ['get','post'])
