@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <form id="contact-form" action="/post_TA_finish", method="POST">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>โชว์แบบฟอร์ม</title>
 <script type="text/javascript">
@@ -117,20 +119,40 @@ body {
         <td height="90" bgcolor="#999999">&nbsp;</td>
         <td bgcolor="#999999">&nbsp;</td>
         <td bgcolor="#999999">&nbsp;</td>
+        <td width="141" align="center" valign="bottom" bgcolor="#999999"><p>
+          <select name="Type" id="Type">
+            <option selected="Typesubject">&nbsp;&nbsp;&nbsp;Subject&nbsp;&nbsp;&nbsp;</option>
+            <option>FRA141</option>
+            <option>FRA161</option>
+            <option>FRA221</option>
+            <option>FRA222</option>
+            <option>FRA231</option>
+            <option>FRA241</option>
+            <option>FRA261</option>
+            <option>FRA321</option>
+            <option>FRA331</option>
+            <option>FRA332</option>
+            <option>FRA341</option>
+            <option>FRA451</option>
+            <option>FRA452</option>
+          </select>
+        </p></td>
+
         <td width="116" align="center" valign="baseline" bgcolor="#999999"><h3>Link PDF :</h3></td>
-        <td colspan="2" valign="baseline" bgcolor="#999999"><form id="Tablelink" name="Tablelink" method="post" action="Submit">
+        <td colspan="2" valign="baseline" bgcolor="#999999">
           <label>
             <input type="text" name="link_PDF" id="link_PDF" />
           </label>
-        </form></td>
-        <td align="center" valign="baseline" bgcolor="#999999"><form id="form1" name="Submit botton" method="post" action="Submit">
+        </td>
+        <td align="center" valign="baseline" bgcolor="#999999">
           <input type="submit" name="button" id="button" value="Submit" />
-        </form></td>
+        </td>
         <td bgcolor="#999999">&nbsp;</td>
         <td bgcolor="#999999">&nbsp;</td>
       </tr>
     </table></td>
   </tr>
 </table>
+</form>
 </body>
 </html>
