@@ -1327,4 +1327,20 @@ def TA_profile_detail():
     print(a1)
     return (render_template('Aj/Show_TA2_aj.html',var = a1))
 
+@app.route('/post_TA')
+def post():
+    return (render_template('Admin/PDF_admin.html'))
+
+@app.route('/post_TA_finish', methods=['post'])
+def post_TA_finish():
+    x = dict(request.form.items())
+    #print(x['TypeSubject'],x['link_PDF'])
+    ID = x['TypeSubject']
+    link_pdf = x['link_PDF']
+    data = It.connect("databaseall.db")
+    datacur = data.cursor()
+    datacur.execute("UPDATE admin SET Recruitment_TA = '%s' WHERE ID = '%s'" % (link_pdf,ID))
+    data.commit()
+    return(index())
+
 app.run(debug=True)
