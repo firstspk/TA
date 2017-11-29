@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,redirect,url_for
+    from flask import Flask, render_template, request,redirect,url_for
 from time import gmtime, strftime
 
 from createDB_v5 import DB
@@ -2472,4 +2472,33 @@ def open_pdf(ID,type_user,type):
     if(url == ''):
         return()
     webbrowser.open(url)
+
+@app.route('/post_TA')
+def post_TA():
+    return (render_template('Admin/PDF_admin.html'))
+
+@app.route('/post_TA_finish', methods=['post'])
+def post_TA_finish():
+    x = dict(request.form.items())
+    print(x)
+    print(x['TypeSubject'] ,x['Type_User'], x['select1'] ,x['link_PDF'])
+    ID = x['TypeSubject']
+    type_User = x['Type_User']
+    select1 = x['select1']
+    link_pdf = x['link_PDF']
+    data = It.connect("databaseall.db")
+    datacur = data.cursor()
+    if(type_User == 'TA'):
+        if (select1 == 'Property'):
+            datacur.execute("UPDATE admin_pdf_TA SET property = '%s' WHERE ID = '%s'" % (link_pdf,ID))
+        if (select1 == 'Result'):
+            datacur.execute("UPDATE admin_pdf_TA SET Result = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+    if (type_User == 'Hiring'):
+        if (select1 == 'Property'):
+            datacur.execute("UPDATE admin_pdf_Hiring SET property = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+        if (select1 == 'Result'):
+            datacur.execute("UPDATE admin_pdf_Hiring SET Result = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+    data.commit()
+    return(index())
+
 app.run(debug=True)
