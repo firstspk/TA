@@ -1850,8 +1850,8 @@ def TA_profile_detail():
 def post():
     return (render_template('Admin/PDF_admin.html'))
 
-@app.route('/post_TA_finish', methods=['post'])
-def post_TA_finish():
+@app.route('/post_finish', methods=['post'])
+def post_finish():
     x = dict(request.form.items())
     print(x)
     print(x['TypeSubject'] ,x['Type_User'], x['select1'] ,x['link_PDF'])
