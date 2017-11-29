@@ -1,4 +1,4 @@
-    from flask import Flask, render_template, request,redirect,url_for
+from flask import Flask, render_template, request,redirect,url_for
 from time import gmtime, strftime
 
 from createDB_v5 import DB
@@ -2453,7 +2453,7 @@ def open_pdf(ID,type_user,type):
 @app.route('/post_TA')
 def post_TA():
     return (render_template('Admin/PDF_admin.html'))
-
+'''
 @app.route('/post_TA_finish', methods=['post'])
 def post_TA_finish():
     x = dict(request.form.items())
@@ -2477,5 +2477,5 @@ def post_TA_finish():
             datacur.execute("UPDATE admin_pdf_Hiring SET Result = '%s' WHERE ID = '%s'" % (link_pdf, ID))
     data.commit()
     return(index())
-
+'''
 app.run(debug=True)
