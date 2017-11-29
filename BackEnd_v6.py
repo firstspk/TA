@@ -645,25 +645,12 @@ def editupdate():
 
 @app.route("/Aj_needing")
 def Aj_needing():
-    if(a.type_user == 'teacher'):
-        teacher = It.connect("databaseall.db")
-        cur2 = teacher.cursor()
-        cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
-        subject = cur2.fetchall
-        return render_template('Aj/Need_Aj2_aj.html',subject =subject)
-    if(a.type_user == 'admin'):
-        teacher = It.connect("databaseal.db")
-        cur1 = teacher.cursor()
-        cur1.execute("SELECT Subject,NumWant,Level,Grade,Attribute FROM teacher")
-        listTW = []
-        for row1 in cur1.fetchall():
-            list = []
-            for i in row1:
-                list.append(i)
-            listTW.append(list)
-        print(listTW)
-        teacher.close()
-        return (render_template('Admin/wantTeacher_1_admin.html', var=a1))
+    teacher = It.connect("databaseall.db")
+    cur2 = teacher.cursor()
+    cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
+    subject = cur2.fetchall
+    return render_template('Aj/Need_Aj2_aj.html',subject =subject)
+
 
 @app.route('/TA_working_form')
 def TA_working_form_TA():
@@ -1388,13 +1375,7 @@ def evalueateadd():
     evaluatecur = evaluate.cursor()
     evaluatecur.execute("INSERT INTO evaluate(One1,One2,One3,Two1,Two2,Two3,Three1,Three2,Three3,Comment) VALUES(?,?,?,?,?,?,?,?,?,?)",(one1,one2,one3,two1,two2,two3,three1,three2,three3,comment))
     evaluate.commit()
-
     return(home())
-
-@app.route('/TA_profile')
-def TA_profile():
-    print('kkkk')
-    return (render_template('Aj/TA_profile.html'))
 
 
 @app.route('/TA_profile_detail', methods=['post'])
