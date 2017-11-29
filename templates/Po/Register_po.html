@@ -77,18 +77,17 @@ body {
 
     <td width="155" align="center" valign="top" class="bg-color1 shadow1"><a href="home" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home_icon','','static/img/home_icon_1.png',1)"><img src="static/img/home_icon.png" width="155" height="50" id="home_icon" class="bg-color1" /></a></td>
     <td width="757" class="bg-color1 shadow1">&nbsp;</td>
-    <td width="44" align="center" valign="top" class="bg-color1 shadow1"><a href="" data-toggle="modal" data-target="#login-modal"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','static/img/login_gray.png',1)"><img src="../../static/img/login black.png" name="user_icon" width="170" height="48" id="Image3" class="bg-color1" /></a>
+    <td width="44" align="center" valign="top" class="bg-color1 shadow1"><a href="" data-toggle="modal" data-target="#login-modal"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','static/img/login gray.png',1)"><img src="../../static/img/login black.png" name="user_icon" width="170" height="48" id="Image3" class="bg-color1" /></a>
 
 
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
 					<h1>Login to Your Account</h1><br>
-				  <form action="login" method="post">
 					<input type="text" name="username" placeholder="Username">
 					<input type="password" name="password" placeholder="Password">
 					<input type="submit" value="login"/>
-				  </form>
+
 
 				  <div class="login-help">
 					<a href="forgot_password">Forgot Password</a>
@@ -101,48 +100,34 @@ body {
   </tr>
   <tr>
     <td height="614" colspan="4" valign="top" class="bg-color shadow font"><p>&nbsp;</p>
-      <table width="1133" height="798" border="0" align="center">
+      <table width="1000" height="623" border="0">
         <tr>
-          <td height="97" colspan="10" align="center" valign="middle"> สมัครเข้าเป็น นักศึกษา TA / นักศึกษา ทุนจ้างงาน</td>
+          <td height="97" colspan="10" align="center" valign="bottom"><blockquote>สมัครเข้าเป็น นักศึกษา TA / นักศึกษา ทุนจ้างงาน</blockquote></td>
         </tr>
         <tr>
-          <td width="150" height="38">&nbsp;</td>
-          <td width="150" align="right"> ชื่อ :</td>
-          <td width="150" height="38"align="left"><form id="form1" name="form1" method="post" action="">            <span id="sprytextfield1">
+          <td width="26" height="38">&nbsp;</td>
+          <td width="161" align="right"> ชื่อ :</td>
+          <td width="220" height="38"align="left">
               <label for="text8"></label>
-              <span class="textfieldRequiredMsg">A value is required.</span></span>
-            <input name="text1" type="text" id="text8" style="width:150px;"/>
-          </form></td>
+            <input name="name" type="text" id="text8" style="width:150px;"/>
+          </td>
           <td width="151" align="right">นามสกุล :</td>
-          <td colspan="4" align="left"><form id="form6" name="form6" method="post" action="">
-            <span id="sprytextfield2">
+          <td colspan="4" align="left">
               <label for="text9"></label>
-              <input type="text" name="text2" id="text9" style="width:150px;"/>
-              <span class="textfieldRequiredMsg">A value is required.</span></span>
-</form></td>
-          <td colspan="2" rowspan="4" align="left"><form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
+              <input type="text" name="surname" id="text9" style="width:150px;"/>
+</td>
+          <td colspan="2" rowspan="4" align="left">
             <label for="img"></label>
             <label for="fileField"></label>
             <label for="fileField"></label>
-          </form></td>
+          </td>
         </tr>
         <tr>
-          <td width="150" height="44" rowspan="3">&nbsp;</td>
-          <td height="44" align="right">คณะ :</td>
-          <td colspan="6" align="left"><select name="select1" id="select5">
-            <option selected="selected">-</option>
-            <option>Engineering </option>
-            <option>Industrial Education and Technology (IET)</option>
-            <option>Science (SC)</option>
-            <option>Institute of FIeld roBOtics (FIBO)</option>
-          </select>
-          <span id="spryselect5"><span class="selectRequiredMsg">Please select an item.</span></span> &nbsp;<span id="spryselect6"><span class="selectRequiredMsg">Please select an it</span></span>&nbsp;<span id="spryselect7"><span class="selectRequiredMsg">Please select an item.</span></span></td>
-        </tr>
-        <tr>
+          <td height="44" rowspan="2">&nbsp;</td>
           <td height="44" align="right">ภาควิชา :</td>
           <td colspan="6" align="left"><label for="select5"></label>
-            <select name="select6" id="select6">
-              <option selected="selected">-</option>
+              <select name="department" id="select5">
+                 <option selected="selected">-</option>
               <option>Chemical Engineering</option>
               <option>Civil Engineering</option>
               <option>Computer Engineering</option>
@@ -166,21 +151,27 @@ body {
               <option>Microbiology</option>
               <option>Physics</option>
             </select>
-          <br /></td>
+              สาขาวิชา :
+              <select name="branch" id="select6">
+                <option selected="selected">-</option>
+                <option selected="selected">-</option>
+                <option>Engineering </option>
+                <option>Industrial Education and Technology (IET)</option>
+                <option>Science (SC)</option>
+                <option>Institute of FIeld roBOtics (FIBO)</option>
+              </select></td>
 </tr>
         <tr>
           <td height="44" align="right">ระดับ :</td>
           <td colspan="6" align="left"><label for="select5"></label>
-            <span id="spryselect1"><span class="selectRequiredMsg">Please select an item.</span></span> &nbsp; <span id="spryselect3"> <span id="spryselect2">
-              <select name="select3" id="select">
+              <select name="degree" id="select">
                 <option selected="selected">-</option>
                 <option>ปริญญาตรี</option>
                 <option>ปริญญาโท</option>
                 <option>ปริญญาเอก</option>
               </select>
-              <span class="selectRequiredMsg">Please select an item.</span></span><span class="selectRequiredMsg">Please select an item.</span></span> &nbsp; ชั้นปี : &nbsp;<span id="spryselect4">
-              <select name="select2" id="select2">
-                <span id="spryselect2">
+              &nbsp; ชั้นปี : &nbsp;
+              <select name="level" id="select2">
                 <option selected="selected">-</option>
                 <option>1</option>
                 <option>2</option>
@@ -188,77 +179,77 @@ body {
                 <option>4</option>
                 <option>5</option>
               </select>
-              <span class="selectRequiredMsg">Please select an item.</span></span></td>
 </tr>
         <tr>
           <td height="38">&nbsp;</td>
           <td align="right">รหัสนักศึกษา :</td>
-          <td colspan="6" align="left"><form id="form5" name="form5" method="post" action="">
+          <td colspan="6" align="left">
             <span id="sprytextfield3">
               <label for="text19"></label>
-              <input type="text" name="text3" id="text19" style="width:200px;"/>
-              <span class="textfieldRequiredMsg">A value is required.</span></span>&nbsp; &nbsp;เกรด :<span id="sprytextfield5">
+              <input type="text" name="idnumber" id="text19" style="width:200px;"/>เกรด :
               <label for="text20"></label>
-              <input type="text" name="text7" id="text20" style="width:60px;"/>
-              <span class="textfieldRequiredMsg">A value is required.</span></span>
-</form></td>
+              <input type="text" name="grade" id="text20" style="width:60px;"/>
+</td>
 </tr>
         <tr>
           <td height="38">&nbsp;</td>
           <td align="right">อีเมล :</td>
-          <td colspan="7" align="left"><form id="form8" name="form8" method="post" action="">
+          <td colspan="7" align="left">
             <span id="sprytextfield4">
               <label for="text21"></label>
-              <input type="text" name="text4" id="text21" style="width:250px;"/>
-              <span class="textfieldRequiredMsg">A value is required.</span></span>&nbsp;&nbsp;เบอร์โทรศัพท์
-                  : <span id="sprytextfield6">
+              <input type="text" name="email" id="text21" style="width:250px;"/>&nbsp;&nbsp;เบอร์โทรศัพท์
+                  :
                   <label for="text22"></label>
-                  <input type="text" name="text8" id="text22" style="width:150px;"/>
-                  <span class="textfieldRequiredMsg">A value is required.</span></span>
-</form></td>
+                  <input type="text" name="tel" id="text22" style="width:150px;"/>
+</td>
           <td width="251">&nbsp;</td>
         </tr>
         <tr>
           <td height="38">&nbsp;</td>
           <td align="right">วิชาที่ต้องการสมัคร :</td>
-          <td colspan="7" align="left"><form id="form9" name="form9" method="post" action="">
+          <td colspan="7" align="left">
             <span id="sprytextfield7">
               <label for="text23"></label>
-              <span class="textfieldRequiredMsg">A value is required.</span></span>
-</form>
-            <select name="select5" id="select4">
+
+            <select name="subject" id="select4">
               <option selected="selected">-</option>
+              <option>FRA141</option>
+              <option>FRA161</option>
               <option>FRA221</option>
-              <option>FRA222</option>
+              <option>FRA241</option>
               <option>FRA261</option>
+              <option>FRA321</option>
+              <option>FRA331</option>
+              <option>FRA332</option>
+              <option>FRA341</option>
+              <option>FRA451</option>
+              <option>FRA452</option>
+
+
+
           </select></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
           <td height="44">&nbsp;</td>
           <td align="right">เลขบัญชี :</td>
-          <td colspan="7" align="left" nowrap="nowrap"><form id="form10" name="form10" method="post" action="">
-            <span id="sprytextfield9">
+          <td colspan="7" align="left" nowrap="nowrap"><
               <label for="text25"></label>
-              <input name="text11" type="text" id="text25" style="width:50px;" maxlength="3"/>
-              <span class="textfieldRequiredMsg">A value is required.</span></span>- <span id="sprytextfield10">
+              <input name="accountnum1" type="text" id="text25" style="width:50px;" maxlength="3"/>
               <label for="text26"></label>
-              <input name="text12" type="text" id="text26" style="width:50px;" maxlength="3"/>
-              <span class="textfieldRequiredMsg">A value is required.</span></span> - <span id="sprytextfield11">
+              <input name="accountnum2" type="text" id="text26" style="width:50px;" maxlength="3"/>
               <label for="text27"></label>
-              <input name="text18" type="text" id="text27" style="width:75px;" maxlength="4" />
-              <span class="textfieldRequiredMsg">A value is required.</span></span>
-</form></td>
+              <input name="accountnum3" type="text" id="text27" style="width:75px;" maxlength="4" />
+</td>
 </tr>
         <tr>
           <td height="69">&nbsp;</td>
           <td align="right" valign="top">ความสามารถ:</td>
-          <td colspan="7" align="left" valign="top"><form id="form11" name="form11" method="post" action="">
+          <td colspan="7" align="left" valign="top"><
             <span id="sprytextarea1">
               <label for="textarea1"></label>
-              <textarea name="textarea" cols="50" rows="7" style="overflow:auto;resize:none"></textarea>
-              <span class="textareaRequiredMsg">A value is required.</span></span>
-</form></td>
+              <input name="attribute" type="text" id="text27" style="width:75px;" maxlength="4" />
+</td>
           <td>&nbsp;</td>
         </tr>
         <tr>
@@ -268,8 +259,9 @@ body {
           <td align="left" valign="top">&nbsp;</td>
           <td width="45" align="left" valign="top">&nbsp;</td>
           <td width="45" align="left" valign="top">&nbsp;</td>
-          <td width="57" align="left" valign="top"><input name="button" type="button" class="shadow btn btn-info" id="button" onclick="MM_goToURL('parent','register_TA');return document.MM_returnValue" value="สมัคร" /></td>
+          <td width="57" align="left" valign="top">        <button  name="print" type="submit" class="btn btn-info"> สมัคร</button>
         </tr>
+
         <tr>
           <td colspan="7" align="left" valign="top">&nbsp;</td>
         </tr>
