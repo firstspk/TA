@@ -241,8 +241,8 @@ def printworkta():
 
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
-        timesheetcur.execute(
-            "UPDATE timesheet SET StatusAdmin = '0' WHERE Username = '%s'and ID = '1'" % (username))
+        timesheetcur.execute("UPDATE timesheet SET StatusTa = '0' WHERE Username = '%s'and ID = '1'" % (username))
+        timesheetcur.execute("UPDATE timesheet SET StatusAdmin = '0' WHERE Username = '%s'and ID = '1'" % (username))
         timesheetcur.execute(
             "UPDATE timesheet SET StatusAj = '0' WHERE Username = '%s'and ID = '1'" % (username))
         timesheets.commit()
@@ -700,27 +700,107 @@ def TA_working_form_TA():
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
         nameFRA121 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA121' and StatusAdmin='0'")
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA121' and StatusAdmin='0' and StatusTa='1'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA121.append(i)
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
         nameFRA161 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA161'and StatusAdmin='0'")
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA161'and StatusAdmin='0' and StatusTa='1'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA161.append(i)
         nameFRA221 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0'")
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA221.append(i)
         nameFRA222 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA222'and StatusAj!='1'")
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA222.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222))
+        nameFRA231 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA231.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231))
+        nameFRA241 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA241.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231,
+                                nameFRA241=nameFRA241))
+        nameFRA261 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA261.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231,
+                                nameFRA241=nameFRA241, nameFRA261=nameFRA261))
+        nameFRA321 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA321.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231,
+                                nameFRA241=nameFRA241, nameFRA261=nameFRA261, nameFRA321=nameFRA321))
+        nameFRA331 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA331.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231,
+                                nameFRA241=nameFRA241, nameFRA261=nameFRA261, nameFRA321=nameFRA321,
+                                nameFRA331=nameFRA331))
+        nameFRA332 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA332.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231,
+                                nameFRA241=nameFRA241, nameFRA261=nameFRA261, nameFRA321=nameFRA321,
+                                nameFRA331=nameFRA331, nameFRA332=nameFRA332))
+        nameFRA341 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA341.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231,
+                                nameFRA241=nameFRA241, nameFRA261=nameFRA261, nameFRA321=nameFRA321,
+                                nameFRA331=nameFRA331, nameFRA332=nameFRA332, nameFRA341=nameFRA341))
+        nameFRA451 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA451.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231,
+                                nameFRA241=nameFRA241, nameFRA261=nameFRA261, nameFRA321=nameFRA321,
+                                nameFRA331=nameFRA331, nameFRA332=nameFRA332, nameFRA341=nameFRA341,
+                                nameFRA451=nameFRA451))
+        nameFRA452 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0' and StatusTa='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA452.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161, nameFRA121=nameFRA121,
+                                nameFRA221=nameFRA222, nameFRA222=nameFRA222, nameFRA231=nameFRA231,
+                                nameFRA241=nameFRA241, nameFRA261=nameFRA261, nameFRA321=nameFRA321,
+                                nameFRA331=nameFRA331, nameFRA332=nameFRA332, nameFRA341=nameFRA341,
+                                nameFRA451=nameFRA451, nameFRA452=nameFRA452))
         return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161,nameFRA121=nameFRA121,nameFRA221=nameFRA221))
 
 @app.route('/notification')
