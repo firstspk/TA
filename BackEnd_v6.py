@@ -840,10 +840,9 @@ def logout():
 def forgot_password():
     return(render_template('Po/forgot password_po.html'))
 
-@app.route('/register')
-def register():
-    if(a.type_user == None):
-        return(render_template('Po/Register_po.html'))
+@app.route("/Register_forAdmin")
+def Register_forAdmin():
+        return(render_template("Admin/Register_Admin.html"))
 
 @app.route("/Register")
 def Register():
