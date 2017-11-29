@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,redirect,url_for
 from time import gmtime, strftime
 
 from createDB_v5 import DB
@@ -39,7 +39,7 @@ def home():
 def printpdf():
     datawork = It.connect("databaseall.db")
     dataworkcur = datawork.cursor()
-    username ='test2' #แก้ด้วย
+    username=a.username
 
 
     dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % username)
@@ -100,8 +100,7 @@ def printworkta():
         do.append(i)
         print(i)
     print(do[2])
-    username='test2' #อย่าลืมแก้
-    #username=a.username-------------------------------------------------------------
+    username=a.username
     dataworkcur.execute("SELECT StatusAj,StatusAdmin FROM timesheet WHERE Username='%s' and ID = '1'"% username)
     status = []
     for pdfrow in dataworkcur.fetchall():
