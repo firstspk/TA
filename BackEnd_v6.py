@@ -454,151 +454,383 @@ def editupdate():
     if (a.type_user == 'admin'):
         return (render_template('Admin/edit_postNews.html'))
 
+
 @app.route("/Aj_needing")
 def Aj_needing():
     teacher = It.connect("databaseall.db")
     cur2 = teacher.cursor()
     cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
-    subject = cur2.fetchall
+    subject = []
+    for row1 in cur2.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            subject.append(list)
     print("Aj_needing")
     return render_template('Aj/Need_Aj3_aj.html',subject =subject)
 
-@app.route("/NeedingTA2")
-def NeedingTA():
+@app.route("/Need_Aj5_aj" , methods=["POST"] )
+def Need_Aj5_aj():
     x = dict(request.form.items())
-    print(x)
-    if (x == button2) :
-        subject =x['subject']
-        numwant = x['numwant']
-        grade = x['grade']
-        level = x['level']
-        attribute =x['attribute']
-        teacher = It.connect("databaseall.db")
-        cur2 = teacher.cursor()
-        cur2.execute("UPDATE teacher SET Numwant = '%s' WHERE Subject = '%s'" % (numwant, subject))
-        cur2.execute("UPDATE teacher SET Level = '%s' WHERE Subject = '%s'" % (level, subject))
-        cur2.execute("UPDATE teacher SET Grade = '%s' WHERE Subject = '%s'" % (grade, subject))
-        cur2.execute("UPDATE teacher SET Attribute = '%s' WHERE Subject = '%s'" % (attribute, subject))
-        teacher.commit()
-        teacher.close()
-    if (x == button) :
-        teacher = It.connect("databaseall.db")
-        cur2 = teacher.cursor()
-        cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
-        print (subject)
-        for i in subject:
-            cur5 = teacher.cursor()
-            cur5.execute("SELECT Numwant FROM teacherwant WHERE Subject = '%s'" % i)
-            Num = cur5.fetchall()
-            print (Num)
-            cur6 = teacher.cursor()
-            cur6.execute("SELECT Level FROM teacherwant WHERE Subject = '%s'" % i)
-            Level = cur6.fetchall()
-            print (Level)
-            cur7 = teacher.cursor()
-            cur7.execute("SELECT Grade FROM teacherwant WHERE Subject = '%s'" % i)
-            Grade = cur7.fetchall()
-            print (Grade)
-            cur8 = teacher.cursor()
-            cur8.execute("SELECT Attribute FROM teacherwant WHERE Subject = '%s'" % i)
-            Attri = cur8.fetchall()
-            cur9 = teacher.cursor()
-            cur9.execute("SELECT Syllabus FROM teacherwant ")
-            Syllabus = cur9.fetchall()
-            print (Syllabus)
-            return (render_template('Admin/Show_Teacherwant_Aj.html', Subject=Subject, Num=Num, Level=Level, Grade=Grade,Attri=Attri,Syllabus =Syllabus))
+    subject =x['subject']
+    numwant = x['numwant']
+    grade = x['grade']
+    level = x['level']
+    attribute =x['attribute']
+    teacher = It.connect("databaseall.db")
+    cur2 = teacher.cursor()
+    cur2.execute("UPDATE teacher SET Numwant = '%s' WHERE Subject = '%s'" % (numwant, subject))
+    cur2.execute("UPDATE teacher SET Level = '%s' WHERE Subject = '%s'" % (level, subject))
+    cur2.execute("UPDATE teacher SET Grade = '%s' WHERE Subject = '%s'" % (grade, subject))
+    cur2.execute("UPDATE teacher SET Attribute = '%s' WHERE Subject = '%s'" % (attribute, subject))
+    teacher.commit()
+    teacher.close()
+    return("wwwwww")
 
-@app.route('/Show_register1', methods=['POST'])
+@app.route("/Need_Aj4_aj")
+def Need_Aj4_aj():
+    teacher = It.connect("databaseall.db")
+    cur2 = teacher.cursor()
+    cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
+    subject = []
+    for row1 in cur2.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            subject.append(list)
+    print(subject)
+    for i in subject:
+        cur5 = teacher.cursor()
+        cur5.execute("SELECT Numwant FROM teacherwant WHERE Subject = '%s'" % i)
+        Num = []
+        for row1 in cur5.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Num.append(list)
+        print (Num)
+
+        cur6 = teacher.cursor()
+        cur6.execute("SELECT Level FROM teacherwant WHERE Subject = '%s'" % i)
+        Level = []
+        for row1 in cur6.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Level.append(list)
+        print (Level)
+
+        cur7 = teacher.cursor()
+        cur7.execute("SELECT Grade FROM teacherwant WHERE Subject = '%s'" % i)
+        Grade = []
+        for row1 in cur7.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Grade.append(list)
+        print (Grade)
+
+        cur8 = teacher.cursor()
+        cur8.execute("SELECT Attribute FROM teacherwant WHERE Subject = '%s'" % i)
+        Attri = []
+        for row1 in cur8.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Attri.append(list)
+        print(Attri)
+
+        cur9 = teacher.cursor()
+        cur9.execute("SELECT Syllabus FROM teacherwant ")
+        Syllabus = []
+        for row1 in cur9.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Syllabus.append(list)
+        print (Syllabus)
+    return (render_template('Admin/Show_Teacherwant_Aj.html', Subject=Subject, Num=Num, Level=Level, Grade=Grade,Attri=Attri,Syllabus =Syllabus))
+
+@app.route('/Show_register_Ad')
+def Show_register_Ad():
+    print("Show regis")
+    return render_template("Admin/Show_register1_admin.html")
+
+@app.route('/Show_register1')
 def Show_register1():
+    print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     input = dict(request.form.items())
     if (input == "name1"):
+        print("name1")
         register1 = It.connect("databaseall.db")
         cur1 = register1.cursor()
         cur1.execute("SELECT Name FROM studentnormal ")
-        Name = cur1.fetchall
+        Name =  []
+        for row1 in cur1.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Name.append(list)
+        print (Name)
+
         cur2 = register1.cursor()
         cur2.execute("SELECT Surname FROM studentnormal ")
-        surname = cur1.fetchall
+        surname = []
+        for row1 in cur2.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                surname.append(list)
+        print(surname)
+
         cur3 = register1.cursor()
         cur3.execute("SELECT Department FROM studentnormal ")
-        department = cur1.fetchall
+        department = []
+        for row1 in cur3.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                department.append(list)
+        print (department)
+
         cur4 = register1.cursor()
         cur4.execute("SELECT Branch FROM studentnormal ")
-        branch = cur1.fetchall
+        branch = []
+        for row1 in cur4.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                branch.append(list)
+        print (branch)
+
         cur5 = register1.cursor()
         cur5.execute("SELECT Degree FROM studentnormal ")
-        degree = cur1.fetchall
+        degree = []
+        for row1 in cur5.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                degree.append(list)
+        print (degree)
+
         cur6 = register1.cursor()
         cur6.execute("SELECT Level FROM studentnormal ")
-        level = cur1.fetchall
+        level = []
+        for row1 in cur6.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Name.append(list)
+        print (Name)
+
         cur7 = register1.cursor()
         cur7.execute("SELECT Idnum FROM studentnormal ")
-        idnum = cur1.fetchall
+        idnum = []
+        for row1 in cur7.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                idnum.append(list)
+        print (idnum)
+
         cur8 = register1.cursor()
         cur8.execute("SELECT Grade FROM studentnormal ")
-        grade = cur1.fetchall
+        grade = []
+        for row1 in cur8.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                grade.append(list)
+        print (grade)
+
         cur9 = register1.cursor()
         cur9.execute("SELECT Email FROM studentnormal ")
-        email = cur1.fetchall
+        email = []
+        for row1 in cur9.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                email.append(list)
+        print (email)
+
         cur10 = register1.cursor()
         cur10.execute("SELECT Tel FROM studentnormal ")
-        tel= cur1.fetchall
+        tel= []
+        for row1 in cur10.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                tel.append(list)
+        print (tel)
+
         cur11 = register1.cursor()
         cur11.execute("SELECT Subject FROM studentnormal ")
-        subject = cur1.fetchall
+        subject = []
+        for row1 in cur11.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                subject.append(list)
+        print (subject)
+
         cur12 = register1.cursor()
         cur12.execute("SELECT AccountNum FROM studentnormal ")
-        Accnum = cur1.fetchall
+        Accnum = []
+        for row1 in cur12.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Accum.append(list)
+        print (Accnum)
+
         cur13 = register1.cursor()
         cur13.execute("SELECT Attribute FROM studentnormal ")
-        Attri = cur1.fetchall
+        Attri = []
+        for row1 in cur13.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Attri.append(list)
+        print (Attri)
         return (render_template('Admin/Show_register2_admin.html',name = Name,surname = surname,department = department , branch = branch ,degree = degree ,level = level ,idnum = idnum ,grade = grade,email = email ,tel = tel ,subject = subject , Accnum = Accnum,Attri=Attri))
 
     if (input == "name2"):
+        print("name2")
         i =1
         register1 = It.connect("databaseall.db")
         cur1 = register1.cursor()
-        cur1.execute("SELECT Name FROM studentnormal  WHERE Status = '%s'" % i)
-        Name = cur1.fetchall
+        cur1.execute("SELECT Name FROM studentnormal  WHERE Status = '%s'" % i )
+        Name = []
+        for row1 in cur1.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Name.append(list)
+        print(Name)
+
         cur2 = register1.cursor()
         cur2.execute("SELECT Surname FROM studentnormal WHERE Status = '%s'" % i)
-        surname = cur1.fetchall
+        surname = []
+        for row1 in cur2.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                surname.append(list)
+        print(surname)
+
         cur3 = register1.cursor()
-        cur3.execute("SELECT Department FROM studentnormal WHERE Status = '%s'" % i)
-        department = cur1.fetchall
+        cur3.execute("SELECT Department FROM studentnormal  WHERE Status = '%s'" % i)
+        department = []
+        for row1 in cur3.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                department.append(list)
+        print(department)
+
         cur4 = register1.cursor()
-        cur4.execute("SELECT Branch FROM studentnormal WHERE Status = '%s'" % i)
-        branch = cur1.fetchall
+        cur4.execute("SELECT Branch FROM studentnormal  WHERE Status = '%s'" % i)
+        branch = []
+        for row1 in cur4.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                branch.append(list)
+        print(branch)
+
         cur5 = register1.cursor()
-        cur5.execute("SELECT Degree FROM studentnormal WHERE Status = '%s'" % i)
-        degree = cur1.fetchall
+        cur5.execute("SELECT Degree FROM studentnormal  WHERE Status = '%s'" % i)
+        degree = []
+        for row1 in cur5.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                degree.append(list)
+        print(degree)
+
         cur6 = register1.cursor()
-        cur6.execute("SELECT Level FROM studentnormal WHERE Status = '%s'" % i)
-        level = cur1.fetchall
+        cur6.execute("SELECT Level FROM studentnormal  WHERE Status = '%s'" % i)
+        level = []
+        for row1 in cur6.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Name.append(list)
+        print(Name)
+
         cur7 = register1.cursor()
-        cur7.execute("SELECT Idnum FROM studentnormal WHERE Status = '%s'" % i)
-        idnum = cur1.fetchall
+        cur7.execute("SELECT Idnum FROM studentnormal  WHERE Status = '%s'" % i)
+        idnum = []
+        for row1 in cur7.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                idnum.append(list)
+        print(idnum)
+
         cur8 = register1.cursor()
-        cur8.execute("SELECT Grade FROM studentnormal WHERE Status = '%s'" % i)
-        grade = cur1.fetchall
+        cur8.execute("SELECT Grade FROM studentnormal  WHERE Status = '%s'" % i)
+        grade = []
+        for row1 in cur8.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                grade.append(list)
+        print(grade)
+
         cur9 = register1.cursor()
-        cur9.execute("SELECT Email FROM studentnormal WHERE Status = '%s'" % i)
-        email = cur1.fetchall
+        cur9.execute("SELECT Email FROM studentnormal  WHERE Status = '%s'" % i)
+        email = []
+        for row1 in cur9.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                email.append(list)
+        print(email)
+
         cur10 = register1.cursor()
-        cur10.execute("SELECT Tel FROM studentnormal WHERE Status = '%s'" % i)
-        tel = cur1.fetchall
+        cur10.execute("SELECT Tel FROM studentnormal  WHERE Status = '%s'" % i)
+        tel = []
+        for row1 in cur10.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                tel.append(list)
+        print(tel)
+
         cur11 = register1.cursor()
-        cur11.execute("SELECT Subject FROM studentnormal WHERE Status = '%s'" % i)
-        subject = cur1.fetchall
+        cur11.execute("SELECT Subject FROM studentnormal  WHERE Status = '%s'" % i)
+        subject = []
+        for row1 in cur11.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                subject.append(list)
+        print(subject)
+
         cur12 = register1.cursor()
-        cur12.execute("SELECT AccountNum FROM studentnormal WHERE Status = '%s'" % i)
-        Accnum = cur1.fetchall
+        cur12.execute("SELECT AccountNum FROM studentnormal  WHERE Status = '%s'" % i)
+        Accnum = []
+        for row1 in cur12.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Accum.append(list)
+        print(Accnum)
+
         cur13 = register1.cursor()
-        cur13.execute("SELECT Attribute FROM studentnormal WHERE Status = '%s'" % i)
-        Attri = cur1.fetchall
+        cur13.execute("SELECT Attribute FROM studentnormal  WHERE Status = '%s'" % i)
+        Attri = []
+        for row1 in cur13.fetchall():
+            list = []
+            for i in row1:
+                list.append(i)
+                Attri.append(list)
+        print(Attri)
+
         return (render_template('Admin/Show_register3_admin.html',name = Name,surname = surname,department = department , branch = branch ,degree = degree ,level = level ,idnum = idnum ,grade = grade,email = email ,tel = tel ,subject = subject , Accnum = Accnum,Attri=Attri))
 
-@app.route('/Show_Teacherwant_Admin', methods=['POST'])
+@app.route('/Show_Teacherwant_Admin')
 def Show_Teacherwant_Admin():
     input = dict(request.form.items())
     print(input)
@@ -606,27 +838,64 @@ def Show_Teacherwant_Admin():
     teacher = It.connect("databaseall.db")
     cur4 = teacher.cursor()
     cur4.execute("SELECT Subject FROM teacherwant ")
-    Subject = cur4.fetchall()
+    Subject = []
+    for row1 in cur4.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            Subject.append(list)
     print (Subject)
+
     cur5 = teacher.cursor()
     cur5.execute("SELECT Numwant FROM teacherwant ")
-    Num = cur5.fetchall()
+    Num = []
+    for row1 in cur5.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            Num.append(list)
     print (Num)
+
     cur6 = teacher.cursor()
     cur6.execute("SELECT Level FROM teacherwant ")
-    Level = cur6.fetchall()
+    Level = []
+    for row1 in cur6.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            Level.append(list)
     print (Level)
+
     cur7 = teacher.cursor()
     cur7.execute("SELECT Grade FROM teacherwant ")
-    Grade = cur7.fetchall()
+    Grade = []
+    for row1 in cur7.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            Grade.append(list)
     print (Grade)
+
     cur8 = teacher.cursor()
     cur8.execute("SELECT Attribute FROM teacherwant ")
-    Attri = cur8.fetchall()
+    Attri = []
+    for row1 in cur8.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            Attri.append(list)
+    print(Attri)
+
     cur9 = teacher.cursor()
     cur9.execute("SELECT Syllabus FROM teacherwant ")
-    Syllabus = cur9.fetchall()
+    Syllabus = []
+    for row1 in cur9.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            Syllabus.append(list)
     print (Syllabus)
+
     return (render_template('Admin/Show_Teacherwant_Ad.html',Subject =Subject,Num=Num,Level=Level,Grade=Grade,Attri = Attri,Syllabus = Syllabus))
 
 @app.route('/Show_inforTA_Teacher')
@@ -634,40 +903,96 @@ def Show_inforTA_Teacher():
     teacher = It.connect("databaseall.db")
     cur2 = teacher.cursor()
     cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
-    subject = cur2.fetchall
-    print (subject)
-    for i in subject:
-        cur3 = student.cursor()
-        cur3.execute("SELECT Name FROM student WHERE Subject = '%s'" % i)
-        name = cur3.fetchall()
-        print (name)
-        cur4 = teacher.cursor()
-        cur4.execute("SELECT Surname FROM student WHERE Subject = '%s'" % i)
-        surname = cur4.fetchall()
-        print (surname)
-        cur5 = teacher.cursor()
-        cur5.execute("SELECT IDNUMBER FROM student WHERE Subject = '%s'" % i)
-        IDnumber = cur5.fetchall()
-        print (IDnumber)
-        cur6 = teacher.cursor()
-        cur6.execute("SELECT Level FROM student WHERE Subject = '%s'" % i)
-        level = cur6.fetchall()
-        print (level)
-        cur7 = teacher.cursor()
-        cur7.execute("SELECT Departmant FROM student WHERE Subject = '%s'" % i)
-        departmant = cur7.fetchall()
-        cur8 = teacher.cursor()
-        cur8.execute("SELECT Grade FROM student WHERE Subject = '%s'" % i)
-        grade = cur8.fetchall()
-        cur9 = teacher.cursor()
-        cur9.execute("SELECT Tel FROM student WHERE Subject = '%s'" % i)
-        tel = cur9.fetchall()
-        cur10 = teacher.cursor()
-        cur10.execute("SELECT Email FROM student WHERE Subject = '%s'" % i)
-        email = cur10.fetchall()
+    subject =[]
+    for row1 in cur2.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            subject.append(list)
+    print(subject)
+    for j in subject:
+        for i in j :
+            student = It.connect("databaseall.db")
+            cur3 = student.cursor()
+            cur3.execute("SELECT Name FROM student WHERE Subject = '%s'" % i)
+            name =[]
+            for row1 in cur3.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    name.append(list)
+            print (name)
+
+            cur4 = teacher.cursor()
+            cur4.execute("SELECT Surname FROM student WHERE Subject = '%s'" % i)
+            surname =[]
+            for row1 in cur4.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    surname.append(list)
+            print (surname)
+
+            cur5 = teacher.cursor()
+            cur5.execute("SELECT IDNUMBER FROM student WHERE Subject = '%s'" % i)
+            IDnumber =[]
+            for row1 in cur5.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    IDnumber.append(list)
+            print (IDnumber)
+
+            cur6 = teacher.cursor()
+            cur6.execute("SELECT Level FROM student WHERE Subject = '%s'" % i)
+            level=[]
+            for row1 in cur6.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    level.append(list)
+            print (level)
+
+            cur7 = teacher.cursor()
+            cur7.execute("SELECT Department FROM student WHERE Subject = '%s'" % i)
+            departmant =[]
+            for row1 in cur7.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    departmant.append(list)
+            print(departmant)
+
+            cur8 = teacher.cursor()
+            cur8.execute("SELECT Grade FROM student WHERE Subject = '%s'" % i)
+            grade =[]
+            for row1 in cur8.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    grade.append(list)
+            print(grade)
+
+            cur9 = teacher.cursor()
+            cur9.execute("SELECT Tel FROM student WHERE Subject = '%s'" % i)
+            tel =[]
+            for row1 in cur9.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    tel.append(list)
+            print(tel)
+
+            cur10 = teacher.cursor()
+            cur10.execute("SELECT Email FROM student WHERE Subject = '%s'" % i)
+            email =[]
+            for row1 in cur10.fetchall():
+                list = []
+                for i in row1:
+                    list.append(i)
+                    email.append(list)
+            print(email)
     return (render_template("Aj/Show_inforTA.html",subject = subject ,name = name,surname = surname , IDnumber = IDnumber , level = level , department = departmant ,grade = grade,tel = tel,email = email))
-
-
 
 @app.route('/TA_working_form')
 def TA_working_form_TA():

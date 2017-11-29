@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>แจ้งปัญหา / ติดต่อเรา</title>
+<title>แสดงความต้องการของอาจารย์</title>
 <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
@@ -105,29 +105,30 @@ body {
   </thead>
   <tbody>
     <tr>
-      <td><br>{% for i in Subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in Subject %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Num %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in Num %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Level %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in Level %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Grade %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in Grade %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td>&nbsp<br>{% for i in Attri %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp<br>{% for i in Attri %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td><br>{% for i in subject %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
+
     </tr>
 
   </tbody>

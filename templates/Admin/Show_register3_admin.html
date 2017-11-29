@@ -113,57 +113,58 @@ body {
   </thead>
   <tbody>
     <tr>
-      <td>{% for i in Subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>{% for i in Subject %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp;{% for i in name %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp;{% for i in name %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp; {% for i in surname %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp; {% for i in surname %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp;{% for i in department %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp;{% for i in department %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp;{% for i in branch %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp;{% for i in branch %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>{% for i in degree %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>{% for i in degree %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp; {% for i in level %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp; {% for i in level %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp;{% for i in idnum %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp;{% for i in idnum %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp;{% for i in grade %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp;{% for i in grade %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp;{% for i in email %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp;{% for i in email %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp; {% for i in tel %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp; {% for i in tel %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>{% for i in Accnum %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>{% for i in Accnum %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
 
-      <td>&nbsp;{% for i in Attri %}
-      <h>{{i}}</h><br>
-      <{% endfor %}></td>
+      <td>&nbsp;{% for i in Attri %}{% for j in i %}
+      <h>{{j}}</h><br>
+      <{% endfor %}><{% endfor %}> </td>
+
     </tr>
   </tbody>
 </table><p>&nbsp;</p></td>
