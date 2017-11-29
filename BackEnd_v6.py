@@ -577,7 +577,12 @@ def TA_working_form_TA():
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA161.append(i)
-        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161,nameFRA121=nameFRA121))
+        nameFRA221 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAj!='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA221.append(i)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161,nameFRA121=nameFRA121,nameFRA221=nameFRA221))
 
 @app.route('/notification')
 def notification():
