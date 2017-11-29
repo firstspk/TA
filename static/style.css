@@ -10,6 +10,8 @@ body{background-color: #666;
 .bg-color2{ background-color:#dddddd;
             border-radius:5px;
 }
+.table_re{ border-radius: 10px;
+}
 .shadow{ box-shadow:#333 2px 2px 2px;
 }
 .shadow1{ box-shadow:#999 2px 2px 2px;

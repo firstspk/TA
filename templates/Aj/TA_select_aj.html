@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <form id="contact-form" action="/TA_selectpassfail", method="POST">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>คัดเลือกTA</title>
 <script type="text/javascript">
@@ -42,7 +44,7 @@ body {
 <body onload="MM_preloadImages('static/img/home_icon_1.png','static/img/end2.png')">
 
 <table width="985" height="702" border="0" align="center" class="header_img">
-   <tr>	
+   <tr>
     <td height="32" colspan="6" align="center" valign="top"><img src="static/img/header.png" name="header"  id="header" class="bg-color shadow header_img" /></td>
   </tr>
   <tr>
@@ -82,23 +84,32 @@ body {
         <tr>
           <td height="135" align="center"><p><span><strong>คัดเลือก TA</strong></span></p></td>
         </tr>
+
         <tr>
           <td align="center" valign="top" class="font2"><table width="498" border="1">
             <tr>
               <td width="298" height="47" align="center">ชื่อวิชา</td>
+
               <td width="415" align="center">รายละเอียด</td>
             </tr>
+              {% for i in subjectteacher %}
             <tr>
-              <td height="54" align="center">ไอ้มุก 5555+</td>
-              <td align="center"><form id="form1" name="form1" method="post" action="">
-                <input type="submit" name="detail_subject" id="detail_subject" value="Submit" />
-              </form></td>
+              <td height="54" align="center">{{i}}</td>
+
+              <td align="center">
+
+                <button  name="{{i}}" type="submit" class="btn btn-info">detail</button><br><br>
+
+
+              </td>
             </tr>
+              {% endfor %}
           </table></td>
         </tr>
       </table>
     <p>&nbsp;</p></td>
   </tr>
 </table>
+</form>
 </body>
 </html>
