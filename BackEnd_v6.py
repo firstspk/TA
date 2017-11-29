@@ -41,61 +41,74 @@ def printpdf():
     dataworkcur = datawork.cursor()
     username=a.username
 
+    dataworkcur.execute("SELECT Username FROM timesheet WHERE ID='1'")
+    check = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            check.append(i)
+    print(check)
+    print('kkkkkkkkkkk')
+    print(username)
+    for i in check:
+        if i == username:
+            print(i)
+            dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % username)
+            daymonthyear = []
+            for pdfrow in dataworkcur.fetchall():
+                for i in pdfrow:
+                    daymonthyear.append(i)
 
-    dataworkcur.execute("SELECT DayMonthYear FROM timesheet WHERE Username='%s'" % username)
-    daymonthyear = []
-    for pdfrow in dataworkcur.fetchall():
-        for i in pdfrow:
-            daymonthyear.append(i)
+            dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % username)
+            timecome = []
+            for pdfrow in dataworkcur.fetchall():
+                for i in pdfrow:
+                    timecome.append(i)
+            print(timecome)
+            dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % username)
+            timeback = []
+            for pdfrow in dataworkcur.fetchall():
+                for i in pdfrow:
+                    timeback.append(i)
+            print(timeback)
+            dataworkcur.execute("SELECT whatdo FROM timesheet WHERE Username='%s'" % username)
+            whatdo = []
+            for pdfrow in dataworkcur.fetchall():
+                for i in pdfrow:
+                    whatdo.append(i)
+            dataworkcur.execute("SELECT Comment FROM timesheet WHERE Username='%s' and ID='1'" % username)
+            comment = []
+            for pdfrow in dataworkcur.fetchall():
+                for i in pdfrow:
+                    comment.append(i)
+            dataworkcur.execute("SELECT StatusAj FROM timesheet WHERE Username='%s' and ID='1'" % username)
+            statusaj = []
+            for pdfrow in dataworkcur.fetchall():
+                for i in pdfrow:
+                    statusaj.append(i)
+            dataworkcur.execute("SELECT StatusAdmin FROM timesheet WHERE Username='%s' and ID='1'" % username)
+            statusad = []
+            for pdfrow in dataworkcur.fetchall():
+                for i in pdfrow:
+                    statusad.append(i)
+            print(statusaj[0])
+            print(statusad[0])
 
-    dataworkcur.execute("SELECT TimeCome FROM timesheet WHERE Username='%s'" % username)
-    timecome = []
-    for pdfrow in dataworkcur.fetchall():
-        for i in pdfrow:
-            timecome.append(i)
-    print(timecome)
-    dataworkcur.execute("SELECT TimeBack FROM timesheet WHERE Username='%s'" % username)
-    timeback = []
-    for pdfrow in dataworkcur.fetchall():
-        for i in pdfrow:
-            timeback.append(i)
-    print(timeback)
-    dataworkcur.execute("SELECT whatdo FROM timesheet WHERE Username='%s'" % username)
-    whatdo = []
-    for pdfrow in dataworkcur.fetchall():
-        for i in pdfrow:
-            whatdo.append(i)
-    dataworkcur.execute("SELECT Comment FROM timesheet WHERE Username='%s' and ID='1'" % username)
-    comment = []
-    for pdfrow in dataworkcur.fetchall():
-        for i in pdfrow:
-            comment.append(i)
-    dataworkcur.execute("SELECT StatusAj FROM timesheet WHERE Username='%s' and ID='1'" % username)
-    statusaj = []
-    for pdfrow in dataworkcur.fetchall():
-        for i in pdfrow:
-            statusaj.append(i)
-    dataworkcur.execute("SELECT StatusAdmin FROM timesheet WHERE Username='%s' and ID='1'" % username)
-    statusad = []
-    for pdfrow in dataworkcur.fetchall():
-        for i in pdfrow:
-            statusad.append(i)
-    print(statusaj[0])
-    print(statusad[0])
-
-    if (statusaj[0]=='0' and statusad[0] != 'x') or (statusad[0]=='0' and statusaj[0] != 'x'):
-        warn = []
-        warn.append('กรุณารออาจารย์/แอดมินตรวจ')
-    elif statusaj[0] == 'x' or statusad[0] == 'x':
-        warn = []
-        warn.append('แบบฟอร์มไม่ผ่านกรุณากดแก้ไขอีกครั้ง')
-        print('kkkkkkkkkkkkkkkkfjsdklf')
+            if (statusaj[0] == '0' and statusad[0] != 'x') or (statusad[0] == '0' and statusaj[0] != 'x'):
+                warn = []
+                warn.append('กรุณารออาจารย์/แอดมินตรวจ')
+            elif statusaj[0] == 'x' or statusad[0] == 'x':
+                warn = []
+                warn.append('แบบฟอร์มไม่ผ่านกรุณากดแก้ไขอีกครั้ง')
+                print('kkkkkkkkkkkkkkkkfjsdklf')
 
 
-    elif statusaj[0]=='1' and statusad[0]=='1':
-        warn=[]
-        warn.append('แบบฟอร์มผ่าน สามารถพิมพ์แบบฟอร์มได้')
-    return (render_template('TA/printingFrom_TA.html', daymonthyear=daymonthyear,timecome=timecome, timeback=timeback, whatdo=whatdo,comment=comment[0],warn=warn[0]))
+            elif statusaj[0] == '1' and statusad[0] == '1':
+                warn = []
+                warn.append('แบบฟอร์มผ่าน สามารถพิมพ์แบบฟอร์มได้')
+            return (
+            render_template('TA/printingFrom_TA.html', daymonthyear=daymonthyear, timecome=timecome, timeback=timeback,
+                            whatdo=whatdo, comment=comment[0], warn=warn[0]))
+    return (home())
 
 @app.route('/printworkta', methods=["POST"])
 def printworkta():
@@ -1782,10 +1795,79 @@ def TA_select():
 def TA_selectpassfail():
     x = dict(request.form.items())
     subject = []
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
     for i in x:
         subject.append(i)
     print(subject[0])
-    return(render_template('Aj/TA_select_detail3_aj.html'))
+
+    dataworkcur.execute("SELECT Name FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    name = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            name.append(i)
+    dataworkcur.execute("SELECT Surname FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    surname = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            surname.append(i)
+    dataworkcur.execute("SELECT Idnum FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    idnum = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            idnum.append(i)
+    dataworkcur.execute("SELECT Level FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    level = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            level.append(i)
+    dataworkcur.execute("SELECT Department FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    Tel = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            Tel.append(i)
+    dataworkcur.execute("SELECT Attribute FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    attribute = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            attribute.append(i)
+    dataworkcur.execute("SELECT Department FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    department = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            department.append(i)
+    dataworkcur.execute("SELECT Grade FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    grade = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            grade.append(i)
+    dataworkcur.execute("SELECT Degree FROM studentnormal WHERE Subject ='%s' " % subject[0])
+    degree = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            degree.append(i)
+    return(render_template('Aj/TA_select_detail3_aj.html',subject=subject[0],name=name,surname=surname,idnum=idnum,level=level,grade=grade,department=department,degree=degree,attribute=attribute))
+@app.route('/ajselect', methods= ['post'])
+def ajselect():
+    x = dict(request.form.items())
+    usernametest=[]
+    passfail=[]
+    for i in x:
+        print(i)
+        usernametest.append(i)
+    print(usernametest)
+    for i in usernametest:
+        passfail.append(x['%s'%(i)])
+    for i in range(len(usernametest)):
+        datawork = It.connect("databaseall.db")
+        dataworkcur = datawork.cursor()
+        dataworkcur.execute("UPDATE studentnormal SET Status= '%s' WHERE Idnum = '%s'" % (passfail[i],usernametest[i]))
+        print(passfail[i])
+        print(usernametest[i])
+        datawork.commit()
+
+    print(passfail[0])
+    return 'kkkkkkkkkkk'
 
 @app.route('/TA_select_detail' , methods= ['post'])
 def TA_select_detail():
