@@ -1194,9 +1194,11 @@ def adselectnew():
     for pdfrow in dataworkcur.fetchall():
         for i in pdfrow:
             Email.append(i)
-
-    return (render_template("Admin/showWorkingForm_Admin1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0],Tel=Tel[0],Email=Email[0], daymonthyear=daymonthyear,
-                            timecome=timecome, timeback=timeback, whatdo=whatdo))
+    print(daymonthyear)
+    print(name[0])
+    return (render_template("Admin/showWorkingForm_Admin1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0], daymonthyear=daymonthyear,timecome=timecome, timeback=timeback, whatdo=whatdo))
+    #return (render_template("Admin/showWorkingForm_Admin1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0],Tel=Tel[0],Email=Email[0], daymonthyear=daymonthyear,
+                            #timecome=timecome, timeback=timeback, whatdo=whatdo))
 @app.route('/admincomment' , methods= ['get','post'])
 def admincomment():
     datawork = It.connect("databaseall.db")
