@@ -911,7 +911,7 @@ def addworking():
                 timesheetcur = timesheets.cursor()
                 print(subject)
                 print("Hi")
-                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject,StatusTa ) VALUES(?,?,?,?,?,?,?,?)",("1",username, dmy, timecome, timeback, whatdo,str(subject[0][0]),'1'))
+                timesheetcur.execute("INSERT INTO timesheet(ID,Username,DayMonthYear,TimeCome,TimeBack,Whatdo,Subject,StatusTa,StatusAdmin,StatusAj ) VALUES(?,?,?,?,?,?,?,?,?,?)",("1",username, dmy, timecome, timeback, whatdo,str(subject[0][0]),'1','0','0'))
                 timesheets.commit()
 
 
@@ -936,6 +936,7 @@ def addworking():
                 timesheetcur.execute("UPDATE timesheet SET TimeBack = '%s' WHERE Username = '%s'and ID = '1'" % (timeback, username))
                 timesheetcur.execute("UPDATE timesheet SET DayMonthYear = '%s' WHERE Username = '%s'and ID = '1'" % (dmy, username))
                 timesheetcur.execute("UPDATE timesheet SET Whatdo = '%s' WHERE Username = '%s'and ID = '1'" % (whatdo, username))
+
                 timesheetcur.execute("UPDATE timesheet SET TimeCome = '%s' WHERE Username = '%s'and ID = '2'" % (timecome2, username))
                 timesheetcur.execute("UPDATE timesheet SET TimeBack = '%s' WHERE Username = '%s'and ID = '2'" % (timeback2, username))
                 timesheetcur.execute("UPDATE timesheet SET DayMonthYear = '%s' WHERE Username = '%s'and ID = '2'" % (dmy2, username))
@@ -981,7 +982,8 @@ def addworking():
                 timesheetcur.execute(
                     "UPDATE timesheet SET Whatdo = '%s' WHERE Username = '%s'and ID = '8'" % (whatdo8, username))
                 timesheetcur.execute("UPDATE timesheet SET StatusTa = '1' WHERE Username = '%s'and ID = '1'" % (username))
-
+                timesheetcur.execute("UPDATE timesheet SET StatusAdmin = '0' WHERE Username = '%s'and ID = '1'" % (username))
+                timesheetcur.execute("UPDATE timesheet SET StatusAj = '0' WHERE Username = '%s'and ID = '1'" % (username))
                 timesheets.commit()
 
     return(home())
