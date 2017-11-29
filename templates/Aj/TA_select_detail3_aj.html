@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <form id="contact-form" action="/ajselect", method="POST">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ตัวอย่างการกรอกแบบฟอร์ม_1</title>
 <script type="text/javascript">
@@ -91,9 +93,9 @@ body {
         </tr>
         <tr>
           <td width="89" align="center">รหัสนักศึกษา</td>
-          <td width="152" align="center">ชื่อ-นามสกุล</td>
-          <td width="161" align="center">ภาควิชา</td>
-          <td width="162" align="center">สาขาวิชา</td>
+          <td width="152" align="center">ชื่อ</td>
+          <td width="161" align="center">นามสกุล</td>
+          <td width="162" align="center">ภาควิชา</td>
           <td width="101" align="center">ระดับ</td>
           <td width="29" align="center">ชั้นปี</td>
           <td width="67" align="center">ผลการเรียน</td>
@@ -102,34 +104,36 @@ body {
           <font color="#FF0000"><p>***( 0 = ไม่ผ่าน , 1 = ผ่าน)***</p></font></td>
         </tr>
         <tr>
-          <td align="center" valign="middle">&nbsp;</td>
-          <td align="center" valign="middle">&nbsp;</td>
-          <td align="center" valign="middle">&nbsp;</td>
-          <td align="center" valign="middle">&nbsp;</td>
-          <td align="center" valign="middle">&nbsp;</td>
-          <td align="center" valign="middle">&nbsp;</td>
-          <td align="center" valign="middle">&nbsp;</td>
-          <td align="center" valign="middle">&nbsp;</td>
-          <td align="center" valign="middle"><form id="form1" name="form1" method="post" action="">
+          <td align="center" valign="middle"><br>{% for i in idnum %}{{i}}<br><br>{% endfor %}</td>
+          <td align="center" valign="middle"><br>{% for i in name %}{{i}}<br><br>{% endfor %}</td>
+          <td align="center" valign="middle"><br>{% for i in surname %}{{i}}<br><br>{% endfor %}</td>
+          <td align="center" valign="middle"><br><br>{% for i in department %}{{i}}<br><br>{% endfor %}&nbsp;</td>
+          <td align="center" valign="middle"><br><br>{% for i in level %}{{i}}<br><br>{% endfor %}&nbsp;</td>
+          <td align="center" valign="middle"><br><br>{% for i in degree %}{{i}}<br><br>{% endfor %}&nbsp;</td>
+          <td align="center" valign="middle"><br><br>{% for i in grade %}{{i}}<br><br>{% endfor %}&nbsp;</td>
+          <td align="center" valign="middle"><br><br>{% for i in attribute %}{{i}}<br><br>{% endfor %}&nbsp;</td>
+          <td align="center" valign="middle">
             <label for="select_TF"></label>
-            <select name="select_TF" id="select_TF" class="form-control">
+            {% for i in idnum %}
+            <select name="{{i}}" id="select_TF" class="form-control">
               <option>-</option>
               <option>0</option>
               <option>1</option>
             </select>
-          </form></td>
+            {% endfor %}
+          </td>
         </tr>
       </table>
       <p>&nbsp;</p>
-      <form id="form22" name="form22" method="post" action="">
         <br >
-        <button type="button" class="btn btn-warning">บันทึก
+        <button type="submit" class="btn btn-warning">บันทึก
         </button>
         <p></p>
         </br>
-    </form></td>
+    </td>
     
   </tr>
 </table>
+</form>
 </body>
 </html>
