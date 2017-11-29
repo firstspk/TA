@@ -80,76 +80,71 @@ body {
     <td height="614" colspan="5" align="center" valign="top" bgcolor="#999999" class="bg-color shadow"><p>&nbsp;</p>
       <h2>ผลการประเมิน</h2></p>
       <p>&nbsp;</p>
-      <table width="1000" border="0" class="">
+      <table width="1000" border="1" class="">
         <tr>
           <td height="104" align="center" valign="middle" bgcolor="#CCCCCC"><p>1.1</p>
             <p> ตรงกับการทำชั่วโมง</p>
-          <p>การทำงาน</p></td>
-
-
-          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>1.2 ดีกว่าระบบเดิมที่เคย</p>
-          <p>มี</p></td>
-          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>1.3 ข้อมูลครบถ้วน</p>
-          <p>&nbsp;</p></td>
+            <p>การทำงาน</p></td>
+          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>1.2</p>
+            <p>ดีกว่าระบบเดิมที่เคยมี</p></td>
+          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>1.3</p>
+            <p>ข้อมูลครบถ้วน</p></td>
           <td align="center" valign="middle" bgcolor="#CCCCCC"><p>2.1</p>
-          <p> หน้าเว็บไซต์</p>
-          <p>อ่านง่าย</p></td>
-          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>2.2 </p>
-            <p>หาปุ่มเมนูที่ต้องทำ</p>
-          <p>ได้ง่าย</p></td>
+          <p>หน้าเว็บไซต์่านง่าย</p></p></td>
+          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>2.2</p>
+          <p>หาปุ่มเมนูที่ต้องทำได้ง่าย</p></td>
           <td align="center" valign="middle" bgcolor="#CCCCCC"><p>2.3</p>
-          <p> ตัวอักษรมีความอ่านง่าย</p>
-          <p>ชัดเจน</p></td>
-          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>3.1 </p>
-          <p>ง่ายต่อการใช้งาน</p>
-          <p>&nbsp;</p></td>
-          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>3.2 การกระจายข่าวสาร</p>
-          <p>&nbsp;</p></td>
-          <td align="center" valign="middle" bgcolor="#CCCCCC"><p> 3.3 ประหยัดเวลาในการทำงาน</p>
-          <p>&nbsp;</p></td>
+          <p>ตัวอักษรมีความอ่านง่ายชัดเจน</p></td>
+          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>3.1</p>
+          <p>่ายต่อการใช้งาน</p></td>
+          <td align="center" valign="middle" bgcolor="#CCCCCC"><p>3.2</p>
+          <p> การกระจายข่าวสาร</p></td>
+          <td align="center" valign="middle" bgcolor="#CCCCCC"><p> 3.3</p>
+          <p> ประหยัดเวลาในการทำงาน</p></td>
           <td align="center" valign="middle" bgcolor="#CCCCCC">แสดงความคิดเห็นเพิ่มเติม </td>
         </tr>
         <tr>
-          <td height="59">&nbsp;
+          <td height="59" align="center" >&nbsp;
               {% for i in one1 %}
                   {% for j in i %}{{j}}<br><br>{% endfor %}{% endfor %}</td>
 
-          <td>&nbsp;{% for i in one2 %}
+          <td height="59" align="center" >{% for i in one2 %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
-          <td>&nbsp;{% for i in one3 %}
+          <td height="59" align="center" >&nbsp;{% for i in one3 %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
-          <td>{% for i in two1 %}
+          <td height="59" align="center" >{% for i in two1 %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
-          <td>{% for i in two2 %}
+          <td height="59" align="center" >{% for i in two2 %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
-          <td>{% for i in two3 %}
+          <td height="59" align="center" >{% for i in two3 %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
-          <td>&nbsp;{% for i in three1 %}
+          <td height="59" align="center" >&nbsp;{% for i in three1 %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
-          <td>&nbsp;{% for i in three2 %}
+          <td height="59" align="center" >&nbsp;{% for i in three2 %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
-          <td>{% for i in three3 %}
+          <td height="59" align="center" >{% for i in three3 %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
-          <td>{% for i in comment %}
+          <td height="59" align="center" >{% for i in comment %}
                   {% for j in i %}{{j}}
             <br><br>
             {% endfor %}{% endfor %}</td>
+
         </tr>
       </table>
       <p>&nbsp;</p></td>
