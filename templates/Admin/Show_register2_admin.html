@@ -95,90 +95,76 @@ body {
     <td height="614" colspan="5" align="center" valign="top" class="bg-color shadow"><table class="table table-hover table-inverse">
   <thead>
     <tr>
-      <th>&nbsp;</th>
       <th>วิชาที่สมัคร</th>
-      {% for i in Subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>ชื่อ</th>
-      {% for i in Num %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>นามสกุล</th>
-      {% for i in Level %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>คณะ</th>
-      {% for i in Grade %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>สาขา</th>
-      {% for i in Attri %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>วุฒิการศึกษา</th>
-      {% for i in subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-      
       <th>ชั้นปี</th>
-      {% for i in a1 %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-      
       <th>รหัสนักศึกษา</th>
-      {% for i in a2 %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-      
       <th>เกรด</th>
-      {% for i in a3 %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-      
       <th>E-mail</th>
-      {% for i in a4 %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-      
       <th>เบอร์โทร</th>
-      {% for i in a5 %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-      
       <th>รหัสบัตรประชาชน</th>
-      {% for i in a6 %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-      
       <th>คุณสมบัติ</th>
-      {% for i in a7 %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-      
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>{% for i in Subject %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp;{% for i in name %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp; {% for i in surname %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp;{% for i in department %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp;{% for i in branch %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>{% for i in degree %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp; {% for i in level %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp;{% for i in idnum %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp;{% for i in grade %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp;{% for i in email %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp; {% for i in tel %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>{% for i in Accnum %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
+      <td>&nbsp;{% for i in Attri %}
+      <h>{{i}}</h><br>
+      <{% endfor %}></td>
+
     </tr>
   </tbody>
 </table><p>&nbsp;</p></td>
