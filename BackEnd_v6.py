@@ -347,6 +347,11 @@ def edit_profile():
     else:
         return ("System error Personal")
 
+@app.route('/printingfrom')
+def printingfrom():
+    if (a.type_user == 'student'):
+        return render_template("TA/printingFrom_TA.html")
+
 @app.route('/evaluation')
 def evaluation():
     if(a.type_user == 'student'):
