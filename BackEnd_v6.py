@@ -688,22 +688,27 @@ def TA_working_form_TA():
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
         nameFRA121 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA121' and StatusAj!='1'")
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA121' and StatusAdmin='0'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA121.append(i)
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
         nameFRA161 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA161'and StatusAj!='1'")
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA161'and StatusAdmin='0'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA161.append(i)
         nameFRA221 = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAj!='1'")
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA221'and StatusAdmin='0'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
                 nameFRA221.append(i)
+        nameFRA222 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject='FRA222'and StatusAj!='1'")
+        for pdfrow in timesheetcur.fetchall():
+            for i in pdfrow:
+                nameFRA222.append(i)
         return (render_template('Admin/adminchooseworkform1.html', nameFRA161=nameFRA161,nameFRA121=nameFRA121,nameFRA221=nameFRA221))
 
 @app.route('/notification')
@@ -1185,6 +1190,7 @@ def adselectnew():
     for pdfrow in dataworkcur.fetchall():
         for i in pdfrow:
             department.append(i)
+    dataworkcur.execute("SELECT Tel FROM student WHERE Username ='%s' " % nametashow)
     Tel = []
     for pdfrow in dataworkcur.fetchall():
         for i in pdfrow:
@@ -1194,7 +1200,8 @@ def adselectnew():
     for pdfrow in dataworkcur.fetchall():
         for i in pdfrow:
             Email.append(i)
-
+    print(daymonthyear)
+    print(name[0])
     return (render_template("Admin/showWorkingForm_Admin1.html",name=name[0],surname=surname[0],level=level[0],idnum=idnum[0],nametashow=nametashow,department=department[0],Tel=Tel[0],Email=Email[0], daymonthyear=daymonthyear,
                             timecome=timecome, timeback=timeback, whatdo=whatdo))
 @app.route('/admincomment' , methods= ['get','post'])
@@ -1218,7 +1225,7 @@ def admincomment():
 
         datawork.commit()
     if passfail == 'notpass':
-        dataworkcur.execute("UPDATE timesheet SET StatusAdmin = '%s' WHERE Username = '%s' and ID ='1'" % ('0', nameta))
+        dataworkcur.execute("UPDATE timesheet SET StatusAdmin = '%s' WHERE Username = '%s' and ID ='1'" % ('x', nameta))
         dataworkcur.execute("UPDATE timesheet SET Comment = '%s' WHERE Username = '%s' and ID ='1'" % (comment,nameta))
         datawork.commit()
     return(home())
