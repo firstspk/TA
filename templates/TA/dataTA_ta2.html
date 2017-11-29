@@ -112,7 +112,7 @@ body {
    
   </tr>
   <tr>
-    <td height="614" colspan="5" align="center" class="bg-color shadow font"><table width="994" height="452" border="0">
+    <td height="614" colspan="5" align="center" class="bg-color shadow font"><table width="994" height="362" border="0">
   <td height="61" colspan="7" align="center"><p><strong><span>ข้อมูลส่วนตัวของTA </span></strong></p>
   </blockquote></td>
   </tr>
@@ -127,20 +127,21 @@ body {
     </td>
     <td width="117" align="center">นามสกุล :</td>
     <td width="273" align="left"><input type="text" name="surname" id="text5" style="width:150px;" /></td>
-    <td width="205" colspan="2" rowspan="3" align="center"><label for="fileField"></label>
+    <td width="205" colspan="2" rowspan="4" align="center"><label for="fileField"></label>
       </form></td>
     </tr>
   <tr>
-    <td height="38">&nbsp;</td>
-    <td align="right">สาขาวิชา :</td>
+    <td height="18">&nbsp;</td>
+    <td align="right">คณะ :</td>
     <td colspan="3" align="left"><span id="spryselect1">
       <label for="select5"></label>
-      <select name="department" id="select5">
-        <option>-</option>
-        <option>วิศวกรรมหุ่นยนต์และระบบอัตโนมัติ</option>
-        <option>วิศวกรรมเครื่องกล</option>
-        <option>วิศวกรรมไฟฟ้า</option>
-        </select>
+      <select name="select1" id="select5">
+            <option selected="selected">-</option>
+            <option>Engineering </option>
+            <option>Industrial Education and Technology (IET)</option>
+            <option>Science (SC)</option>
+            <option>Institute of FIeld roBOtics (FIBO)</option>
+          </select>
       </span> &nbsp;ระดับ :
       <select name="xxx" id="select3">
         <option>-</option>
@@ -162,6 +163,38 @@ body {
           </span>
       </td>
     </tr>
+  <tr>
+    <td height="18">&nbsp;</td>
+    <td align="right">ภาควิชา :</td>
+    <td colspan="3" align="left">
+    <label for="select5"></label>
+            <select name="select6" id="select6">
+              <option selected="selected">-</option>
+              <option>Chemical Engineering</option>
+              <option>Civil Engineering</option>
+              <option>Computer Engineering</option>
+              <option>Electrical Engineering</option>
+              <option>Electronics and Telecommunication Engineering</option>
+              <option>Environmental Engineering</option>
+              <option>Food Engineering</option>
+              <option>Control System and Instrumentation Engineering</option>
+              <option>Mechanical Engineering</option>
+              <option>Production Engineering</option>
+              <option>Tool and Materials Engineering</option>
+              <option>Computer and Information Technology</option>
+              <option>Civil Technology Education</option>
+              <option>Education Communications and Technology</option>
+              <option>Electrical Technology Education</option>
+              <option>Mechanical Technology Education</option>
+              <option>Printing and Packaging Technology</option>
+              <option>Production Technology Education</option>
+              <option>Chemistry</option>
+              <option>Mathematics</option>
+              <option>Microbiology</option>
+              <option>Physics</option>
+            </select>
+    </td>
+  </tr>
   <tr>
     <td height="38">&nbsp;</td>
     <td align="right">รหัสนักศึกษา :</td>
@@ -191,24 +224,14 @@ body {
     </tr>
   <tr>
     <td height="38">&nbsp;</td>
-    <td align="right">วิชาที่สมัคร :</td>
-    <td colspan="5" align="left">
-      <span id="sprytextfield7">
-        <label for="text23"></label>
-        <input type="text" name="subject" id="text23" style="width:250px;"/>
-        </span>
-    </td>
-    </tr>
-  <tr>
-    <td height="38">&nbsp;</td>
     <td align="right" valign="top">ความสามารถ :</td>
     <td colspan="5" align="left">
       <span id="sprytextfield8">
         <label for="text24"></label>
         <input type="text" name="attribute" id="text24" style="width:250px;" height="100"/>
         </span>
-    </td>
-    </tr>
+      </td>
+  </tr>
   <tr>
     <td height="26">&nbsp;</td>
     <td>เลขบัญชี :</td>
@@ -246,7 +269,6 @@ var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3");
 var sprytextfield4 = new Spry.Widget.ValidationTextField("sprytextfield4");
 var sprytextfield5 = new Spry.Widget.ValidationTextField("sprytextfield5");
 var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6");
-var sprytextfield7 = new Spry.Widget.ValidationTextField("sprytextfield7");
 var sprytextfield8 = new Spry.Widget.ValidationTextField("sprytextfield8");
 var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9");
 var sprytextfield10 = new Spry.Widget.ValidationTextField("sprytextfield10");
