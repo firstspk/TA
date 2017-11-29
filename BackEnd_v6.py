@@ -461,7 +461,7 @@ def Aj_needing():
     cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
     subject = cur2.fetchall
     print("Aj_needing")
-    return render_template('Aj/Need_Aj2_aj.html',subject =subject)
+    return render_template('Aj/Need_Aj3_aj.html',subject =subject)
 
 @app.route("/NeedingTA2")
 def NeedingTA():
