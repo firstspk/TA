@@ -1871,7 +1871,8 @@ def ajselect():
         datawork.commit()
 
     print(passfail[0])
-    return 'kkkkkkkkkkk'
+    return (home())
+
 
 @app.route('/TA_select_detail' , methods= ['post'])
 def TA_select_detail():
