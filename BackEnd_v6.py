@@ -557,13 +557,13 @@ def TA_working_form_TA():
     if (a.type_user == 'admin'):
         timesheets = It.connect("databaseall.db")
         timesheetcur = timesheets.cursor()
-        name = []
-        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'")
+        nameFRA121 = []
+        timesheetcur.execute("SELECT Username FROM timesheet WHERE ID ='1'and Subject ='FRA121'")
         for pdfrow in timesheetcur.fetchall():
             for i in pdfrow:
-                name.append(i)
-
-        return (render_template('Admin/adminchooseworkform1.html', name=name))
+                nameFRA121.append(i)
+        print(nameFRA121)
+        return (render_template('Admin/adminchooseworkform1.html', nameFRA121=nameFRA121))
 
 @app.route('/notification')
 def notification():
