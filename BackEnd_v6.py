@@ -82,15 +82,18 @@ def printpdf():
         for i in pdfrow:
             statusad.append(i)
     print(statusaj[0])
+    print(statusad[0])
 
-    if statusaj[0]=='0' or statusad[0]=='0':
-        if statusaj[0] == 'x' or statusad[0] == 'x':
-            warn = []
-            warn.append('แบบฟอร์มไม่ผ่านกรุณากดแก้ไขอีกครั้ง')
-        else:
-            warn = []
-            warn.append('กรุณารออาจารย์/แอดมินตรวจ')
-    if statusaj[0]=='1' and statusad[0]=='1':
+    if (statusaj[0]=='0' and statusad[0] != 'x') or (statusad[0]=='0' and statusaj[0] != 'x'):
+        warn = []
+        warn.append('กรุณารออาจารย์/แอดมินตรวจ')
+    elif statusaj[0] == 'x' or statusad[0] == 'x':
+        warn = []
+        warn.append('แบบฟอร์มไม่ผ่านกรุณากดแก้ไขอีกครั้ง')
+        print('kkkkkkkkkkkkkkkkfjsdklf')
+
+
+    elif statusaj[0]=='1' and statusad[0]=='1':
         warn=[]
         warn.append('แบบฟอร์มผ่าน สามารถพิมพ์แบบฟอร์มได้')
     return (render_template('TA/printingFrom_TA.html', daymonthyear=daymonthyear,timecome=timecome, timeback=timeback, whatdo=whatdo,comment=comment[0],warn=warn[0]))
@@ -116,7 +119,7 @@ def printworkta():
     if do[2]=='edit':
         return render_template('TA/WorkingForm_TA_v3_ta.html')
     if do[2] == 'print'and status[0]=='1' and status[1]=='1':
-        date=strftime("%d%b", gmtime())
+        date=strftime("%d%b%Y%S", gmtime())
         print(date)
         student = It.connect("databaseall.db")
         cur = student.cursor()
@@ -241,7 +244,7 @@ def printworkta():
     if do[2] == 'print':
         if status[0]=='x'or status[1]=='x':
             return redirect(url_for('printpdf'))
-    return 'kjkjkj'
+    return (home())
 
 
 
