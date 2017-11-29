@@ -58,7 +58,7 @@ def NeedingTA():
     if x == button :
         teacher = It.connect("databaseall.db")
         cur2 = teacher.cursor()
-        cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % i)
+        cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
         print (subject)
         for i in subject:
             cur5 = teacher.cursor()
