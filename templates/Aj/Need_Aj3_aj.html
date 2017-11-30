@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<form id="contact-form" action="/NeedingTA2", method="POST">
+<form id="contact-form" action="/Need_Aj5_aj", method="POST">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>กรอกข้อมูลความต้องการTA</title>
 <script type="text/javascript">
@@ -88,7 +88,7 @@ body {
         </tr>
         <tr>
           <td width="66" align="right">รหัสวิชา :</td>
-          <td colspan="2"><form id="form1" name="form1" method="post" action="">
+          <td colspan="2">
             <label for="code_subject"></label>
             <select name="code_subject" id="code_subject">
                 {% for i in subject %}
@@ -96,26 +96,26 @@ body {
             <option selected="selected">{{j}}</option>
             {% endfor %}{% endfor %}
             </select>
-          </form></td>
+          </td>
           <td width="56">จำนวน :</td>
-          <td width="398"><form id="form3" name="form3" method="post" action="">
+          <td width="398">
             <label for="number_peper"></label>
             <input type="text" name="number_peper" id="number_peper" />
-          </form></td>
+          </td>
           <td width="57" align="right">&nbsp;</td>
         </tr>
         <tr>
           <td align="right">เกรด :</td>
-          <td colspan="2"><form id="form2" name="form2" method="post" action="">
+          <td colspan="2">
             <label for="grade"></label>
             <input type="text" name="grade" id="grade" />
-          </form></td>
+          </td>
           <td>ชั้นปี :</td>
-          <td><form id="form4" name="form4" method="post" action="">
+          <td>
             <label for="number_year"></label>
             <select name="number_year" id="number_year">
             </select>
-          </form></td>
+          </td>
           <td align="right">&nbsp;</td>
         </tr>
         <tr>
@@ -153,10 +153,10 @@ body {
         </tr>
         <tr>
           <td colspan="5" align="right">
-          <a href="Need_Aj4_aj" class="btn btn-info" role="button">แสดงความต้องการ </a>
+         <button  name="Need_Aj4_aj" type="submit" class="btn btn-info">แสดงความต้องการ </button>
           &nbsp;</td>
           <td align="center">
-          <a href="Need_Aj5_aj" class="btn btn-info" role="button">บันทึก</a>
+         <button  name="Need_Aj5_aj" type="submit" class="btn btn-info">บันทึก </button>
           </td>
         </tr>
         <tr>
