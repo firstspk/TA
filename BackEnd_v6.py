@@ -4,6 +4,7 @@ from time import gmtime, strftime
 from createDB_v5 import DB
 import sqlite3 as It
 import os
+import webbrowser
 
 from reportlab.pdfgen import canvas
 app = Flask(__name__)
@@ -1854,6 +1855,13 @@ def TA_selectpassfail():
 @app.route('/ajselect', methods= ['post'])
 def ajselect():
     x = dict(request.form.items())
+    datawork = It.connect("databaseall.db")
+    dataworkcur = datawork.cursor()
+    subject = []
+    for pdfrow in dataworkcur.fetchall():
+        for i in pdfrow:
+            subject.append(i)
+
     usernametest=[]
     passfail=[]
     for i in x:
