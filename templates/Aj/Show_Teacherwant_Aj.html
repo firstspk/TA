@@ -100,47 +100,39 @@ body {
     <td height="614" colspan="5" align="center" valign="top" class="bg-color shadow"><table class="table table-hover table-inverse">
   <thead>
     <tr>
-      <th>&nbsp;</th>
       <th>วิชา</th>
-      {% for i in Subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>จำนวน</th>
-      {% for i in Num %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>วุฒิการศึกษา(ชั้นปี)</th>
-      {% for i in Level %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>เกรดเฉลี่ย</th>
-      {% for i in Grade %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
-
       <th>คุณลักษณะ</th>
-      {% for i in Attri %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
 
-      <th>PDF Syllabus</th>
-      {% for i in subject %}
-      <h>{{i}}</h><br>
-      <{% endfor %}>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>{% for i in Subject %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
+
+
+      <td> {% for i in Num %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
+
+
+      <td>{% for i in Level %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
+
+
+      <td>{% for i in Grade %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
+
+
+      <td>{% for i in Attri %}{% for j in i %}
+      {{j}}<br>
+      {% endfor %}{% endfor %} </td>
     </tr>
 
   </tbody>

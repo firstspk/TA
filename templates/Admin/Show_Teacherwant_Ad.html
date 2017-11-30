@@ -105,34 +105,30 @@ body {
       <th>วุฒิการศึกษา(ชั้นปี)</th>
       <th>เกรดเฉลี่ย</th>
       <th>คุณลักษณะ</th>
-      <th>PDF Syllabus</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><br>{% for i in Subject %}{% for j in i %}
+      <td>{% for i in Subject %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Num %}{% for j in i %}
+      <td>{% for i in Num %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Level %}{% for j in i %}
+      <td>{% for i in Level %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Grade %}{% for j in i %}
+      <td>{% for i in Grade %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td>&nbsp<br>{% for i in Attri %}{% for j in i %}
+      <td>{% for i in Attri %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in subject %}{% for j in i %}
-      {{j}}<br>
-      {% endfor %}{% endfor %} </td>
 
     </tr>
 
