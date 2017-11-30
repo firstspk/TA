@@ -100,31 +100,31 @@ body {
   </tr>
   <tr>
     <td height="614" colspan="4" valign="top" class="bg-color shadow font"><p>&nbsp;</p>
-      <table width="1000" height="623" border="0" align="center">
+      <table width="1000" height="738" border="0" align="center">
         <tr>
           <td height="97" colspan="10" align="center" valign="bottom"><h4>สมัครเข้าเป็น นักศึกษา TA / นักศึกษา ทุนจ้างงาน</h4><br></td>
         </tr>
         <tr>
-          <td width="26" height="38">&nbsp;</td>
-          <td width="161" align="right"> ชื่อ :</td>
-          <td width="220" height="38"align="left">
-              <label for="text8"></label>
+          <td width="19" height="38">&nbsp;</td>
+          <td width="148" align="right"> ชื่อ : </td>
+          <td width="162" height="38"align="left">
+            <label for="text8"></label>
             <input name="name" type="text" id="text8" style="width:150px;"/>
           </td>
-          <td width="151" align="right">นามสกุล :</td>
+          <td width="76" align="right">นามสกุล :</td>
           <td colspan="4" align="left">
               <label for="text9"></label>
               <input type="text" name="surname" id="text9" style="width:150px;"/>
 </td>
-          <td colspan="2" rowspan="4" align="left">
+          <td colspan="2" rowspan="5" align="left">
             <label for="img"></label>
             <label for="fileField"></label>
             <label for="fileField"></label>
           </td>
         </tr>
         <tr>
-          <td height="44" rowspan="2">&nbsp;</td>
-          <td height="44" align="right">ภาควิชา :</td>
+          <td height="44" rowspan="3">&nbsp;</td>
+          <td height="37" align="right">ภาควิชา :</td>
           <td colspan="6" align="left"><label for="select5"></label>
               <select name="department" id="select5">
                  <option selected="selected">-</option>
@@ -150,17 +150,21 @@ body {
               <option>Mathematics</option>
               <option>Microbiology</option>
               <option>Physics</option>
-            </select>
-              สาขาวิชา :
-              <select name="branch" id="select6">
-                <option selected="selected">-</option>
-                <option selected="selected">-</option>
-                <option>Engineering </option>
-                <option>Industrial Education and Technology (IET)</option>
-                <option>Science (SC)</option>
-                <option>Institute of FIeld roBOtics (FIBO)</option>
-              </select></td>
+            </select></td>
 </tr>
+        <tr>
+          <td height="44" align="right">สาขาวิชา : </td>
+          <td colspan="6" align="left">
+          <label for="select10"></label>
+          <select name="branch" id="select6">
+            <option selected="selected">-</option>
+            <option selected="selected">-</option>
+            <option>Engineering </option>
+            <option>Industrial Education and Technology (IET)</option>
+            <option>Science (SC)</option>
+            <option>Institute of FIeld roBOtics (FIBO)</option>
+          </select></td>
+        </tr>
         <tr>
           <td height="44" align="right">ระดับ :</td>
           <td colspan="6" align="left"><label for="select5"></label>
@@ -186,7 +190,7 @@ body {
           <td colspan="6" align="left">
             <span id="sprytextfield3">
               <label for="text19"></label>
-              <input type="text" name="idnumber" id="text19" style="width:200px;"/>เกรด :
+              <input type="text" name="idnumber" id="text19" style="width:200px;"/> &nbsp;&nbsp;เกรด :
               <label for="text20"></label>
               <input type="text" name="grade" id="text20" style="width:60px;"/>
 </td>
@@ -202,7 +206,7 @@ body {
                   <label for="text22"></label>
                   <input type="text" name="tel" id="text22" style="width:150px;"/>
 </td>
-          <td width="251">&nbsp;</td>
+          <td width="278">&nbsp;</td>
         </tr>
         <tr>
           <td height="38">&nbsp;</td>
@@ -233,23 +237,26 @@ body {
         <tr>
           <td height="44">&nbsp;</td>
           <td align="right">เลขบัญชี :</td>
-          <td colspan="7" align="left" nowrap="nowrap"><
+          <td colspan="7" align="left" nowrap="nowrap">
               <label for="text25"></label>
               <input name="accountnum1" type="text" id="text25" style="width:50px;" maxlength="3"/>
+              -
               <label for="text26"></label>
               <input name="accountnum2" type="text" id="text26" style="width:50px;" maxlength="3"/>
+              -
               <label for="text27"></label>
               <input name="accountnum3" type="text" id="text27" style="width:75px;" maxlength="4" />
 </td>
 </tr>
         <tr>
           <td height="69">&nbsp;</td>
-          <td align="right" valign="top">ความสามารถ:</td>
-          <td colspan="7" align="left" valign="top"><
-            <span id="sprytextarea1">
+          <td align="right" valign="top">ความสามารถ :</td>
+          <td colspan="7" align="left" valign="top"><form id="form11" name="form11" method="post" action="">
+            
               <label for="textarea1"></label>
-              <input name="attribute" type="text" id="text27" style="width:75px;" maxlength="4" />
-</td>
+              <textarea name="textarea" cols="50" rows="7" style="overflow:auto;resize:none"></textarea>
+              
+</form></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
@@ -257,53 +264,17 @@ body {
           <td align="left" valign="top">&nbsp;</td>
           <td align="left" valign="top">&nbsp;</td>
           <td align="left" valign="top">&nbsp;</td>
-          <td width="45" align="left" valign="top">&nbsp;</td>
-          <td width="45" align="left" valign="top">&nbsp;</td>
-          <td width="57" align="left" valign="top">        <button  name="print" type="submit" class="btn btn-info"> สมัคร</button>
+          <td width="187" align="left" valign="top">&nbsp;</td>
+          <td width="37" align="left" valign="top">&nbsp;</td>
+          <td width="55" align="left" valign="top">        <button  name="print" type="submit" class="btn btn-info"> สมัคร</button>
         </tr>
 
-        <tr>
-          <td colspan="7" align="left" valign="top">&nbsp;</td>
-        </tr>
-        <tr>
-          <td colspan="7" align="left" nowrap="nowrap">&nbsp;</td>
-        </tr>
-        <tr>
-          <td colspan="7" align="left">&nbsp;</td>
-        </tr>
-        <tr>
-          <td colspan="7" align="left">&nbsp;</td>
-        </tr>
-        <tr>
-          <td colspan="6" align="left">&nbsp;</td>
-        </tr>
-        <tr> </tr>
-        <tr> </tr>
-        <tr>
-          <td colspan="4" align="left">&nbsp;</td>
-          <td width="220" height="38"align="left">&nbsp;</td>
-        </tr>
+        
       </table>
     <p>&nbsp;</p></td>
   </tr>
 </table>
-<script type="text/javascript">
-var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6");
-var sprytextfield5 = new Spry.Widget.ValidationTextField("sprytextfield5");
-var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3");
-var spryselect2 = new Spry.Widget.ValidationSelect("spryselect2");
-var spryselect5 = new Spry.Widget.ValidationSelect("spryselect5");
-var spryselect4 = new Spry.Widget.ValidationSelect("spryselect4");
-var spryselect1 = new Spry.Widget.ValidationSelect("spryselect1");
-var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
-var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2");
-var sprytextfield4 = new Spry.Widget.ValidationTextField("sprytextfield4");
-var sprytextfield7 = new Spry.Widget.ValidationTextField("sprytextfield7");
-var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9");
-var sprytextarea1 = new Spry.Widget.ValidationTextarea("sprytextarea1");
-var sprytextfield11 = new Spry.Widget.ValidationTextField("sprytextfield11");
-var sprytextfield10 = new Spry.Widget.ValidationTextField("sprytextfield10");
-</script>
+
 </form>
 </body>
 </html>

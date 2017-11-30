@@ -484,29 +484,45 @@ def Aj_needing():
 
 @app.route("/Need_Aj5_aj" , methods=["POST"] )
 def Need_Aj5_aj():
+    teacher = It.connect("databaseall.db")
+    cur2 = teacher.cursor()
+    cur2.execute("SELECT Subject FROM teacher WHERE Username = '%s'" % a.username)
+    subjectSH = []
+    for row1 in cur2.fetchall():
+        list = []
+        for i in row1:
+            list.append(i)
+            subjectSH.append(list)
     print("Need")
     x = dict(request.form.items())
     print(x)
     subject = x['code_subject']
     print(subject)
-    Need = x["Need_Aj5_aj"]
-    if (Need == "Need_Aj5_aj"):
+    listSH = []
+    for row1 in x:
+        listSH.append(row1)
+    print(listSH)
+    if (listSH[5] == 'name2'):
         print("55555")
+        x = dict(request.form.items())
+        print(x)
         subject =x['code_subject']
-        numwant = x['num']
+        numwant = x['number_peper']
         grade = x['grade']
-        level = x['level']
+        level = x['number_year']
         attribute =x['attribute']
         teacher = It.connect("databaseall.db")
         cur2 = teacher.cursor()
-        cur2.execute("UPDATE teacher SET Numwant = '%s' WHERE Subject = '%s'" % (numwant, subject))
-        cur2.execute("UPDATE teacher SET Level = '%s' WHERE Subject = '%s'" % (level, subject))
-        cur2.execute("UPDATE teacher SET Grade = '%s' WHERE Subject = '%s'" % (grade, subject))
-        cur2.execute("UPDATE teacher SET Attribute = '%s' WHERE Subject = '%s'" % (attribute, subject))
+        cur2.execute("UPDATE teacherwant  SET Numwant = '%s' WHERE Subject = '%s'" % (numwant, subject))
+        cur2.execute("UPDATE teacherwant SET Level = '%s' WHERE Subject = '%s'" % (level, subject))
+        cur2.execute("UPDATE teacherwant SET Grade = '%s' WHERE Subject = '%s'" % (grade, subject))
+        cur2.execute("UPDATE teacherwant SET Attribute = '%s' WHERE Subject = '%s'" % (attribute, subject))
         teacher.commit()
         teacher.close()
-        return render_template("Aj/Need_Aj3_aj.html")
-    if (Need == "Need_Aj4_aj"):
+        return render_template("Aj/Need_Aj3_aj.html",subject = subjectSH)
+
+
+    if (listSH[5] == "name1"):
         print("444")
         teacher = It.connect("databaseall.db")
         cur2 = teacher.cursor()
@@ -559,18 +575,7 @@ def Need_Aj5_aj():
                         list.append(i)
                         Attri.append(list)
                 print(Attri)
-
-                cur9 = teacher.cursor()
-                cur9.execute("SELECT Syllabus FROM teacherwant ")
-                Syllabus = []
-                for row1 in cur9.fetchall():
-                    list = []
-                    for i in row1:
-                        list.append(i)
-                        Syllabus.append(list)
-                print(Syllabus)
-        return ( render_template('Aj/Show_Teacherwant_Aj.html', Subject=subject, Num=Num, Level=Level, Grade=Grade, Attri=Attri,
-                        Syllabus=Syllabus))
+        return ( render_template('Aj/Show_Teacherwant_Aj.html', Subject=subject, Num=Num, Level=Level, Grade=Grade, Attri=Attri))
 
 @app.route('/Show_register_Ad')
 def Show_register_Ad():
@@ -643,8 +648,8 @@ def Show_register1():
                 list = []
                 for i in row1:
                     list.append(i)
-                    Name.append(list)
-            print(Name)
+                    level.append(list)
+            print(level)
 
             cur7 = register1.cursor()
             cur7.execute("SELECT Idnum FROM studentnormal ")
@@ -734,9 +739,9 @@ def Show_register1():
             print(Name)
 
             cur2 = register1.cursor()
-            cur1.execute("SELECT Surname FROM studentnormal WHERE Status = '%s'" % i)
+            cur2.execute("SELECT Surname FROM studentnormal WHERE Status = '%s'" % i)
             surname = []
-            for row1 in cur1.fetchall():
+            for row1 in cur2.fetchall():
                 print(row1)
                 list = []
                 for i in row1:
@@ -781,8 +786,8 @@ def Show_register1():
                 list = []
                 for i in row1:
                     list.append(i)
-                    Name.append(list)
-            print(Name)
+                    level.append(list)
+            print(level)
 
             cur7 = register1.cursor()
             cur7.execute("SELECT Idnum FROM studentnormal  WHERE Status = '%s'" % i)
@@ -2561,7 +2566,7 @@ def open_pdf(ID,type_user,type):
         for i in row1:
             url = i
     data.commit()
-    if(url == ''):
+    if(url == '' or url == None):
         return()
     webbrowser.open(url)
 
@@ -2581,15 +2586,22 @@ def post_TA_finish():
     data = It.connect("databaseall.db")
     datacur = data.cursor()
     if(type_User == 'TA'):
+        print('b')
         if (select1 == 'Property'):
             datacur.execute("UPDATE admin_pdf_TA SET property = '%s' WHERE ID = '%s'" % (link_pdf,ID))
         if (select1 == 'Result'):
             datacur.execute("UPDATE admin_pdf_TA SET Result = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+        if (select1 == 'Course Syllabus'):
+            print('a')
+            datacur.execute("UPDATE admin_pdf_TA SET course_syllabus = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+
     if (type_User == 'Hiring'):
         if (select1 == 'Property'):
             datacur.execute("UPDATE admin_pdf_Hiring SET property = '%s' WHERE ID = '%s'" % (link_pdf, ID))
         if (select1 == 'Result'):
             datacur.execute("UPDATE admin_pdf_Hiring SET Result = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+        if (select1 == 'Course Syllabus'):
+            datacur.execute("UPDATE admin_pdf_Hiring SET course_syllabus = '%s' WHERE ID = '%s'" % (link_pdf, ID))
     data.commit()
     return(index())
 

@@ -60,9 +60,8 @@ body {
       <li><a href="contact">ติดต่อ/แจ้งปัญหา</a></li>
       <div class="dropdown-divider"></div>
       <li><a href="Show_Teacherwant_Admin">ความต้องการของอาจารย์</a></li>
-      <li><a href="Show_register1">รายชื่อผู้สมัคร + ผู้ผ่านการคัดเลือก</a></li>
+      <li><a href="Show_register_Ad">รายชื่อผู้สมัคร + ผู้ผ่านการคัดเลือก</a></li>
       <li><a href="TA_working_form">ตรวจแบบฟอร์มชั่วโมงการทำงาน</a></li>
-      <li><a href="#">แก้ไข/อัพเดท ประกาศ </a></li>
       <li><a href="evaluation">ผลการประเมิน</a></li>
       <li><a href="post_TA">อัพโหลดไฟล์ PDF</a></li>
     </ul>
@@ -106,34 +105,30 @@ body {
       <th>วุฒิการศึกษา(ชั้นปี)</th>
       <th>เกรดเฉลี่ย</th>
       <th>คุณลักษณะ</th>
-      <th>PDF Syllabus</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><br>{% for i in Subject %}{% for j in i %}
+      <td>{% for i in Subject %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Num %}{% for j in i %}
+      <td>{% for i in Num %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Level %}{% for j in i %}
+      <td>{% for i in Level %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in Grade %}{% for j in i %}
+      <td>{% for i in Grade %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td>&nbsp<br>{% for i in Attri %}{% for j in i %}
+      <td>{% for i in Attri %}{% for j in i %}
       {{j}}<br>
       {% endfor %}{% endfor %} </td>
 
-      <td><br>{% for i in subject %}{% for j in i %}
-      {{j}}<br>
-      {% endfor %}{% endfor %} </td>
 
     </tr>
 

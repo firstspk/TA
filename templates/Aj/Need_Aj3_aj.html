@@ -88,7 +88,7 @@ body {
         </tr>
         <tr>
           <td width="66" align="right">รหัสวิชา :</td>
-          <td colspan="2">
+          <td width="257" colspan="2">
             <label for="code_subject"></label>
             <select name="code_subject" id="code_subject">
                 {% for i in subject %}
@@ -114,27 +114,15 @@ body {
           <td>
             <label for="number_year"></label>
             <select name="number_year" id="number_year">
+                <option>-</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
             </select>
           </td>
           <td align="right">&nbsp;</td>
-        </tr>
-        <tr>
-          <td height="61" align="right">Syllabus : </td>
-          <td width="26" valign="middle">&nbsp;  
-          
-          </td>
-          <td width="231" valign="middle">
-          <div class="fileupload fileupload-new" data-provides="fileupload">
-    <span class="btn btn-primary btn-file"><span class="fileupload-new">Select file</span>
-    <span class="fileupload-exists">Change</span>         <input type="file" /></span>
-    <span class="fileupload-preview"></span>
-    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
-  </div>
-          
-          </td>
-          <td valign="middle">&nbsp;</td>
-          <td valign="middle">&nbsp;</td>
-          <td>&nbsp;</td>
         </tr>
         <tr>
           <td align="right">คุณสมบัติ </td>
@@ -153,10 +141,10 @@ body {
         </tr>
         <tr>
           <td colspan="5" align="right">
-         <button  name="Need_Aj4_aj" type="submit" class="btn btn-info">แสดงความต้องการ </button>
+            <button  name="name1" type="submit" class="btn btn-info">แสดงความต้องการ </button>
           &nbsp;</td>
           <td align="center">
-         <button  name="Need_Aj5_aj" type="submit" class="btn btn-info">บันทึก </button>
+            <button  name="name2" type="submit" class="btn btn-info">บันทึก </button>
           </td>
         </tr>
         <tr>

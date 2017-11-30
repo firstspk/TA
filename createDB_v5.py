@@ -211,6 +211,31 @@ class DB:
         print(pdf[0][0])
         student.close()
 
+    def student_email(self):
+        data = It.connect("databaseall.db")
+        datacur = data.cursor()
+        datacur.execute("SELECT Email, Name, Surname FROM student")
+        list = []
+        for row1 in datacur.fetchall():
+            print(row1)
+            if(row1[0] != None):
+                #print(row1[0])
+                list.append(row1)
+        datacur.close()
+        return(list)
+    def teacher_email(self):
+        data = It.connect("databaseall.db")
+        datacur = data.cursor()
+        datacur.execute("SELECT Email, Name, Surname FROM teacher")
+        list = []
+        for row1 in datacur.fetchall():
+            print(row1)
+            if(row1[0] != None):
+                #print(row1[0])
+                list.append(row1)
+        datacur.close()
+        return(list)
+
 #won=DB()
 #DB.download('US1')
 #DB.register("US1","John","Williem","1","KMUTT","4.00","1150","Johnza555@mail","1112","FRA121")
