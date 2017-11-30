@@ -2561,7 +2561,7 @@ def open_pdf(ID,type_user,type):
         for i in row1:
             url = i
     data.commit()
-    if(url == ''):
+    if(url == '' or url == None):
         return()
     webbrowser.open(url)
 
