@@ -20,55 +20,6 @@ a = self_username()
 #a.type_user = 'student'
 #a.type_user = 'teacher'
 #a.type_user = 'admin'
-import smtplib
-today = int(strftime("%d", gmtime()))
-sender = 'witthawin.rofibo@mail.kmutt.ac.th'
-"""Please input variable for Deadline"""
-confirm_TA = 30
-TA_working = 28
-#print(today)
-"""----------------------------------"""
-if (today == confirm_TA):
-    #print(today)
-    list = DB.student_email(0)
-    #print(list)
-    smtpObj = smtplib.SMTP('mailout.kmutt.ac.th')
-    for data in list:
-        From = "From: From Scholarship System\n"
-        To = "To: To " + data[1] + " " + data[2] + "\n"
-        Subject = "Subject: Scholarship System\n\n"
-        Message = "Please log in to complete the work within 3 days, otherwise the system will shut down."
-        form = From + To + Subject + Message
-        smtpObj.sendmail(sender,data[0],form)
-    print("Successfully sent e-mail")
-
-if (today == TA_working):
-    #print(today)
-    list = DB.techer_email(0)
-    #print(list)
-    smtpObj = smtplib.SMTP('mailout.kmutt.ac.th')
-    for data in list:
-        From = "From: From Scholarship System\n"
-        To = "To: To " + data[1] + " " + data[2] + "\n"
-        Subject = "Subject: Scholarship System\n\n"
-        Message = "The system will expire within 3 days. You can login to check TA's working form in TA system."
-        form = From + To + Subject + Message
-        # smtpObj.sendmail(sender,data[0],form)
-    print("Successfully sent e-mail")
-
-if (today == TA_working):
-    #print(today)
-    list = DB.techer_email(0)
-    #print(list)
-    smtpObj = smtplib.SMTP('mailout.kmutt.ac.th')
-    for data in list:
-        From = "From: From Scholarship System\n"
-        To = "To: To " + data[1] + " " + data[2] + "\n"
-        Subject = "Subject: Scholarship System\n\n"
-        Message = "The system will expire within 3 days. You can login to check TA's working form in TA system."
-        form = From + To + Subject + Message
-        # smtpObj.sendmail(sender,data[0],form)
-    print("Successfully sent e-mail")
 
 @app.route('/')
 def index():
