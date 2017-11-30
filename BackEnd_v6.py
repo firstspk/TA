@@ -2581,15 +2581,22 @@ def post_TA_finish():
     data = It.connect("databaseall.db")
     datacur = data.cursor()
     if(type_User == 'TA'):
+        print('b')
         if (select1 == 'Property'):
             datacur.execute("UPDATE admin_pdf_TA SET property = '%s' WHERE ID = '%s'" % (link_pdf,ID))
         if (select1 == 'Result'):
             datacur.execute("UPDATE admin_pdf_TA SET Result = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+        if (select1 == 'Course Syllabus'):
+            print('a')
+            datacur.execute("UPDATE admin_pdf_TA SET course_syllabus = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+
     if (type_User == 'Hiring'):
         if (select1 == 'Property'):
             datacur.execute("UPDATE admin_pdf_Hiring SET property = '%s' WHERE ID = '%s'" % (link_pdf, ID))
         if (select1 == 'Result'):
             datacur.execute("UPDATE admin_pdf_Hiring SET Result = '%s' WHERE ID = '%s'" % (link_pdf, ID))
+        if (select1 == 'Course Syllabus'):
+            datacur.execute("UPDATE admin_pdf_Hiring SET course_syllabus = '%s' WHERE ID = '%s'" % (link_pdf, ID))
     data.commit()
     return(index())
 
